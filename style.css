@@ -107,27 +107,33 @@ body {
 .film-row #block-film {
   flex: 1;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-/* gros titre pseudo : comble l'espace libre restant en bas du bloc film */
-.pseudo-title {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  margin-top: 8px;
-  border-top: 2px solid #000;
-  font-size: 32px;
-  font-weight: bold;
-  letter-spacing: 2px;
 }
 
 .film-row #block-about-me {
   width: 340px;
   flex-shrink: 0;
+}
+
+/* en-tête about me : titre + pseudo sur la même ligne */
+.about-me-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid #000;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+}
+
+.about-me-header h2 {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pseudo-inline {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* rangée book / manga / anime côte à côte, toutes de même hauteur */

@@ -1,0 +1,12 @@
+{
+  "last_read": [
+    { "title": "", "cover": "img/last-read-1.jpg" },
+    { "title": "", "cover": "img/last-read-2.jpg" },
+    { "title": "", "cover": "img/last-read-3.jpg" }
+  ],
+  "favorite": [
+    { "title": "", "cover": "img/favorite-1.jpg" },
+    { "title": "", "cover": "img/favorite-2.jpg" },
+    { "title": "", "cover": "img/favorite-3.jpg" }
+  ]
+}

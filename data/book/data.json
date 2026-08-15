@@ -1,0 +1,6 @@
+{
+  "books": [
+    { "title": "", "cover": "img/book-1.jpg", "review": "review placeholder" },
+    { "title": "", "cover": "img/book-2.jpg", "review": "review placeholder" }
+  ]
+}

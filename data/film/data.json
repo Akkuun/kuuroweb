@@ -1,0 +1,45 @@
+{
+  "favorite_films": [
+    { "title": "", "image": "img/favorite-1.jpg" },
+    { "title": "", "image": "img/favorite-2.jpg" },
+    { "title": "", "image": "img/favorite-3.jpg" },
+    { "title": "", "image": "img/favorite-4.jpg" },
+    { "title": "", "image": "img/favorite-5.jpg" }
+  ],
+  "last_on_letterboxd": [
+    {
+      "title": "",
+      "image": "img/letterboxd-1.jpg",
+      "review": [
+        "review placeholder222222222222222 — long text goes here so this box actually needs to scroll.",
+        "review placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    },
+    {
+      "title": "",
+      "image": "img/letterboxd-2.jpg",
+      "review": [
+        "review placeholder — long text goes here so this box actually needs to scroll.",
+        "review placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    },
+    {
+      "title": "",
+      "image": "img/letterboxd-3.jpg",
+      "review": [
+        "review placeholder — long text goes here so this box actually needs to scroll.",
+        "review placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    }
+  ],
+  "last_4k_bought": [
+    { "title": "", "image": "img/4k-1.jpg" },
+    { "title": "", "image": "img/4k-2.jpg" },
+    { "title": "", "image": "img/4k-3.jpg" }
+  ],
+  "highly_anticipated": [
+    { "title": "", "image": "img/anticipated-1.jpg" },
+    { "title": "", "image": "img/anticipated-2.jpg" },
+    { "title": "", "image": "img/anticipated-3.jpg" }
+  ]
+}

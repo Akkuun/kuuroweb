@@ -1,0 +1,66 @@
+{
+  "favorite_games": [
+    { "title": "", "cover": "img/favorite-1.jpg" },
+    { "title": "", "cover": "img/favorite-2.jpg" },
+    { "title": "", "cover": "img/favorite-3.jpg" },
+    { "title": "", "cover": "img/favorite-4.jpg" },
+    { "title": "", "cover": "img/favorite-5.jpg" }
+  ],
+  "last_review": [
+    {
+      "title": "",
+      "cover": "img/review-1.jpg",
+      "review": [
+        "review placeholder — long text goes here so this box actually needs to scroll.",
+        "review placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    },
+    {
+      "title": "",
+      "cover": "img/review-2.jpg",
+      "review": [
+        "review placeholder — long text goes here so this box actually needs to scroll.",
+        "review placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    },
+    {
+      "title": "",
+      "cover": "img/review-3.jpg",
+      "review": [
+        "review placeholder — long text goes here so this box actually needs to scroll.",
+        "review placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    }
+  ],
+  "highly_anticipated": [
+    {
+      "title": "",
+      "cover": "img/anticipated-1.jpg",
+      "review": [
+        "new placeholder — long text goes here so this box actually needs to scroll.",
+        "new placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    },
+    {
+      "title": "",
+      "cover": "img/anticipated-2.jpg",
+      "review": [
+        "new placeholder — long text goes here so this box actually needs to scroll.",
+        "new placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    },
+    {
+      "title": "",
+      "cover": "img/anticipated-3.jpg",
+      "review": [
+        "new placeholder — long text goes here so this box actually needs to scroll.",
+        "new placeholder — long text goes here so this box actually needs to scroll."
+      ]
+    }
+  ],
+  "physical_consoles_owned": [
+    { "name": "", "icon": "img/console-1.jpg" },
+    { "name": "", "icon": "img/console-2.jpg" },
+    { "name": "", "icon": "img/console-3.jpg" }
+  ]
+}
