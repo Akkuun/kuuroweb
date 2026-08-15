@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Bande supérieure : collée tout en haut de la page, hors du bloc central -->
+  <div id="marquee-bar">
+    <div class="marquee-content">
+      <span class="marquee-item">social 1</span>
+      <span class="marquee-item">social 2</span>
+      <span class="marquee-item">social 3</span>
+      <span class="marquee-item">social 1</span>
+      <span class="marquee-item">social 2</span>
+      <span class="marquee-item">social 3</span>
+    </div>
+  </div>
+
+  <!-- Conteneur global de la page -->
+  <div id="page">
+
+    <!-- Conteneur principal du site -->
+    <div id="site">
+
+      <!-- Contenu -->
+      <div id="content">
+
+        <div id="content-main">
+
+          <!-- Colonne principale -->
+          <div class="main-column">
+
+            <!-- rangée film / about me côte à côte -->
+            <div class="film-row">
+
+              <!-- BLOC FILM -->
+              <div class="block" id="block-film">
+                <h2>FILM <span class="jp">映画</span></h2>
+
+                <div class="sub-section">
+                  <h3>Favorite films <span class="jp">お気に入りの映画</span></h3>
+                  <div class="poster-row">
+                    <div class="poster"></div>
+                    <div class="poster"></div>
+                    <div class="poster"></div>
+                    <div class="poster"></div>
+                    <div class="poster"></div>
+                  </div>
+                </div>
+
+                <div class="sub-section">
+                  <h3>Last on Letterboxd <span class="jp">Letterboxd 最新</span></h3>
+                  <div class="review-row">
+                    <div class="review-item">
+                      <div class="poster"></div>
+                      <div class="scrollable-text">
+                        <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                        <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                      </div>
+                    </div>
+                    <div class="review-item">
+                      <div class="poster"></div>
+                      <div class="scrollable-text">
+                        <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                        <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                      </div>
+                    </div>
+                    <div class="review-item">
+                      <div class="poster"></div>
+                      <div class="scrollable-text">
+                        <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                        <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="film-two-col">
+                  <div class="sub-section">
+                    <h3>Last 4K bought <span class="jp">最新の4K購入</span></h3>
+                    <div class="poster-row">
+                      <div class="dvd-cover"></div>
+                      <div class="dvd-cover"></div>
+                      <div class="dvd-cover"></div>
+                    </div>
+                  </div>
+
+                  <div class="sub-section">
+                    <h3>Highly anticipated movies <span class="jp">期待の映画</span></h3>
+                    <div class="poster-row">
+                      <div class="poster"></div>
+                      <div class="poster"></div>
+                      <div class="poster"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- gros titre pseudo, casé dans l'espace libre restant du bloc -->
+                <div class="pseudo-title">PSEUDO</div>
+              </div>
+
+              <!-- BLOC ABOUT ME -->
+              <div class="block" id="block-about-me">
+                <h2>ABOUT ME <span class="jp">自己紹介</span></h2>
+                <div class="about-me-row">
+                  <div class="about-photo"></div>
+                  <p class="review-text">bio placeholder text goes here.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- rangée secondaire : book / manga / anime côte à côte -->
+            <div class="secondary-row">
+
+              <!-- BLOC BOOK : 2 lignes, chacune vignette + review sur le côté -->
+              <div class="block" id="block-book">
+                <h2>BOOK <span class="jp">本</span></h2>
+                <div class="book-item-row">
+                  <div class="book-cover"></div>
+                  <p class="review-text">review placeholder</p>
+                </div>
+                <div class="book-item-row">
+                  <div class="book-cover"></div>
+                  <p class="review-text">review placeholder</p>
+                </div>
+              </div>
+
+              <!-- BLOC MANGA -->
+              <div class="block" id="block-manga">
+                <h2>MANGA <span class="jp">漫画</span></h2>
+
+                <div class="sub-section">
+                  <h3>Last read <span class="jp">最新に読んだ</span></h3>
+                  <div class="poster-row">
+                    <div class="manga-cover"></div>
+                    <div class="manga-cover"></div>
+                    <div class="manga-cover"></div>
+                  </div>
+                </div>
+
+                <div class="sub-section">
+                  <h3>Favorite <span class="jp">お気に入り</span></h3>
+                  <div class="poster-row">
+                    <div class="manga-cover"></div>
+                    <div class="manga-cover"></div>
+                    <div class="manga-cover"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BLOC FAVORITE ANIME -->
+              <div class="block" id="block-anime">
+                <h2>FAVORITE ANIME <span class="jp">お気に入りアニメ</span></h2>
+                <div class="poster-row">
+                  <div class="anime-thumb"></div>
+                  <div class="anime-thumb"></div>
+                  <div class="anime-thumb"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- BLOC PHYSICAL VIDEO GAME -->
+            <div class="block" id="block-game">
+              <h2>PHYSICAL VIDEO GAME <span class="jp">現物ゲーム</span></h2>
+
+              <div class="sub-section">
+                <h3>Favorite video games <span class="jp">お気に入りのゲーム</span></h3>
+                <div class="poster-row">
+                  <div class="game-cover"></div>
+                  <div class="game-cover"></div>
+                  <div class="game-cover"></div>
+                  <div class="game-cover"></div>
+                  <div class="game-cover"></div>
+                </div>
+              </div>
+
+              <div class="sub-section">
+                <h3>Last review <span class="jp">最新レビュー</span></h3>
+                <div class="game-review-group">
+                  <div class="game-review-row">
+                    <div class="game-cover"></div>
+                    <div class="scrollable-text">
+                      <p>review placeholder — long text goes here so this box actually needs to scroll. review placeholder — long text goes here so this box actually needs to scroll.</p>
+                      <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                    </div>
+                  </div>
+                  <div class="game-review-row">
+                    <div class="game-cover"></div>
+                    <div class="scrollable-text">
+                      <p>review placeholder — long text goes here so this box actually needs to scroll. review placeholder — long text goes here so this box actually needs to scroll.</p>
+                      <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                    </div>
+                  </div>
+                  <div class="game-review-row">
+                    <div class="game-cover"></div>
+                    <div class="scrollable-text">
+                      <p>review placeholder — long text goes here so this box actually needs to scroll. review placeholder — long text goes here so this box actually needs to scroll.</p>
+                      <p>review placeholder — long text goes here so this box actually needs to scroll.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sub-section">
+                <h3>Highly anticipated games <span class="jp">期待のゲーム</span></h3>
+                <div class="game-review-group">
+                  <div class="game-review-row">
+                    <div class="game-cover"></div>
+                    <div class="scrollable-text">
+                      <p>new placeholder — long text goes here so this box actually needs to scroll.</p>
+                      <p>new placeholder — long text goes here so this box actually needs to scroll.</p>
+                    </div>
+                  </div>
+                  <div class="game-review-row">
+                    <div class="game-cover"></div>
+                    <div class="scrollable-text">
+                      <p>new placeholder — long text goes here so this box actually needs to scroll.</p>
+                      <p>new placeholder — long text goes here so this box actually needs to scroll.</p>
+                    </div>
+                  </div>
+                  <div class="game-review-row">
+                    <div class="game-cover"></div>
+                    <div class="scrollable-text">
+                      <p>new placeholder — long text goes here so this box actually needs to scroll.</p>
+                      <p>new placeholder — long text goes here so this box actually needs to scroll.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sub-section">
+                <h3>Physical console owned <span class="jp">所有ハード</span></h3>
+                <div class="poster-row">
+                  <div class="console-thumb"></div>
+                  <div class="console-thumb"></div>
+                  <div class="console-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Colonne secondaire (blocs petits) -->
+          <div class="side-column">
+
+            <!-- BLOC LAST POLAROID -->
+            <div class="block block-small" id="block-polaroid">
+              <h2>Last Polaroid <span class="jp">最新のポラロイド</span></h2>
+              <div class="polaroid-photo"></div>
+            </div>
+
+            <!-- BLOC CHAT -->
+            <div class="block block-small" id="block-chat">
+              <h2>CHAT <span class="jp">チャット</span></h2>
+              <div class="chat-embed"></div>
+            </div>
+
+            <!-- BLOC FOLLOW -->
+            <div class="block block-small" id="block-follow">
+              <h2>FOLLOW <span class="jp">フォロー</span></h2>
+              <div class="follow-links"></div>
+              <div class="site-button"></div>
+            </div>
+
+            <!-- BLOC 3D VIEWER -->
+            <div class="block block-small" id="block-3d">
+              <h2>3D VIEWER <span class="jp">3D表示</span></h2>
+              <div class="viewer-3d"></div>
+            </div>
+
+            <!-- BLOC MUSIC PLAYER -->
+            <div class="block block-small" id="block-music">
+              <h2>MUSIC <span class="jp">音楽</span></h2>
+              <div class="music-player"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

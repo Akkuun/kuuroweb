@@ -1,0 +1,405 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: monospace;
+  background: #ccc;
+}
+
+/* décale le contenu sous la bande marquee, fixée en haut du viewport */
+body {
+  padding-top: 26px;
+}
+
+/* conteneur global : le site est poussé vers la droite de l'écran, hauteur fixe pour empêcher le scroll */
+#page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 14px 5vw;
+}
+
+/* conteneur du site */
+#site {
+  display: flex;
+  gap: 14px;
+  width: 1300px;
+  max-width: 92vw;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 14px;
+}
+
+/* bande supérieure : collée en haut du viewport, pas dans le bloc central */
+#marquee-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid #000;
+  background: #eee;
+  padding: 5px 0;
+  z-index: 10;
+}
+
+.marquee-content {
+  display: inline-flex;
+  gap: 40px;
+  animation: marquee-scroll 18s linear infinite;
+}
+
+.marquee-item {
+  font-size: 10px;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* contenu */
+#content {
+  flex: 1;
+  min-width: 0;
+}
+
+#content-main {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.main-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.side-column {
+  width: 190px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* rangée film / about me côte à côte : about me plus large, film réduit d'autant */
+.film-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.film-row #block-film {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* gros titre pseudo : comble l'espace libre restant en bas du bloc film */
+.pseudo-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-top: 8px;
+  border-top: 2px solid #000;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.film-row #block-about-me {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+/* rangée book / manga / anime côte à côte, toutes de même hauteur */
+.secondary-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.secondary-row .block {
+  flex: 1;
+  min-width: 0;
+}
+
+/* favorite anime : hauteur plancher, la rangée s'aligne dessus */
+#block-anime {
+  min-height: 190px;
+}
+
+/* blocs génériques */
+.block {
+  border: 2px solid #000;
+  background: #eee;
+  padding: 8px;
+}
+
+.block h2 {
+  font-size: 11px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 2px;
+}
+
+.block h3 {
+  font-size: 9px;
+  margin: 5px 0 3px;
+}
+
+.sub-section:first-of-type h3 {
+  margin-top: 0;
+}
+
+/* "Last 4K bought" et "Highly anticipated movies" côte à côte */
+.film-two-col {
+  display: flex;
+  gap: 16px;
+}
+
+.film-two-col .sub-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.block-small {
+  background: #e5e5e5;
+}
+
+/* bloc about me : colonne large à côté de film, photo à gauche, texte à droite */
+.about-me-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.about-photo {
+  width: 140px;
+  aspect-ratio: 1 / 1;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+/* traduction japonaise à côté de chaque texte */
+.jp {
+  font-size: 0.85em;
+  color: #555;
+  margin-left: 6px;
+}
+
+/* rangées de vignettes / affiches */
+.poster-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+/* rangée de reviews film : items côte à côte, chacun vignette + texte scrollable */
+.review-row {
+  display: flex;
+  gap: 8px;
+}
+
+.poster {
+  width: 46px;
+  height: 68px;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+.dvd-cover {
+  width: 46px;
+  height: 46px;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+.manga-cover {
+  width: 38px;
+  height: 54px;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+.anime-thumb {
+  width: 42px;
+  height: 60px;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+.game-cover {
+  width: 42px;
+  height: 60px;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+.console-thumb {
+  width: 22px;
+  height: 22px;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+/* review-item : vignette à gauche, texte scrollable à droite (comme les reviews de jeux) */
+.review-item {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.review-text {
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+/* bloc book : 2 lignes, chacune vignette + review sur le côté */
+.book-item-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.book-item-row:last-child {
+  margin-bottom: 0;
+}
+
+.book-cover {
+  width: 42px;
+  height: 60px;
+  background: #999;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+/* bloc video game : 3 reviews côte à côte, chacune vignette + texte scrollable */
+.game-review-group {
+  display: flex;
+  gap: 8px;
+}
+
+.game-review-row {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.scrollable-text {
+  flex: 1;
+  min-width: 0;
+  height: 62px;
+  overflow-y: auto;
+  border: 2px solid #000;
+  background: #fff;
+  padding: 4px 6px;
+  font-size: 9px;
+  line-height: 1.25;
+}
+
+.scrollable-text p {
+  margin-bottom: 6px;
+}
+
+/* bloc polaroid */
+.polaroid-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #999;
+  border: 2px solid #000;
+}
+
+/* bloc chat */
+.chat-embed {
+  width: 100%;
+  height: 100px;
+  background: #ddd;
+  border: 2px solid #000;
+}
+
+/* bloc follow */
+.follow-links {
+  width: 100%;
+  min-height: 32px;
+  background: #ddd;
+  border: 2px solid #000;
+  margin-bottom: 6px;
+}
+
+.site-button {
+  width: 88px;
+  height: 31px;
+  background: #999;
+  border: 2px solid #000;
+}
+
+/* bloc 3D viewer */
+.viewer-3d {
+  width: 100%;
+  height: 110px;
+  background: #ddd;
+  border: 2px solid #000;
+}
+
+/* bloc music : grandit pour combler l'espace jusqu'au bas de Physical Video Game */
+#block-music {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.music-player {
+  width: 100%;
+  flex: 1;
+  min-height: 54px;
+  background: #ddd;
+  border: 2px solid #000;
+}
+
+/* tous les emplacements d'image : motif en croix pour bien les distinguer
+   d'un simple fond gris (sinon ça se confond avec le fond de la page) */
+.poster,
+.dvd-cover,
+.manga-cover,
+.anime-thumb,
+.game-cover,
+.console-thumb,
+.book-cover,
+.polaroid-photo,
+.about-photo {
+  background-color: #999;
+  background-image:
+    linear-gradient(45deg, transparent 46%, #444 47%, #444 53%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, #444 47%, #444 53%, transparent 54%);
+}
