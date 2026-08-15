@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site</title>
+  <title>Akkuunamatata</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%91%BB</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,6 +16,9 @@
 
   <!-- Conteneur global de la page -->
   <div id="page">
+
+    <!-- Image flottant dans la marge, à gauche du bloc central, hors de #site -->
+    <div id="site-image"></div>
 
     <!-- Conteneur principal du site -->
     <div id="site">
@@ -34,26 +38,26 @@
               <div class="block" id="block-film">
                 <h2>FILM <span class="jp">映画</span></h2>
 
-                <div class="sub-section">
-                  <h3>Favorite films <span class="jp">お気に入りの映画</span></h3>
-                  <div class="poster-row" id="film-favorites"></div>
-                </div>
-
-                <div class="sub-section">
-                  <h3>Last on Letterboxd <span class="jp">Letterboxd 最新</span></h3>
-                  <div class="review-row" id="film-letterboxd"></div>
-                </div>
-
-                <div class="film-two-col">
+                <div class="two-col-row">
                   <div class="sub-section">
-                    <h3>Last 4K bought <span class="jp">最新の4K購入</span></h3>
-                    <div class="poster-row" id="film-4k"></div>
+                    <h3>Favorite films <span class="jp">お気に入りの映画</span></h3>
+                    <div class="poster-row" id="film-favorites"></div>
                   </div>
 
                   <div class="sub-section">
                     <h3>Highly anticipated movies <span class="jp">期待の映画</span></h3>
                     <div class="poster-row" id="film-anticipated"></div>
                   </div>
+
+                  <div class="sub-section">
+                    <h3>Last 4K bought <span class="jp">最新の4K購入</span></h3>
+                    <div class="poster-row" id="film-4k"></div>
+                  </div>
+                </div>
+
+                <div class="sub-section">
+                  <h3>Last on Letterboxd <span class="jp">Letterboxd 最新</span></h3>
+                  <div class="review-row" id="film-letterboxd"></div>
                 </div>
 
               </div>
@@ -85,21 +89,34 @@
               <div class="block" id="block-manga">
                 <h2>MANGA <span class="jp">漫画</span></h2>
 
-                <div class="sub-section">
-                  <h3>Last read <span class="jp">最新に読んだ</span></h3>
-                  <div class="poster-row" id="manga-last-read"></div>
+                <div class="two-col-row">
+                  <div class="sub-section">
+                    <h3>Last read <span class="jp">最新に読んだ</span></h3>
+                    <div class="poster-row" id="manga-last-read"></div>
+                  </div>
+
+                  <div class="sub-section">
+                    <h3>Favorite <span class="jp">お気に入り</span></h3>
+                    <div class="poster-row" id="manga-favorite"></div>
+                  </div>
                 </div>
 
-                <div class="sub-section">
-                  <h3>Favorite <span class="jp">お気に入り</span></h3>
-                  <div class="poster-row" id="manga-favorite"></div>
+                <!-- bloc de texte pleine largeur, sous last read/favorite -->
+                <div class="sub-section manga-note-section">
+                  <p class="review-text" id="manga-note"></p>
                 </div>
               </div>
 
-              <!-- BLOC FAVORITE ANIME -->
-              <div class="block" id="block-anime">
-                <h2>FAVORITE ANIME <span class="jp">お気に入りアニメ</span></h2>
-                <div class="poster-row" id="anime-favorite"></div>
+              <!-- BLOC FAVORITE ANIME + image ghost empilés dans la même colonne -->
+              <div class="anime-column">
+                <div class="block" id="block-anime">
+                  <h2>FAVORITE ANIME <span class="jp">お気に入りアニメ</span></h2>
+                  <div class="poster-row" id="anime-favorite"></div>
+                </div>
+
+                <div class="block block-small no-padding" id="block-ghost">
+                  <div class="ghost-image" id="ghost-image"></div>
+                </div>
               </div>
 
             </div>
@@ -108,24 +125,21 @@
             <div class="block" id="block-game">
               <h2>PHYSICAL VIDEO GAME <span class="jp">現物ゲーム</span></h2>
 
-              <div class="sub-section">
-                <h3>Favorite video games <span class="jp">お気に入りのゲーム</span></h3>
-                <div class="poster-row" id="game-favorites"></div>
+              <div class="two-col-row">
+                <div class="sub-section">
+                  <h3>Favorite video games <span class="jp">お気に入りのゲーム</span></h3>
+                  <div class="poster-row" id="game-favorites"></div>
+                </div>
+
+                <div class="sub-section">
+                  <h3>Highly anticipated games <span class="jp">期待のゲーム</span></h3>
+                  <div class="poster-row" id="game-anticipated"></div>
+                </div>
               </div>
 
               <div class="sub-section">
                 <h3>Last review <span class="jp">最新レビュー</span></h3>
                 <div class="game-review-group" id="game-last-review"></div>
-              </div>
-
-              <div class="sub-section">
-                <h3>Highly anticipated games <span class="jp">期待のゲーム</span></h3>
-                <div class="game-review-group" id="game-anticipated"></div>
-              </div>
-
-              <div class="sub-section">
-                <h3>Physical console owned <span class="jp">所有ハード</span></h3>
-                <div class="poster-row" id="game-consoles"></div>
               </div>
             </div>
 
@@ -140,29 +154,25 @@
               <div class="polaroid-photo" id="polaroid-photo"></div>
             </div>
 
-            <!-- BLOC CHAT -->
+            <!-- BLOC CHAT (Cbox) -->
             <div class="block block-small" id="block-chat">
               <h2>CHAT <span class="jp">チャット</span></h2>
-              <div class="chat-embed"></div>
+              <div class="chat-embed" id="chat-embed"></div>
             </div>
 
             <!-- BLOC FOLLOW -->
             <div class="block block-small" id="block-follow">
               <h2>FOLLOW <span class="jp">フォロー</span></h2>
-              <div class="follow-links"></div>
-              <div class="site-button"></div>
-            </div>
-
-            <!-- BLOC 3D VIEWER -->
-            <div class="block block-small" id="block-3d">
-              <h2>3D VIEWER <span class="jp">3D表示</span></h2>
-              <div class="viewer-3d"></div>
+              <div class="follow-row">
+                <div class="follow-links" id="follow-links"></div>
+                <div class="site-button" id="site-button"></div>
+              </div>
             </div>
 
             <!-- BLOC MUSIC PLAYER -->
             <div class="block block-small" id="block-music">
               <h2>MUSIC <span class="jp">音楽</span></h2>
-              <div class="music-player"></div>
+              <div class="music-player" id="music-player"></div>
             </div>
 
           </div>

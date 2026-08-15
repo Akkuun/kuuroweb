@@ -1,45 +1,79 @@
 {
   "favorite_films": [
-    { "title": "", "image": "img/favorite-1.jpg" },
-    { "title": "", "image": "img/favorite-2.jpg" },
-    { "title": "", "image": "img/favorite-3.jpg" },
-    { "title": "", "image": "img/favorite-4.jpg" },
-    { "title": "", "image": "img/favorite-5.jpg" }
+    {
+      "title": "Spider-Man: Across the Spider-Verse (2023)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/22/gj/k3/ql/spider-verse-1200-1200-675-675-crop-000000.jpg?v=259dfdc695"
+    },
+    {
+      "title": "Coraline (2009)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/5k/cr/rn/zb/coraline-1200-1200-675-675-crop-000000.jpg?v=08e59b0e29"
+    },
+    {
+      "title": "Dune: Part Two (2024)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/qp/uv/i4/8b/l6b9YZEokZl1nt7q0pprrur6btG-1200-1200-675-675-crop-000000.jpg?v=ed21d71137"
+    },
+    {
+      "title": "Chainsaw Man – The Movie: Reze Arc (2025)",
+      "image": "https://a.ltrbxd.com/resized/alternative-backdrop/1/1/0/2/6/7/3/tmdb/r3d74bF46TkiNX8kyOk1AeD9k0n-1200-1200-675-675-crop-000000.jpg?v=c6e65acea8"
+    }
   ],
   "last_on_letterboxd": [
     {
-      "title": "",
-      "image": "img/letterboxd-1.jpg",
+      "title": "Spider-Man: Brand New Day (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc",
+      "rating": "4.0",
       "review": [
-        "review placeholder222222222222222 — long text goes here so this box actually needs to scroll.",
-        "review placeholder — long text goes here so this box actually needs to scroll."
+        "Le nouveau meilleur Spiderman de la trilogie de Tom Holland. De bonne idées dans ce film (plans de voltige, traitements du personnage, traitement de l'oubli de son entourage). Enfin un film Marvel qui propose un peu plus que le plan classique habituellement servi. Je recommande, j'ai pas vu les 2h25 passé."
+      ],
+      "review_en": [
+        "The new best Spiderman in Tom Holland's trilogy. Good ideas in this film (plans of voltigus, treatments of the character, treatment of forgetfulness of his entourage). Finally, a Marvel film that offers a little more than the usual classic plan. I recommend, I haven't seen the past 2h25."
       ]
     },
     {
-      "title": "",
-      "image": "img/letterboxd-2.jpg",
+      "title": "The Odyssey (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+      "rating": "5.0",
       "review": [
-        "review placeholder — long text goes here so this box actually needs to scroll.",
-        "review placeholder — long text goes here so this box actually needs to scroll."
+        "OUI OUI OUI ! L'aventure avec un grand A ! Un récit d'aventure réussie que ce soit au niveau de la réalisation (effets pratiques, OST, histoire). J'ai rarement été aussi transporté pendant une séance de cinéma. Les 3 heures passent à une vitesse.... Encore une preuve de sa réussite. Un 5 étoiles décrochées pour ma part (ce qui est rare), même si les dialogues sont (quelques fois) un peu trop modernes à mon goût. Pour une expérience encore plus intense je le conseille de le voir en 4DX qui s'intègre parfaitement au film (vagues, coup dans le dos, projections d'eau, brises de vent), ca rend la séance encore plus inoubliable ! ABSOLUTE CINEMA"
+      ],
+      "review_en": [
+        "YES YES YES Adventure with a big A! A successful adventure story whether at the level of realization (practical effects, OST, history). I've rarely been transported too during a movie session. The three hours go at a speed... another proof of his success. A 5 stars for my part (which is rare), even if the dialogues are (a few times) a little too modern to my taste. For an even more intense experience I advise him to see it in 4DX that fits perfectly into the film (vagues, blow in the back, water projections, wind breezes), it makes the session even more unforgettable! ABSOLUTE CINEMA"
       ]
     },
     {
-      "title": "",
-      "image": "img/letterboxd-3.jpg",
+      "title": "Mars Attacks! (1996)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/dx/sb/el/ld/sM4VrptBRIFHmN7mLJZ2BaGKYNq-0-600-0-900-crop.jpg?v=c5cd771487",
+      "rating": "3.0",
       "review": [
-        "review placeholder — long text goes here so this box actually needs to scroll.",
-        "review placeholder — long text goes here so this box actually needs to scroll."
+        "Mi chemin entre SF sérieuse et comédie sans jamais pousser le curseur."
+      ],
+      "review_en": [
+        "Mi path between serious SF and comedy without ever pushing the cursor."
       ]
     }
   ],
   "last_4k_bought": [
-    { "title": "", "image": "img/4k-1.jpg" },
-    { "title": "", "image": "img/4k-2.jpg" },
-    { "title": "", "image": "img/4k-3.jpg" }
+    {
+      "title": "",
+      "image": "data/film/img/4k_1.jpg"
+    },
+    {
+      "title": "",
+      "image": "data/film/img/4k_2.jpg"
+    },
+    {
+      "title": "",
+      "image": "data/film/img/4k_3.jpg"
+    }
   ],
   "highly_anticipated": [
-    { "title": "", "image": "img/anticipated-1.jpg" },
-    { "title": "", "image": "img/anticipated-2.jpg" },
-    { "title": "", "image": "img/anticipated-3.jpg" }
+    {
+      "title": "",
+      "image": "data/film/img/anticipated_1.jpg"
+    },
+    {
+      "title": "",
+      "image": "data/film/img/anticipated_2.jpg"
+    }
   ]
 }

@@ -1,6 +1,16 @@
 {
   "books": [
-    { "title": "", "cover": "img/book-1.jpg", "review": "review placeholder" },
-    { "title": "", "cover": "img/book-2.jpg", "review": "review placeholder" }
+    {
+      "title": "L'Empereur-Dieu de Dune (Dune, #4)",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665451686l/61169208._SX98_.jpg",
+      "rating": "2",
+      "review": "Quite disappointed with the turn of this book. I had a lot of hope for the temporal ellipse but finally, it takes a lot of time to develop for not much. It is above all a philosophy novel at the expense of all the action and rhythm of previous books (which seemed more boring to me than the dune messiah, I was looking forward to finishing it!)"
+    },
+    {
+      "title": "Harry Potter et l'Enfant Maudit",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1466982040l/30757322._SX98_.jpg",
+      "rating": "3",
+      "review": "Suite of the Saga Harry Potter but not in novel but as a play. This main change makes the plot rather fast, maybe too fast, in a few chapters we spend several script years which can be confusing. Even if I cling to the story but still big points of inconsistency for me who doesn't pass for me, be it on characters or even central points of history. It's not the best work of the Potterverse, but it deserves to exist, I guess, I didn't have a bad time either."
+    }
   ]
 }

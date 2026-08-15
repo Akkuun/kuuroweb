@@ -1,12 +1,34 @@
 {
   "last_read": [
-    { "title": "", "cover": "img/last-read-1.jpg" },
-    { "title": "", "cover": "img/last-read-2.jpg" },
-    { "title": "", "cover": "img/last-read-3.jpg" }
+    {
+      "title": "Ichi the Witch, tome 1 (Ichi the Witch, #1)",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1744318010l/231260443._SX98_.jpg",
+      "rating": "4"
+    },
+    {
+      "title": "魔男のイチ 2 [Madan no Ichi 2]",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1739270886l/223806785._SX98_.jpg",
+      "rating": "3"
+    },
+    {
+      "title": "タワーダンジョン 4 [Tower Dungeon 4]",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1740493826l/227887412._SX98_.jpg",
+      "rating": "5"
+    }
   ],
   "favorite": [
-    { "title": "", "cover": "img/favorite-1.jpg" },
-    { "title": "", "cover": "img/favorite-2.jpg" },
-    { "title": "", "cover": "img/favorite-3.jpg" }
-  ]
+    {
+      "title": "",
+      "cover": "data/manga/img/favorite_1.png"
+    },
+    {
+      "title": "",
+      "cover": "data/manga/img/favorite_2.png"
+    },
+    {
+      "title": "",
+      "cover": "data/manga/img/favorite_3.png"
+    }
+  ],
+  "note": ""
 }

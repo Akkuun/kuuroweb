@@ -1,7 +1,9 @@
 {
   "items": [
-    "social 1",
-    "social 2",
-    "social 3"
+    { "label": "Github", "url": "https://github.com/Akkuun", "icon": "data/follow/img/github.png" },
+    { "label": "Portfolio", "url": "https://akkuun.github.io/PortFolio_React_Duban", "icon": "data/follow/img/portfolio.png" },
+    { "label": "Letterboxd", "url": "https://letterboxd.com/Akkuunamatata/", "icon": "data/follow/img/letterboxd.png" },
+    { "label": "Goodreads", "url": "https://www.goodreads.com/user/show/194327776", "icon": "data/follow/img/goodreads.png" },
+    { "label": "Backloggd", "url": "https://backloggd.com/u/Akkuunamatata/", "icon": "data/follow/img/backloggd.png" }
   ]
 }

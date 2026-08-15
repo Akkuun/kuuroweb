@@ -1,6 +1,6 @@
 {
   "links": [
-    { "label": "", "url": "", "icon": "img/link-1.jpg" }
+    { "label": "", "url": "", "icon": "data/follow/img/link-1.jpg" }
   ],
-  "site_button": "img/site-button.png"
+  "site_button": "data/follow/img/site-button.png"
 }

@@ -1,4 +1,7 @@
 {
-  "embed_url": "",
-  "cover": "img/cover.jpg"
+  "tracks": [
+    { "title": "", "src": "data/music/track_1.mp3" },
+    { "title": "", "src": "data/music/track_2.mp3" },
+    { "title": "", "src": "data/music/track_3.mp3" }
+  ]
 }

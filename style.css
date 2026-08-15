@@ -1,13 +1,25 @@
+/* nouvelle police : depose le fichier a ce chemin pour l'activer, sinon
+   fallback silencieux sur monospace (aucune balise <link> a toucher) */
+@font-face {
+  font-family: "SiteFont";
+  src: url("data/font/font.woff2") format("woff2");
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
+  /* curseur personnalise : depose le fichier a ce chemin pour l'activer,
+     sinon fallback natif sur le curseur systeme (pas de JS necessaire) */
+  cursor: url("data/cursor.png"), auto;
 }
 
 html, body {
   height: 100%;
   overflow: hidden;
-  font-family: monospace;
+  font-family: "SiteFont", monospace;
   background: #ccc;
 }
 
@@ -23,6 +35,16 @@ body {
   align-items: center;
   justify-content: flex-end;
   padding: 14px 5vw;
+}
+
+/* image flottante dans la marge, à gauche de #site, hors de tout bloc :
+   pas de bordure, margin-right:auto la pousse à gauche pendant que #site
+   reste sur sa droite (justify-content:flex-end sur #page) */
+#site-image {
+  width: 220px;
+  align-self: stretch;
+  flex-shrink: 0;
+  margin-right: auto;
 }
 
 /* conteneur du site */
@@ -57,7 +79,24 @@ body {
 }
 
 .marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 10px;
+  color: #000;
+  text-decoration: none;
+}
+
+.marquee-item:hover {
+  text-decoration: underline;
+}
+
+.marquee-item-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  background: #999;
+  border: 1px solid #000;
 }
 
 @keyframes marquee-scroll {
@@ -136,11 +175,12 @@ body {
   letter-spacing: 1px;
 }
 
-/* rangée book / manga / anime côte à côte, toutes de même hauteur */
+/* rangée book / manga / anime côte à côte : chaque bloc garde sa propre
+   hauteur (pas de stretch), pour s'arrêter juste après ses vignettes */
 .secondary-row {
   display: flex;
   gap: 12px;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
 .secondary-row .block {
@@ -148,11 +188,55 @@ body {
   min-width: 0;
 }
 
-/* favorite anime : hauteur plancher, la rangée s'aligne dessus */
-#block-anime {
-  min-height: 190px;
+/* manga a besoin de plus de largeur pour tenir ses 3 vignettes par colonne
+   sur une seule ligne ; anime se décale/rétrécit d'autant */
+#block-manga {
+  flex: 1.7;
+  min-height: 221px;
 }
 
+/* anime + visitor counter empilés, colonne un peu plus étroite */
+/* anime + image ghost empilées, colonne un peu plus étroite */
+/* min-height calée sur la hauteur de #block-manga (221px) : le ghost (en
+   flex:1 juste en dessous) s'étire pour combler tout l'espace restant */
+.anime-column {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 0.7;
+  min-width: 0;
+  min-height: 221px;
+}
+
+#block-ghost {
+  flex: 1;
+}
+
+/* pas de titre ni bordure : l'image occupe tout le bloc */
+.block.no-padding {
+  padding: 0;
+  display: flex;
+}
+
+.ghost-image {
+  width: 100%;
+  flex: 1;
+  min-height: 40px;
+  background: #999;
+}
+
+/* bloc de texte pleine largeur, sous last read/favorite dans manga */
+.manga-note-section {
+  margin-top: 6px;
+}
+
+#manga-note {
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+/* compteur de visites */
+/* image qui prend toute la place du bloc compteur */
 /* blocs génériques */
 .block {
   border: 2px solid #000;
@@ -176,15 +260,43 @@ body {
   margin-top: 0;
 }
 
-/* "Last 4K bought" et "Highly anticipated movies" côte à côte */
-.film-two-col {
+/* deux sous-sections côte à côte (favorites+anticipated, favorites+consoles...) */
+.two-col-row {
   display: flex;
   gap: 16px;
 }
 
-.film-two-col .sub-section {
+.two-col-row .sub-section {
   flex: 1;
   min-width: 0;
+}
+
+/* favorite films a besoin de plus de place pour tenir ses posters sur une
+   seule ligne : les colonnes voisines (anticipated, 4k) se décalent d'autant */
+#block-film .two-col-row .sub-section:first-child {
+  flex: 1.5;
+}
+
+#block-film .two-col-row {
+  gap: 10px;
+}
+
+/* évite que la 3e vignette (anticipated/4k) tombe sur une 2e ligne : les
+   vignettes se compressent légèrement plutôt que de wrapper */
+#block-film .two-col-row .poster-row {
+  flex-wrap: nowrap;
+}
+
+#block-film .two-col-row .poster-row > * {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* réserve la hauteur de 2 lignes de titre, que le texte JP fasse wrapper ou
+   non : les 3 rangées de vignettes démarrent toujours au même niveau */
+#block-film .two-col-row h3 {
+  min-height: 24px;
+  margin-top: 0;
 }
 
 .block-small {
@@ -223,28 +335,29 @@ body {
 /* rangée de reviews film : items côte à côte, chacun vignette + texte scrollable */
 .review-row {
   display: flex;
+  align-items: flex-start;
   gap: 8px;
 }
 
 .poster {
-  width: 46px;
-  height: 68px;
+  width: 58px;
+  height: 86px;
   background: #999;
   border: 2px solid #000;
   flex-shrink: 0;
 }
 
 .dvd-cover {
-  width: 46px;
-  height: 46px;
+  width: 58px;
+  height: 86px;
   background: #999;
   border: 2px solid #000;
   flex-shrink: 0;
 }
 
 .manga-cover {
-  width: 38px;
-  height: 54px;
+  width: 62px;
+  height: 88px;
   background: #999;
   border: 2px solid #000;
   flex-shrink: 0;
@@ -259,16 +372,8 @@ body {
 }
 
 .game-cover {
-  width: 42px;
-  height: 60px;
-  background: #999;
-  border: 2px solid #000;
-  flex-shrink: 0;
-}
-
-.console-thumb {
-  width: 22px;
-  height: 22px;
+  width: 58px;
+  height: 82px;
   background: #999;
   border: 2px solid #000;
   flex-shrink: 0;
@@ -281,6 +386,32 @@ body {
   display: flex;
   gap: 6px;
   align-items: flex-start;
+}
+
+/* hauteur fixe = hauteur de .poster, pour que le texte scrollable matche la vignette */
+.review-item .scrollable-text {
+  height: 86px;
+}
+
+/* vignette + étoiles empilées */
+.thumb-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.stars {
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.heart {
+  color: gold;
+  font-size: 10px;
+  line-height: 1;
 }
 
 .review-text {
@@ -300,9 +431,14 @@ body {
   margin-bottom: 0;
 }
 
+/* hauteur fixe = hauteur de .book-cover, pour que le texte scrollable matche la vignette */
+.book-item-row .scrollable-text {
+  height: 74px;
+}
+
 .book-cover {
-  width: 42px;
-  height: 60px;
+  width: 52px;
+  height: 74px;
   background: #999;
   border: 2px solid #000;
   flex-shrink: 0;
@@ -311,6 +447,7 @@ body {
 /* bloc video game : 3 reviews côte à côte, chacune vignette + texte scrollable */
 .game-review-group {
   display: flex;
+  align-items: flex-start;
   gap: 8px;
 }
 
@@ -322,10 +459,20 @@ body {
   align-items: flex-start;
 }
 
+/* vignettes de "Last review" agrandies par rapport aux autres game-cover */
+.game-review-row .game-cover {
+  width: 64px;
+  height: 92px;
+}
+
+/* hauteur fixe = hauteur de .game-cover, pour que le texte scrollable matche la vignette */
+.game-review-row .scrollable-text {
+  height: 92px;
+}
+
 .scrollable-text {
   flex: 1;
   min-width: 0;
-  height: 62px;
   overflow-y: auto;
   border: 2px solid #000;
   background: #fff;
@@ -347,20 +494,68 @@ body {
 }
 
 /* bloc chat */
-.chat-embed {
-  width: 100%;
-  height: 100px;
-  background: #ddd;
-  border: 2px solid #000;
+#block-chat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-/* bloc follow */
-.follow-links {
+.chat-embed {
   width: 100%;
+  flex: 1;
+  min-height: 100px;
+  background: #ddd;
+  border: 2px solid #000;
+  overflow: hidden;
+}
+
+.chat-embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* bloc follow : maintenant en pleine largeur sous book/manga/anime, liens +
+   bouton côte à côte plutôt qu'empilés */
+.follow-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.follow-links {
+  flex: 1;
   min-height: 32px;
   background: #ddd;
   border: 2px solid #000;
-  margin-bottom: 6px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+}
+
+.follow-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  color: #000;
+  text-decoration: none;
+}
+
+.follow-link:hover .follow-link-label {
+  text-decoration: underline;
+}
+
+.follow-link-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  background: #999;
+  border: 1px solid #000;
 }
 
 .site-button {
@@ -368,14 +563,7 @@ body {
   height: 31px;
   background: #999;
   border: 2px solid #000;
-}
-
-/* bloc 3D viewer */
-.viewer-3d {
-  width: 100%;
-  height: 110px;
-  background: #ddd;
-  border: 2px solid #000;
+  flex-shrink: 0;
 }
 
 /* bloc music : grandit pour combler l'espace jusqu'au bas de Physical Video Game */
@@ -391,6 +579,42 @@ body {
   min-height: 54px;
   background: #ddd;
   border: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+}
+
+.music-player audio {
+  width: 100%;
+}
+
+/* liste de pistes : une ligne par titre, celle en cours en violet */
+.track-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-row {
+  font-size: 9px;
+  padding: 3px 4px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.track-row:last-child {
+  border-bottom: none;
+}
+
+.track-row:hover {
+  background: #eee;
+}
+
+.track-row.active {
+  background: #6a0dad;
+  color: #fff;
 }
 
 /* tous les emplacements d'image : motif en croix pour bien les distinguer
@@ -400,10 +624,14 @@ body {
 .manga-cover,
 .anime-thumb,
 .game-cover,
-.console-thumb,
 .book-cover,
 .polaroid-photo,
-.about-photo {
+.about-photo,
+.site-button,
+.ghost-image,
+.follow-link-icon,
+.marquee-item-icon,
+#site-image {
   background-color: #999;
   background-image:
     linear-gradient(45deg, transparent 46%, #444 47%, #444 53%, transparent 54%),

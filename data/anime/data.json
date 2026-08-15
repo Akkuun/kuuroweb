@@ -1,7 +1,7 @@
 {
   "favorite_anime": [
-    { "title": "", "image": "img/favorite-1.jpg" },
-    { "title": "", "image": "img/favorite-2.jpg" },
-    { "title": "", "image": "img/favorite-3.jpg" }
+    { "title": "", "image": "data/anime/img/favorite_1.png" },
+    { "title": "", "image": "data/anime/img/favorite_2.png" },
+    { "title": "", "image": "data/anime/img/favorite_3.png" }
   ]
 }

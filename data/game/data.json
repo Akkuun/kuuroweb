@@ -1,66 +1,179 @@
 {
   "favorite_games": [
-    { "title": "", "cover": "img/favorite-1.jpg" },
-    { "title": "", "cover": "img/favorite-2.jpg" },
-    { "title": "", "cover": "img/favorite-3.jpg" },
-    { "title": "", "cover": "img/favorite-4.jpg" },
-    { "title": "", "cover": "img/favorite-5.jpg" }
+    {
+      "title": "Elden Ring",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co4jni.jpg"
+    },
+    {
+      "title": "Rayman Legends",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co3ma8.jpg"
+    },
+    {
+      "title": "Crash Bandicoot: Warped",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co7s6q.jpg"
+    },
+    {
+      "title": "MiSide",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co7e6i.jpg"
+    },
+    {
+      "title": "The Forest",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/cobyi6.jpg"
+    }
   ],
   "last_review": [
     {
-      "title": "",
-      "cover": "img/review-1.jpg",
+      "title": "Mouse: P.I. For Hire",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/coaacx.jpg",
+      "rating": 3.0,
       "review": [
-        "review placeholder — long text goes here so this box actually needs to scroll.",
-        "review placeholder — long text goes here so this box actually needs to scroll."
+        "Verdict",
+        "Histoire: 4/5",
+        "Bande-son: 3.5/5",
+        "Direction artistique: 5/5",
+        "Gameplay: 3/5",
+        "Note globale: 3/5",
+        "Points positifs :",
+        "- Ambiance noire / policière très bien retranscrite dans un style cartoon avec des souris en protagonistes",
+        "- Voice acting très bon",
+        "- Animations au top",
+        "- Quelques références cachées",
+        "- Aborde des thèmes étonnamment assez sombres",
+        "Points négatifs :",
+        "- Gameplay assez répétitif au bout de 75 % du jeu",
+        "- Pas assez de diversité d’armes à mon goût : on se retrouve à jouer en priorité avec 3/4 armes, et les autres sont finalement assez similaires",
+        "- Niveaux assez ressemblants, sauf quelques-uns"
+      ],
+      "review_en": [
+        "Verdict",
+        "History: 4/5",
+        "Soundtrack: 3.5/5",
+        "Artistic direction: 5/5",
+        "Gameplay: 3/5",
+        "Overall rating: 3/5",
+        "Positive points:",
+        "- Black ambiance / police very well transcribed in a cartoon style with mice as protagonists",
+        "- Voice action very good",
+        "- Top animations",
+        "- Some hidden references",
+        "- Dealing with surprisingly dark themes",
+        "Cons:",
+        "- fairly repetitive gameplay after 75% of the game",
+        "- Not enough diversity of weapons to my taste: we find ourselves playing first with 3/4 weapons, and the others are finally quite similar",
+        "- Quite similar levels, except a few"
       ]
     },
     {
-      "title": "",
-      "cover": "img/review-2.jpg",
+      "title": "Moonscars",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4kle.jpg",
+      "rating": 4.0,
       "review": [
-        "review placeholder — long text goes here so this box actually needs to scroll.",
-        "review placeholder — long text goes here so this box actually needs to scroll."
+        "Verdict",
+        "Commentaire: Jeu indépendant mélangeant Blasphemous et Bloodborne ayant une D.A et un lore profond tout en restant un bon challenge. Jeu assez court mais intense, je recommande.",
+        "Histoire: 5/5",
+        "Bande son: 4/5",
+        "Direction artistique: 5/5",
+        "Gameplay: 3.5/5",
+        "Note globale: 4/5",
+        "Points positifs :",
+        "- Lore surprenamment profond et original sur un monde où des créations d'argile deviennent ennemis de l'Humanité et dans lequel beaucoup de questions sur la naissance et l'humanité sont posés",
+        "- Direction artistique au top, mélange de pixel art et peinture en même temps qui marche vraiment bien",
+        "- Bande son d'ambiance qui fonctionne",
+        "- Pas mal de build à sa disposition",
+        "- Système de parade exigeant",
+        "Point négatifs :",
+        "- Peut être répétitif dans certains moment",
+        "- J'aurais aimé plus de boss vu leur qualité"
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: Independent game mixing Blasphemous and Bloodborne having a D.A and a deep lore while remaining a good challenge. Play fairly short but intense, I recommend.",
+        "History: 5/5",
+        "Soundtrack: 4/5",
+        "Artistic direction: 5/5",
+        "Gameplay: 3.5/5",
+        "Overall rating: 4/5",
+        "Positive points:",
+        "- Surprisingly deep and original Lore on a world where clay creations become enemies of Humanity and in which many questions about birth and humanity are posed",
+        "- Artistic direction at the top, mixture of art pixel and painting at the same time that works really well",
+        "- Soundtrack that works",
+        "- A lot of build at his disposal.",
+        "- Demanding parade system",
+        "Negative:",
+        "- Can be repetitive in some moments",
+        "- I wish more bosses had seen their quality."
       ]
     },
     {
-      "title": "",
-      "cover": "img/review-3.jpg",
+      "title": "Catherine: Full Body",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2e3g.jpg",
+      "rating": 3.0,
       "review": [
-        "review placeholder — long text goes here so this box actually needs to scroll.",
-        "review placeholder — long text goes here so this box actually needs to scroll."
+        "Verdict",
+        "Commentaire: Premier jeu Altus pour ma part, on y suit l'histoire de Vincent qui est tiraillé dans plusieurs histoires romances/sexuelles qui lui tombent dessus. Jeu complètement barré qui mixe histoires narrative et jeu de réflexion, très intriguant !",
+        "Histoire: 4/5",
+        "Bande son: 3/5",
+        "Direction artistique: 5/5",
+        "Gameplay: 3.5/5",
+        "Note globale: 3/5",
+        "Points positifs :",
+        "- Direction artistique au top avec un rendu animé",
+        "- Jonglage entre cinématiques/animations/gameplay super cool",
+        "- Plusieurs fins disponibles",
+        "- La partie des mini-jeux peut devenir assez complexe !",
+        "Point négatifs :",
+        "- Narration qui prend bien son temps avant de démarrer",
+        "- Partie mini-jeux assez facultative finalement",
+        "- Manque d'OST marquantes"
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: First game Altus for my part, we follow the story of Vincent who is drawn into several romance/sexual stories that fall on him. Completely barred game that mixes narrative stories and reflection game, very intriguing!",
+        "History: 4/5",
+        "Soundtrack: 3/5",
+        "Artistic direction: 5/5",
+        "Gameplay: 3.5/5",
+        "Overall rating: 3/5",
+        "Positive points:",
+        "- Artistic direction at the top with an animated rendering",
+        "- Juggling between cinematics/animations/super cool gameplay",
+        "- Several available purposes",
+        "- The part of the mini games can become quite complex!",
+        "Negative:",
+        "- Narration that takes good time before starting",
+        "- Mini-game game quite optional finally",
+        "- Lack of significant OST"
       ]
     }
   ],
   "highly_anticipated": [
     {
       "title": "",
-      "cover": "img/anticipated-1.jpg",
-      "review": [
-        "new placeholder — long text goes here so this box actually needs to scroll.",
-        "new placeholder — long text goes here so this box actually needs to scroll."
-      ]
+      "cover": "data/game/img/anticipated_1.png"
     },
     {
       "title": "",
-      "cover": "img/anticipated-2.jpg",
-      "review": [
-        "new placeholder — long text goes here so this box actually needs to scroll.",
-        "new placeholder — long text goes here so this box actually needs to scroll."
-      ]
+      "cover": "data/game/img/anticipated_2.png"
     },
     {
       "title": "",
-      "cover": "img/anticipated-3.jpg",
-      "review": [
-        "new placeholder — long text goes here so this box actually needs to scroll.",
-        "new placeholder — long text goes here so this box actually needs to scroll."
-      ]
+      "cover": "data/game/img/anticipated_3.png"
     }
   ],
   "physical_consoles_owned": [
-    { "name": "", "icon": "img/console-1.jpg" },
-    { "name": "", "icon": "img/console-2.jpg" },
-    { "name": "", "icon": "img/console-3.jpg" }
+    { "name": "", "icon": "data/game/img/console_1.png" },
+    { "name": "", "icon": "data/game/img/console_2.png" },
+    { "name": "", "icon": "data/game/img/console_3.png" },
+    { "name": "", "icon": "data/game/img/console_4.png" },
+    { "name": "", "icon": "data/game/img/console_5.png" },
+    { "name": "", "icon": "data/game/img/console_6.png" },
+    { "name": "", "icon": "data/game/img/console_7.png" },
+    { "name": "", "icon": "data/game/img/console_8.png" },
+    { "name": "", "icon": "data/game/img/console_9.png" },
+    { "name": "", "icon": "data/game/img/console_10.png" },
+    { "name": "", "icon": "data/game/img/console_11.png" },
+    { "name": "", "icon": "data/game/img/console_12.png" },
+    { "name": "", "icon": "data/game/img/console_13.png" },
+    { "name": "", "icon": "data/game/img/console_14.png" }
   ]
 }
