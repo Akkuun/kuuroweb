@@ -31,10 +31,10 @@
   margin: 0;
   padding: 0;
   user-select: none;
-  /* curseurs personnalises : depose normal.png / hover.png dans
-     data/cursor/ pour les activer, sinon fallback natif sur les curseurs
-     systeme (pas de JS necessaire) */
-  cursor: url("data/cursor/normal.png"), auto;
+  /* curseurs personnalises : data/cursor/auto.cur (par defaut) et
+     data/cursor/pointed.cur (survol des elements cliquables), sinon
+     fallback natif sur les curseurs systeme (pas de JS necessaire) */
+  cursor: url("data/cursor/auto.cur"), auto;
 }
 
 a,
@@ -42,7 +42,7 @@ button,
 .track-row,
 .context-menu-item,
 .volume-slider {
-  cursor: url("data/cursor/hover.png"), pointer;
+  cursor: url("data/cursor/pointed.cur"), pointer;
 }
 
 html, body {
@@ -205,9 +205,26 @@ body {
   z-index: 10;
 }
 
+/* deux animations chainees plutot qu'une seule : marquee-enter (une seule
+   fois) fait glisser le contenu depuis l'extremite droite de la barre
+   jusqu'a sa position de depart, puis marquee-scroll prend le relais pile
+   au meme point (translateX(0)) des que marquee-enter se termine (son
+   animation-delay = la duree de marquee-enter) -> pas de saut, la boucle
+   infinie continue exactement comme avant */
 .marquee-content {
   display: inline-flex;
-  animation: marquee-scroll 18s linear infinite;
+  animation:
+    marquee-enter 1.1s ease-out forwards,
+    marquee-scroll 18s linear infinite 1.1s;
+}
+
+@keyframes marquee-enter {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* le gap fait partie de la largeur du groupe (via margin-right), pas un gap
@@ -771,8 +788,8 @@ body {
 }
 
 .review-text {
-  font-size: 10px;
-  line-height: 1.25;
+  font-size: 11px;
+  line-height: 1.3;
 }
 
 /* bloc book : 2 lignes, chacune vignette + review sur le côté */
@@ -833,8 +850,8 @@ body {
   border: none;
   background: transparent;
   padding: 4px 6px;
-  font-size: 10px;
-  line-height: 1.3;
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 /* remplace le cadre classique des reviews : une ligne ─── avec une croix
@@ -1260,4 +1277,64 @@ body {
 .tier-list-lightbox-close:hover {
   background: #fff;
   color: #000;
+}
+
+/* effets curseur (voir js/cursor-effects.js) : forme de fleche generique
+   dessinee au clip-path, reutilisee pour les fantomes de trainee, le faux
+   curseur et la rafale de glitch */
+.cursor-trail-ghost,
+.fake-cursor,
+.cursor-glitch-stamp {
+  position: fixed;
+  z-index: 500;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  background: #fff;
+  clip-path: polygon(0 0, 0 70%, 25% 55%, 40% 100%, 55% 92%, 40% 50%, 70% 50%);
+}
+
+.cursor-trail-ghost {
+  opacity: 0.5;
+  transform: translate(-2px, -2px) rotate(var(--trail-rot, 0deg));
+  animation: cursor-trail-fade 0.65s ease-out forwards;
+}
+
+@keyframes cursor-trail-fade {
+  0% {
+    opacity: 0.55;
+    transform: translate(-2px, -2px) rotate(var(--trail-rot, 0deg)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-2px + var(--trail-dx, 0px)), calc(-2px + var(--trail-dy, 0px)))
+      rotate(var(--trail-rot, 0deg)) scale(0.55);
+  }
+}
+
+.fake-cursor {
+  z-index: 501;
+  opacity: 0;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.85));
+}
+
+.cursor-glitch-stamp {
+  z-index: 499;
+  transform: translate(-2px, -2px);
+}
+
+/* si le curseur perso (data/cursor/auto.cur) charge correctement (verifie
+   en JS, voir js/cursor-effects.js), les effets reprennent le vrai motif
+   du curseur au lieu de la fleche generique -- coherent avec le nouveau
+   design. Fallback silencieux sur la fleche si le navigateur ne sait pas
+   afficher un .cur comme image normale (peu fiable partout, contrairement
+   a son usage dans la propriete cursor). */
+.cursor-effects-custom .cursor-trail-ghost,
+.cursor-effects-custom .fake-cursor,
+.cursor-effects-custom .cursor-glitch-stamp {
+  background: transparent;
+  background-image: url("data/cursor/auto.cur");
+  background-size: contain;
+  background-repeat: no-repeat;
+  clip-path: none;
 }

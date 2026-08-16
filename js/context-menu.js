@@ -3,11 +3,11 @@
 
 const CONTEXT_MENU_ITEMS = [
   { label: "↻ Reload", action: () => location.reload() },
-  { label: "✉ Guestbook", action: () => window.open("guestbook.html", "_blank") },
-  { label: "🎬 All film reviews", action: () => window.open("film-reviews.html", "_blank") },
-  { label: "📖 All book reviews", action: () => window.open("book-reviews.html", "_blank") },
-  { label: "🎮 All game reviews", action: () => window.open("game-reviews.html", "_blank") },
-  { label: "🏆 Tier list", action: () => window.open("tier-list.html", "_blank") },
+  { label: "✉ Guestbook", action: () => { location.href = "guestbook.html"; } },
+  { label: "🎬 All film reviews", action: () => { location.href = "film-reviews.html"; } },
+  { label: "📖 All book reviews", action: () => { location.href = "book-reviews.html"; } },
+  { label: "🎮 All game reviews", action: () => { location.href = "game-reviews.html"; } },
+  { label: "🏆 Tier list", action: () => { location.href = "tier-list.html"; } },
   { label: "📋 Copy page link", action: () => navigator.clipboard.writeText(location.href) },
 ];
 

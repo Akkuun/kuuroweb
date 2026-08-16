@@ -1,8 +1,14 @@
 {
   "items": [
-    { "label": "Github", "url": "https://github.com/Akkuun" },
-    { "label": "Letterboxd", "url": "https://letterboxd.com/Akkuunamatata/" },
-    { "label": "Goodreads", "url": "https://www.goodreads.com/user/show/194327776" },
-    { "label": "Backloggd", "url": "https://backloggd.com/u/Akkuunamatata/" }
+    { "label": "Github", "url": "https://github.com/Akkuun", "external": true },
+    { "label": "Letterboxd", "url": "https://letterboxd.com/Akkuunamatata/", "external": true },
+    { "label": "Goodreads", "url": "https://www.goodreads.com/user/show/194327776", "external": true },
+    { "label": "Backloggd", "url": "https://backloggd.com/u/Akkuunamatata/", "external": true },
+    { "label": "Home", "url": "index.html" },
+    { "label": "Films", "url": "film-reviews.html" },
+    { "label": "Books", "url": "book-reviews.html" },
+    { "label": "Games", "url": "game-reviews.html" },
+    { "label": "Tier list", "url": "tier-list.html" },
+    { "label": "Guestbook", "url": "guestbook.html" }
   ]
 }

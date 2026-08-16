@@ -147,9 +147,16 @@ function glitchTitleOnce() {
 // longues, pour un cote imprevisible plutot qu'un tic-tac mecanique
 function scheduleGlitch() {
   glitchOnce();
-  // pas a chaque passage, pour que le titre de l'onglet reste discret
-  if (Math.random() < 0.4) glitchTitleOnce();
   setTimeout(scheduleGlitch, 150 + Math.random() * 2200);
 }
 
 setTimeout(scheduleGlitch, 300 + Math.random() * 1200);
+
+// boucle totalement independante pour le titre de l'onglet -- cadence bien
+// plus rapide que le glitch de page, sans rien changer a scheduleGlitch()
+function scheduleTitleGlitch() {
+  glitchTitleOnce();
+  setTimeout(scheduleTitleGlitch, 40 + Math.random() * 260);
+}
+
+setTimeout(scheduleTitleGlitch, 100 + Math.random() * 300);

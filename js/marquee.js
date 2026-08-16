@@ -24,8 +24,12 @@ function buildMarqueeGroup(items) {
   items.forEach((item) => {
     const a = marqueeEl("a", "marquee-item");
     a.href = item.url;
-    a.target = "_blank";
-    a.rel = "noopener";
+    // seuls les vrais liens externes (reseaux sociaux) s'ouvrent dans un
+    // nouvel onglet ; les pages du site restent dans le meme onglet
+    if (item.external) {
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
     a.textContent = `[ ${(item.label || "").toUpperCase()} ]`;
     group.appendChild(a);
   });
