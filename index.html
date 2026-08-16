@@ -85,25 +85,34 @@
                 <div id="book-list"></div>
               </div>
 
-              <!-- BLOC MANGA -->
-              <div class="block" id="block-manga">
-                <h2>MANGA <span class="jp">漫画</span></h2>
+              <!-- BLOC MANGA + COOL WEBSITE empilés dans la même colonne
+                   (Physical Video Game ne bouge pas : la colonne garde la
+                   même hauteur totale que Book, juste répartie autrement) -->
+              <div class="manga-column">
+                <div class="block" id="block-manga">
+                  <h2>MANGA <span class="jp">漫画</span></h2>
 
-                <div class="two-col-row">
-                  <div class="sub-section">
-                    <h3>Last read <span class="jp">最新に読んだ</span></h3>
-                    <div class="poster-row" id="manga-last-read"></div>
+                  <div class="two-col-row">
+                    <div class="sub-section">
+                      <h3>Last read <span class="jp">最新に読んだ</span></h3>
+                      <div class="poster-row" id="manga-last-read"></div>
+                    </div>
+
+                    <div class="sub-section">
+                      <h3>Favorite <span class="jp">お気に入り</span></h3>
+                      <div class="poster-row" id="manga-favorite"></div>
+                    </div>
                   </div>
 
-                  <div class="sub-section">
-                    <h3>Favorite <span class="jp">お気に入り</span></h3>
-                    <div class="poster-row" id="manga-favorite"></div>
+                  <!-- bloc de texte pleine largeur, sous last read/favorite -->
+                  <div class="sub-section manga-note-section">
+                    <p class="review-text" id="manga-note"></p>
                   </div>
                 </div>
 
-                <!-- bloc de texte pleine largeur, sous last read/favorite -->
-                <div class="sub-section manga-note-section">
-                  <p class="review-text" id="manga-note"></p>
+                <div class="block block-small" id="block-cool-website">
+                  <h2>COOL WEBSITE <span class="jp">おすすめサイト</span></h2>
+                  <a target="_blank" href="https://kuurp.nekoweb.org"><img src="https://kuurp.nekoweb.org/assets/button.png" width="88" height="31"></a>
                 </div>
               </div>
 
@@ -192,5 +201,6 @@
 
   <script src="js/render.js" defer></script>
   <script src="js/context-menu.js" defer></script>
+  <script src="js/polaroid-effect.js" defer></script>
 </body>
 </html>

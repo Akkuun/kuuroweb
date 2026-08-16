@@ -4,7 +4,7 @@
     {
       "name": "kuuroSite",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8123"],
+      "runtimeArgs": ["scripts/dev_server.py"],
       "port": 8123
     }
   ]

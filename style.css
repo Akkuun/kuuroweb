@@ -57,14 +57,13 @@ body {
   padding: 14px 5vw;
 }
 
-/* image flottante dans la marge, à gauche de #site, hors de tout bloc :
-   pas de bordure, margin-right:auto la pousse à gauche pendant que #site
-   reste sur sa droite (justify-content:flex-end sur #page) */
+/* image flottante hors de tout bloc, collée au bord gauche de l'îlot de
+   blocs (#site) : pas de gap ici, l'espace restant va à gauche de l'image
+   (justify-content:flex-end sur #page pousse le duo image+site à droite) */
 #site-image {
   width: 220px;
   align-self: stretch;
   flex-shrink: 0;
-  margin-right: auto;
   position: relative;
 }
 
@@ -74,8 +73,8 @@ body {
 #site {
   display: flex;
   gap: 14px;
-  width: 1300px;
-  max-width: 92vw;
+  width: 1450px;
+  max-width: 94vw;
   background: transparent;
   border: none;
   padding: 14px;
@@ -219,24 +218,35 @@ body {
   min-width: 0;
 }
 
-/* manga a besoin de plus de largeur pour tenir ses 3 vignettes par colonne
-   sur une seule ligne ; anime se décale/rétrécit d'autant */
-#block-manga {
-  flex: 1.7;
-  min-height: 221px;
+/* book, manga+cool website et anime+ghost sont tous calés sur la même
+   hauteur (349px, celle de manga+cool website) pour finir au même niveau */
+#block-book {
+  min-height: 349px;
 }
 
-/* anime + visitor counter empilés, colonne un peu plus étroite */
-/* anime + image ghost empilées, colonne un peu plus étroite */
-/* min-height calée sur la hauteur de #block-manga (221px) : le ghost (en
-   flex:1 juste en dessous) s'étire pour combler tout l'espace restant */
+/* manga + cool website empilés, colonne large (3 vignettes par ligne) */
+.manga-column {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1.7;
+  min-width: 0;
+  min-height: 349px;
+}
+
+#block-cool-website {
+  flex: 1;
+}
+
+/* anime + image ghost empilées, colonne un peu plus étroite ; le ghost
+   (flex:1 juste en dessous) s'étire pour combler tout l'espace restant */
 .anime-column {
   display: flex;
   flex-direction: column;
   gap: 9px;
   flex: 0.7;
   min-width: 0;
-  min-height: 221px;
+  min-height: 349px;
 }
 
 #block-ghost {
@@ -397,8 +407,27 @@ body {
   gap: 8px;
 }
 
-/* plus de zoom au survol : le titre (attribut title posé dans render.js)
-   s'affiche déjà comme tooltip natif du navigateur, pas besoin de CSS ici */
+/* zoom léger au survol sur toutes les vignettes de médias, pour mieux les
+   voir ; z-index pour passer par-dessus les voisines sans être coupé */
+.poster,
+.dvd-cover,
+.manga-cover,
+.anime-thumb,
+.game-cover,
+.book-cover {
+  transition: transform 0.15s ease;
+  position: relative;
+}
+
+.poster:hover,
+.dvd-cover:hover,
+.manga-cover:hover,
+.anime-thumb:hover,
+.game-cover:hover,
+.book-cover:hover {
+  transform: scale(1.8);
+  z-index: 5;
+}
 
 .poster {
   width: 58px;
@@ -547,33 +576,43 @@ body {
 }
 
 /* bloc polaroid */
-/* pivote légèrement au survol (comme si on bougeait la vraie photo en main)
-   + un léger reflet qui balaie la photo, façon petit effet shader */
+/* effet carte holographique (façon carte Pokémon) : le tilt 3D et le reflet
+   arc-en-ciel suivent la position de la souris (voir js/polaroid-effect.js) */
 .polaroid-photo {
   width: 100%;
   aspect-ratio: 4 / 5;
-  background: #999;
+  background-color: #999;
   border: 2px solid #000;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.polaroid-photo:hover {
-  transform: rotate(-4deg) scale(1.05);
+  transform: perspective(600px) rotateX(var(--holo-rx, 0deg)) rotateY(var(--holo-ry, 0deg)) scale(var(--holo-scale, 1));
+  transition: transform 0.2s ease-out;
 }
 
 .polaroid-photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
-  transform: translateX(-120%);
-  transition: transform 0.6s ease;
+  background-image: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 0, 120, 0.45) 32%,
+    rgba(255, 220, 0, 0.45) 42%,
+    rgba(0, 255, 140, 0.45) 52%,
+    rgba(0, 180, 255, 0.45) 62%,
+    rgba(190, 0, 255, 0.45) 72%,
+    transparent 84%
+  );
+  background-size: 250% 250%;
+  background-position: var(--holo-x, 50%) var(--holo-y, 50%);
+  mix-blend-mode: color-dodge;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
 }
 
 .polaroid-photo:hover::after {
-  transform: translateX(120%);
+  opacity: 0.85;
 }
 
 /* bloc chat */

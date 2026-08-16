@@ -149,6 +149,7 @@ async function renderManga() {
   document.getElementById("manga-note").textContent = data.note || "";
 }
 
+// ---- COOL WEBSITE ----
 // ---- FAVORITE ANIME ----
 async function renderAnime() {
   const data = await loadJSON("data/anime/data.json");
@@ -177,12 +178,14 @@ async function renderGhostImage() {
 }
 
 // ---- IMAGE TOUT À GAUCHE DU BLOC CENTRAL ----
-// pas de crop : la largeur du conteneur s'ajuste au ratio réel de l'image
-// (hauteur fixée par align-self:stretch) pour montrer l'image en entier.
+// pas de crop : la largeur du conteneur s'ajuste au ratio réel de l'image.
+// la hauteur vient de align-self:stretch (CSS) sur toute la hauteur de
+// #page, donc du haut en bas de la page, pas juste calée sur #site.
 async function renderSiteImage() {
   const data = await loadJSON("data/site-image/data.json");
   const node = document.getElementById("site-image");
   if (data.credit) node.title = data.credit;
+
   if (!data.image) return;
 
   const probe = new Image();
