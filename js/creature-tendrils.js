@@ -178,67 +178,7 @@ function initGhostMessage() {
   svg.style.animationDelay = `${writeDuration}s`;
 }
 
-// calque d'instances éparpillées de eye_wall.gif, confiné exactement
-// derrière l'îlot de blocs (jamais au-delà, overflow:hidden sur le
-// conteneur) : mesuré au runtime comme le message caché. Chaque instance
-// est un <img> séparé (pas un simple background-image répété en tuile) :
-// position, taille et rotation aléatoires pour une répartition organique
-// plutôt qu'une grille mécanique, ET surtout un décodeur GIF indépendant
-// par image -- chaque src porte un paramètre unique (?i=N) pour forcer le
-// navigateur à ne pas partager le même décodage/horloge d'animation, et
-// l'insertion de chaque <img> dans le DOM est elle-même décalée dans le
-// temps -> les boucles ne sont jamais synchronisées entre elles.
-function initEyeWallLayer() {
-  const page = document.getElementById("page");
-  const island = document.getElementById("content-main");
-  if (!page || !island) return;
-  if (page.querySelector(".eye-wall-layer")) return;
-
-  const pageRect = page.getBoundingClientRect();
-  const islandRect = island.getBoundingClientRect();
-  if (!islandRect.width || !islandRect.height) return;
-
-  const layer = document.createElement("div");
-  layer.className = "eye-wall-layer";
-  layer.setAttribute("aria-hidden", "true");
-  layer.style.left = `${islandRect.left - pageRect.left}px`;
-  layer.style.top = `${islandRect.top - pageRect.top}px`;
-  layer.style.width = `${islandRect.width}px`;
-  layer.style.height = `${islandRect.height}px`;
-  page.appendChild(layer);
-
-  // densité approximative pour couvrir "une bonne partie" de l'îlot sans
-  // le tapisser entièrement -- avec chevauchement, c'est voulu (organique)
-  const area = islandRect.width * islandRect.height;
-  const count = Math.max(14, Math.min(45, Math.round(area / 7000)));
-  const aspect = 281 / 500;
-
-  for (let i = 0; i < count; i++) {
-    const img = document.createElement("img");
-    img.className = "eye-wall-instance";
-    img.alt = "";
-    img.src = `data/eye_wall.gif?i=${i}`;
-
-    const w = 65 + Math.random() * 100;
-    const h = w * aspect;
-    const x = Math.random() * Math.max(0, islandRect.width - w);
-    const y = Math.random() * Math.max(0, islandRect.height - h);
-    const rotation = Math.random() * 70 - 35;
-
-    img.style.width = `${w}px`;
-    img.style.left = `${x}px`;
-    img.style.top = `${y}px`;
-    img.style.transform = `rotate(${rotation}deg)`;
-
-    // démarrage décalé : chaque image ne commence son décodage/sa boucle
-    // qu'au moment où elle est réellement insérée dans le DOM
-    setTimeout(() => layer.appendChild(img), Math.random() * 1800);
-  }
-}
-
-// attend que le layout data-driven (posters, images...) se stabilise avant
-// de mesurer la taille réelle de l'îlot de blocs
-setTimeout(() => {
-  initGhostMessage();
-  initEyeWallLayer();
-}, 1500);
+// "I SEE YOU" désactivé pour le moment. Pour le réactiver :
+// setTimeout(initGhostMessage, 1500);
+// (le mur de gif eye_wall.gif a été déplacé dans js/eye-wall.js, partagé
+// avec les pages secondaires)

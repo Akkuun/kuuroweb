@@ -24,4 +24,15 @@
     card.style.setProperty("--holo-ry", "0deg");
     card.style.setProperty("--holo-scale", "1");
   });
+
+  // pulses de "glitch" chromatique tres brefs et irreguliers, en plus du
+  // shader de distorsion permanent (voir #polaroid-shader dans index.html
+  // + .polaroid-photo dans style.css) -- rend la photo legerement
+  // instable/inquietante plutot que juste holographique
+  function schedulePolaroidGlitch() {
+    card.classList.add("glitching");
+    setTimeout(() => card.classList.remove("glitching"), 90 + Math.random() * 220);
+    setTimeout(schedulePolaroidGlitch, 3500 + Math.random() * 8000);
+  }
+  setTimeout(schedulePolaroidGlitch, 2500 + Math.random() * 4000);
 })();

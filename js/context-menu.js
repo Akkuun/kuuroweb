@@ -7,6 +7,7 @@ const CONTEXT_MENU_ITEMS = [
   { label: "🎬 All film reviews", action: () => window.open("film-reviews.html", "_blank") },
   { label: "📖 All book reviews", action: () => window.open("book-reviews.html", "_blank") },
   { label: "🎮 All game reviews", action: () => window.open("game-reviews.html", "_blank") },
+  { label: "🏆 Tier list", action: () => window.open("tier-list.html", "_blank") },
   { label: "📋 Copy page link", action: () => navigator.clipboard.writeText(location.href) },
 ];
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physical Video Game Reviews — Akkuunamatata</title>
+  <title>Tier List — Akkuunamatata</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -15,12 +15,12 @@
       gap: 14px;
     }
 
-    .archive-page {
+    .tier-list-page {
       width: 100%;
       max-width: 700px;
     }
 
-    .archive-back {
+    .tier-list-back {
       display: inline-block;
       margin-bottom: 10px;
       font-size: 11px;
@@ -47,27 +47,24 @@
     <div class="marquee-content" id="marquee-content"></div>
   </div>
 
-  <div class="archive-page">
-    <a class="archive-back" href="index.html">&larr; back to site</a>
+  <div class="tier-list-page">
+    <a class="tier-list-back" href="index.html">&larr; back to site</a>
 
-    <div class="block" id="block-game-archive">
-      <h2>ALL PHYSICAL VIDEO GAME REVIEWS <span class="jp">ゲームレビュー全部</span></h2>
-      <div id="archive-list"></div>
+    <div class="block" id="block-tier-list">
+      <h2>TIER LIST <span class="jp">ティアリスト</span></h2>
+      <div class="tier-list-grid" id="tier-list-grid"></div>
     </div>
+  </div>
+
+  <div class="tier-list-lightbox" id="tier-list-lightbox">
+    <button class="tier-list-lightbox-close" id="tier-list-lightbox-close" aria-label="Close">&times;</button>
+    <img class="tier-list-lightbox-img" id="tier-list-lightbox-img" alt="">
   </div>
 
   <script src="js/marquee.js" defer></script>
   <script src="js/context-menu.js" defer></script>
   <script src="js/ascii-decor.js" defer></script>
   <script src="js/glitch.js" defer></script>
-  <script src="js/archive.js"></script>
-  <script>
-    renderArchive({
-      dataPath: "data/game/data.json",
-      field: "all_reviews",
-      imageKey: "cover",
-      container: "archive-list",
-    }).catch((err) => console.error(err));
-  </script>
+  <script src="js/tier-list.js" defer></script>
 </body>
 </html>

@@ -8,6 +8,17 @@
 </head>
 <body>
 
+  <!-- filtre SVG caché : léger warp organique pour le shader "effrayant"
+       du polaroid (voir .polaroid-photo dans style.css) -->
+  <svg width="0" height="0" style="position: absolute; overflow: hidden;" aria-hidden="true">
+    <filter id="polaroid-shader">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="seed" values="1;40;12;1" dur="22s" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+
   <!-- Bande supérieure : collée tout en haut de la page, hors du bloc central -->
   <div id="marquee-bar">
     <div class="marquee-content" id="marquee-content"></div>
@@ -146,6 +157,7 @@
                       <a href="film-reviews.html" target="_blank" rel="noopener">Films</a>
                       <a href="book-reviews.html" target="_blank" rel="noopener">Books</a>
                       <a href="game-reviews.html" target="_blank" rel="noopener">Games</a>
+                      <a href="tier-list.html" target="_blank" rel="noopener">Tier list</a>
                       <a href="guestbook.html" target="_blank" rel="noopener">Guestbook</a>
                     </div>
                     <p class="navigate-hint">right-click anywhere <span class="jp">→ 右クリックでも移動できます</span></p>
@@ -238,5 +250,6 @@
   <script src="js/ascii-decor.js" defer></script>
   <script src="js/glitch.js" defer></script>
   <script src="js/creature-tendrils.js" defer></script>
+  <script src="js/eye-wall.js" defer></script>
 </body>
 </html>
