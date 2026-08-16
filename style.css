@@ -60,12 +60,62 @@ body {
 
 /* conteneur global : le site est poussé vers la droite de l'écran, hauteur fixe pour empêcher le scroll */
 #page {
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 14px 0.3vw 14px 5vw;
   transform: translateY(-10px);
+}
+
+/* message caché "I SEE YOU" derrière l'îlot de blocs centraux, tracé trait
+   par trait façon écriture manuscrite lente (voir js/creature-tendrils.js
+   pour le tracé + l'animation de révélation, mesurés au runtime). z-index
+   bas exprès : #content-main passe par-dessus (voir plus bas), donc le
+   fond des blocs étant transparent, le message ne perce que dans les
+   interstices entre le contenu réel des blocs -- jamais par-dessus. */
+.ghost-message {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  animation: ghost-message-drift 90s ease-in-out infinite alternate;
+}
+
+.ghost-message-path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 0.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.16;
+}
+
+/* trait "repassé" par une main hésitante : plus faible, pour épaissir le
+   trait principal sans le rendre net */
+.ghost-message-retrace {
+  opacity: 0.09;
+}
+
+@keyframes ghost-message-reveal {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ghost-message-drift {
+  0% {
+    opacity: 0.7;
+    transform: translate(0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(1px, -1px);
+  }
+  100% {
+    opacity: 0.75;
+    transform: translate(-1px, 1px);
+  }
 }
 
 /* image flottante hors de tout bloc, collée au bord gauche de l'îlot de
@@ -79,6 +129,8 @@ body {
   /* décale visuellement vers la droite sans toucher width/height (donc
      sans changer le ratio calculé en JS dans renderSiteImage) */
   transform: translateX(40px);
+  /* sous l'îlot de blocs (#content-main) dans l'empilement */
+  z-index: 1;
 }
 
 /* conteneur du site : transparent, pour que le fond noir (sur body) se
@@ -160,7 +212,11 @@ body {
   min-width: 0;
 }
 
+/* z-index le plus haut de #page : l'îlot de blocs passe toujours par-dessus
+   le cover et le message caché (.ghost-message) */
 #content-main {
+  position: relative;
+  z-index: 20;
   display: flex;
   gap: 14px;
   align-items: stretch;
@@ -1029,4 +1085,24 @@ body {
 .archive-pager-btn:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+/* une seule vignette "corrompue" par chargement de page, choisie au hasard
+   parmi toutes les couvertures (voir js/corrupted-cover.js) : un artefact
+   visuel discret plutot qu'un jumpscare. Volontairement pas de transition
+   -- l'idee est qu'on la remarque en passant, pas qu'elle attire l'oeil */
+.corrupted-cover.variant-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.corrupted-cover.variant-artifact {
+  filter: hue-rotate(200deg) saturate(4) contrast(1.6) brightness(0.85);
+}
+
+.corrupted-cover.variant-degraded {
+  filter: blur(0.6px) contrast(1.8) brightness(0.55) grayscale(0.3);
+}
+
+.corrupted-cover.variant-static {
+  filter: contrast(2.2) brightness(1.4) saturate(0.15);
 }

@@ -98,11 +98,57 @@ function glitchOnce() {
   }
 }
 
+// meme effet, applique au titre de l'onglet (document.title n'est pas un
+// noeud du DOM -> logique separee, mais meme principe de glitch/restore)
+const glitchTitleActivePositions = new Set();
+
+function glitchTitleAtPosition(pos, original, expectedLength) {
+  const cycles = 2 + Math.floor(Math.random() * 7);
+  let step = 0;
+
+  function tick() {
+    const current = document.title;
+    if (!current || current.length !== expectedLength) {
+      glitchTitleActivePositions.delete(pos);
+      return;
+    }
+    if (step < cycles) {
+      document.title = current.slice(0, pos) + glitchRandomChar() + current.slice(pos + 1);
+      step++;
+      setTimeout(tick, 25 + Math.random() * 140);
+    } else {
+      document.title = current.slice(0, pos) + original + current.slice(pos + 1);
+      glitchTitleActivePositions.delete(pos);
+    }
+  }
+
+  tick();
+}
+
+function glitchTitleOnce() {
+  const title = document.title;
+  if (!title || title.trim().length < 2) return;
+
+  let pos = Math.floor(Math.random() * title.length);
+  let attempts = 0;
+  while (title[pos] === " " && attempts < 10) {
+    pos = Math.floor(Math.random() * title.length);
+    attempts++;
+  }
+  if (title[pos] === " ") return;
+  if (glitchTitleActivePositions.has(pos)) return;
+
+  glitchTitleActivePositions.add(pos);
+  glitchTitleAtPosition(pos, title[pos], title.length);
+}
+
 // re-planifie a chaque fois avec un delai aleatoire (pas de setInterval a
 // cadence fixe) : tantot des rafales rapprochees, tantot des pauses plus
 // longues, pour un cote imprevisible plutot qu'un tic-tac mecanique
 function scheduleGlitch() {
   glitchOnce();
+  // pas a chaque passage, pour que le titre de l'onglet reste discret
+  if (Math.random() < 0.4) glitchTitleOnce();
   setTimeout(scheduleGlitch, 150 + Math.random() * 2200);
 }
 
