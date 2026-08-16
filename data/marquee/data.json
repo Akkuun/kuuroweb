@@ -1,8 +1,8 @@
 {
   "items": [
-    { "label": "Github", "url": "https://github.com/Akkuun", "icon": "data/socials/github.svg" },
-    { "label": "Letterboxd", "url": "https://letterboxd.com/Akkuunamatata/", "icon": "data/socials/letterboxd.png" },
-    { "label": "Goodreads", "url": "https://www.goodreads.com/user/show/194327776", "icon": "data/socials/goodreads.png" },
-    { "label": "Backloggd", "url": "https://backloggd.com/u/Akkuunamatata/", "icon": "data/socials/backloggd.png" }
+    { "label": "Github", "url": "https://github.com/Akkuun" },
+    { "label": "Letterboxd", "url": "https://letterboxd.com/Akkuunamatata/" },
+    { "label": "Goodreads", "url": "https://www.goodreads.com/user/show/194327776" },
+    { "label": "Backloggd", "url": "https://backloggd.com/u/Akkuunamatata/" }
   ]
 }

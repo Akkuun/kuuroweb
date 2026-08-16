@@ -203,11 +203,11 @@ async function renderPolaroid() {
   setBackgroundImage(document.getElementById("polaroid-photo"), data.photo);
 }
 
-// ---- BANDE MARQUEE : icône + nom + lien cliquable par réseau social ----
-// deux groupes identiques (pas une liste d'items à plat) : chaque groupe
-// inclut son propre gap de fin dans sa largeur, donc les deux groupes ont
-// une largeur strictement égale et translateX(-50%) tombe pile sur la
-// frontière -> plus de saut visible ("rollback") à la reprise de la boucle.
+// ---- BANDE MARQUEE : "[ NOM ]" façon terminal + lien cliquable par réseau
+// social ---- deux groupes identiques (pas une liste d'items à plat) :
+// chaque groupe inclut son propre gap de fin dans sa largeur, donc les deux
+// groupes ont une largeur strictement égale et translateX(-50%) tombe pile
+// sur la frontière -> plus de saut visible ("rollback") à la reprise de la boucle.
 function buildMarqueeGroup(items) {
   const group = el("div", "marquee-group");
   items.forEach((item) => {
@@ -215,13 +215,7 @@ function buildMarqueeGroup(items) {
     a.href = item.url;
     a.target = "_blank";
     a.rel = "noopener";
-
-    const icon = el("span", "marquee-item-icon");
-    setBackgroundImage(icon, item.icon, "contain");
-    a.appendChild(icon);
-
-    a.appendChild(document.createTextNode(item.label));
-
+    a.textContent = `[ ${(item.label || "").toUpperCase()} ]`;
     group.appendChild(a);
   });
   return group;
@@ -245,6 +239,25 @@ async function renderMusic() {
 
   const audio = el("audio");
   audio.controls = true;
+  audio.volume = 0.7;
+
+  // volume perso : le slider natif du <audio controls> disparait souvent
+  // quand le lecteur est trop etroit (comme ici, dans un bloc-small) ->
+  // curseur dedie pour garantir que le reglage du son reste accessible
+  const volumeRow = el("div", "volume-row");
+  const volumeIcon = el("span", "volume-icon");
+  volumeIcon.textContent = "🔊";
+  const volumeSlider = el("input", "volume-slider");
+  volumeSlider.type = "range";
+  volumeSlider.min = "0";
+  volumeSlider.max = "1";
+  volumeSlider.step = "0.01";
+  volumeSlider.value = String(audio.volume);
+  volumeSlider.addEventListener("input", () => {
+    audio.volume = Number(volumeSlider.value);
+  });
+  volumeRow.appendChild(volumeIcon);
+  volumeRow.appendChild(volumeSlider);
 
   const list = el("div", "track-list");
   const rows = [];
@@ -270,6 +283,7 @@ async function renderMusic() {
 
   container.appendChild(list);
   container.appendChild(audio);
+  container.appendChild(volumeRow);
 }
 
 // ---- CHAT : shoutbox Cbox (cbox.ws) ----
