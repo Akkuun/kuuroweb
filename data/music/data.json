@@ -2,6 +2,9 @@
   "tracks": [
     { "title": "", "src": "data/music/track_1.mp3" },
     { "title": "", "src": "data/music/track_2.mp3" },
-    { "title": "", "src": "data/music/track_3.mp3" }
+    { "title": "", "src": "data/music/track_3.mp3" },
+    { "title": "", "src": "data/music/track_4.mp3" },
+    { "title": "", "src": "data/music/track_5.mp3" },
+    { "title": "", "src": "data/music/track_6.mp3" }
   ]
 }

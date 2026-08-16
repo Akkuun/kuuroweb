@@ -1,9 +1,29 @@
-/* nouvelle police : depose le fichier a ce chemin pour l'activer, sinon
-   fallback silencieux sur monospace (aucune balise <link> a toucher) */
 @font-face {
   font-family: "SiteFont";
-  src: url("data/font/font.woff2") format("woff2");
+  src: url("data/font/SiteFont.ttf") format("truetype");
   font-display: swap;
+}
+
+/* menu clic droit personnalisé */
+.context-menu {
+  position: fixed;
+  z-index: 100;
+  background: #eee;
+  border: 2px solid #000;
+  font-family: "SiteFont", monospace;
+  font-size: 10px;
+  min-width: 140px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.context-menu-item {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.context-menu-item:hover {
+  background: #6a0dad;
+  color: #fff;
 }
 
 * {
@@ -20,7 +40,7 @@ html, body {
   height: 100%;
   overflow: hidden;
   font-family: "SiteFont", monospace;
-  background: #ccc;
+  background: #ccc url("data/background.jpg") center / cover no-repeat;
 }
 
 /* décale le contenu sous la bande marquee, fixée en haut du viewport */
@@ -45,16 +65,19 @@ body {
   align-self: stretch;
   flex-shrink: 0;
   margin-right: auto;
+  position: relative;
 }
 
-/* conteneur du site */
+/* conteneur du site : transparent, pour que background.jpg (sur body) se
+   voie dans les espaces entre les blocs (les blocs eux-mêmes restent
+   opaques) -> les blocs flottent comme une "île" sur le fond global */
 #site {
   display: flex;
   gap: 14px;
   width: 1300px;
   max-width: 92vw;
-  background: #fff;
-  border: 2px solid #000;
+  background: transparent;
+  border: none;
   padding: 14px;
 }
 
@@ -74,8 +97,16 @@ body {
 
 .marquee-content {
   display: inline-flex;
-  gap: 40px;
   animation: marquee-scroll 18s linear infinite;
+}
+
+/* le gap fait partie de la largeur du groupe (via margin-right), pas un gap
+   entre groupes : les deux groupes ont alors une largeur identique */
+.marquee-group {
+  display: inline-flex;
+  gap: 40px;
+  margin-right: 40px;
+  flex-shrink: 0;
 }
 
 .marquee-item {
@@ -212,6 +243,17 @@ body {
   flex: 1;
 }
 
+/* évite que la 3e vignette tombe sur une 2e ligne dans la colonne étroite :
+   les vignettes se compressent légèrement plutôt que de wrapper */
+#anime-favorite {
+  flex-wrap: nowrap;
+}
+
+#anime-favorite > * {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
 /* pas de titre ni bordure : l'image occupe tout le bloc */
 .block.no-padding {
   padding: 0;
@@ -292,6 +334,22 @@ body {
   min-width: 0;
 }
 
+/* favorite games (5 vignettes) a besoin de plus de place pour tenir sur une
+   seule ligne : les colonnes voisines (anticipated, guestbook) se décalent
+   d'autant, comme pour favorite films */
+#block-game .two-col-row .sub-section:first-child {
+  flex: 1.7;
+}
+
+#block-game .two-col-row .poster-row {
+  flex-wrap: nowrap;
+}
+
+#block-game .two-col-row .poster-row > * {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
 /* réserve la hauteur de 2 lignes de titre, que le texte JP fasse wrapper ou
    non : les 3 rangées de vignettes démarrent toujours au même niveau */
 #block-film .two-col-row h3 {
@@ -339,6 +397,9 @@ body {
   gap: 8px;
 }
 
+/* plus de zoom au survol : le titre (attribut title posé dans render.js)
+   s'affiche déjà comme tooltip natif du navigateur, pas besoin de CSS ici */
+
 .poster {
   width: 58px;
   height: 86px;
@@ -364,8 +425,8 @@ body {
 }
 
 .anime-thumb {
-  width: 42px;
-  height: 60px;
+  width: 56px;
+  height: 80px;
   background: #999;
   border: 2px solid #000;
   flex-shrink: 0;
@@ -486,11 +547,33 @@ body {
 }
 
 /* bloc polaroid */
+/* pivote légèrement au survol (comme si on bougeait la vraie photo en main)
+   + un léger reflet qui balaie la photo, façon petit effet shader */
 .polaroid-photo {
   width: 100%;
   aspect-ratio: 4 / 5;
   background: #999;
   border: 2px solid #000;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.polaroid-photo:hover {
+  transform: rotate(-4deg) scale(1.05);
+}
+
+.polaroid-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.polaroid-photo:hover::after {
+  transform: translateX(120%);
 }
 
 /* bloc chat */
@@ -544,6 +627,21 @@ body {
   font-size: 9px;
   color: #000;
   text-decoration: none;
+}
+
+.guestbook-link {
+  display: inline-block;
+  font-size: 9px;
+  color: #000;
+  border: 2px solid #000;
+  background: #eee;
+  padding: 4px 6px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.guestbook-link:hover {
+  background: #ccc;
 }
 
 .follow-link:hover .follow-link-label {

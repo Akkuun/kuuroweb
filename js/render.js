@@ -177,9 +177,24 @@ async function renderGhostImage() {
 }
 
 // ---- IMAGE TOUT À GAUCHE DU BLOC CENTRAL ----
+// pas de crop : la largeur du conteneur s'ajuste au ratio réel de l'image
+// (hauteur fixée par align-self:stretch) pour montrer l'image en entier.
 async function renderSiteImage() {
   const data = await loadJSON("data/site-image/data.json");
-  setBackgroundImage(document.getElementById("site-image"), data.image);
+  const node = document.getElementById("site-image");
+  if (data.credit) node.title = data.credit;
+  if (!data.image) return;
+
+  const probe = new Image();
+  probe.onload = () => {
+    node.style.backgroundImage = `url("${data.image}")`;
+    node.style.backgroundSize = "contain";
+    node.style.backgroundPosition = "center";
+    node.style.backgroundRepeat = "no-repeat";
+    const ratio = probe.naturalWidth / probe.naturalHeight;
+    node.style.width = `${node.getBoundingClientRect().height * ratio}px`;
+  };
+  probe.src = data.image;
 }
 
 // ---- LAST POLAROID ----
@@ -189,12 +204,12 @@ async function renderPolaroid() {
 }
 
 // ---- BANDE MARQUEE : icône + nom + lien cliquable par réseau social ----
-async function renderMarquee() {
-  const data = await loadJSON("data/marquee/data.json");
-  const track = document.getElementById("marquee-content");
-
-  // dupliqué pour boucler le défilement sans coupure
-  const items = [...data.items, ...data.items];
+// deux groupes identiques (pas une liste d'items à plat) : chaque groupe
+// inclut son propre gap de fin dans sa largeur, donc les deux groupes ont
+// une largeur strictement égale et translateX(-50%) tombe pile sur la
+// frontière -> plus de saut visible ("rollback") à la reprise de la boucle.
+function buildMarqueeGroup(items) {
+  const group = el("div", "marquee-group");
   items.forEach((item) => {
     const a = el("a", "marquee-item");
     a.href = item.url;
@@ -207,8 +222,16 @@ async function renderMarquee() {
 
     a.appendChild(document.createTextNode(item.label));
 
-    track.appendChild(a);
+    group.appendChild(a);
   });
+  return group;
+}
+
+async function renderMarquee() {
+  const data = await loadJSON("data/marquee/data.json");
+  const track = document.getElementById("marquee-content");
+  track.appendChild(buildMarqueeGroup(data.items));
+  track.appendChild(buildMarqueeGroup(data.items));
 }
 
 // ---- MUSIC : une ligne par piste (titre), celle en cours surlignée en violet ----
