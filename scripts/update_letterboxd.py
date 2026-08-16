@@ -22,13 +22,14 @@ NS = {"letterboxd": "https://letterboxd.com"}
 DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "film" / "data.json"
 
 RECENT_REVIEWS_COUNT = 3
+ARCHIVE_REVIEWS_COUNT = 30
 FAVORITES_COUNT = 5
 
 
-def fetch_recent_reviews():
+def fetch_recent_reviews(count):
     xml_text = fetch(f"https://letterboxd.com/{USERNAME}/rss/")
     root = ET.fromstring(xml_text)
-    items = root.findall("./channel/item")[:RECENT_REVIEWS_COUNT]
+    items = root.findall("./channel/item")[:count]
 
     reviews = []
     for item in items:
@@ -101,7 +102,11 @@ def main():
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
 
     data["favorite_films"] = fetch_favorite_films()
-    data["last_on_letterboxd"] = fetch_recent_reviews()
+    # une seule requete RSS : la page d'accueil affiche les RECENT_REVIEWS_COUNT
+    # premieres, la page d'archive (film-reviews.html) affiche tout le lot
+    archive = fetch_recent_reviews(ARCHIVE_REVIEWS_COUNT)
+    data["last_on_letterboxd"] = archive[:RECENT_REVIEWS_COUNT]
+    data["all_reviews"] = archive
 
     DATA_PATH.write_text(
         json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
@@ -109,7 +114,7 @@ def main():
     print(
         f"data/film/data.json mis a jour : "
         f"{len(data['favorite_films'])} favoris, "
-        f"{len(data['last_on_letterboxd'])} reviews recentes"
+        f"{len(data['all_reviews'])} reviews au total"
     )
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook — Akkuunamatata</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%91%BB</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      overflow: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .guestbook-page {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .guestbook-back {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: #000;
+    }
+
+    .guestbook-frame {
+      width: 100%;
+      height: 80vh;
+      border: 2px solid #000;
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guestbook-page">
+    <a class="guestbook-back" href="index.html">&larr; back to site</a>
+
+    <div class="block" id="block-guestbook">
+      <h2>GUESTBOOK <span class="jp">ゲストブック</span></h2>
+      <iframe class="guestbook-frame" src="https://akkuunamatata.atabook.org" title="Guestbook"></iframe>
+    </div>
+  </div>
+
+  <script src="js/context-menu.js" defer></script>
+</body>
+</html>

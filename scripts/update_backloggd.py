@@ -21,6 +21,10 @@ DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "game" / "data.jso
 
 FAVORITES_COUNT = 5
 REVIEWS_COUNT = 3
+# backloggd n'a pas de RSS/API et la page /reviews/ n'affiche qu'une seule
+# page sans lien de pagination exploitable simplement -> "toutes les reviews"
+# se limite en pratique aux reviews presentes sur cette premiere page
+ARCHIVE_COUNT = 30
 
 
 def fetch_favorite_games():
@@ -41,13 +45,13 @@ def fetch_favorite_games():
     return favorites
 
 
-def fetch_reviews():
+def fetch_reviews(count):
     reviews_html = fetch(f"https://backloggd.com/u/{USERNAME}/reviews/")
 
     chunks = reviews_html.split('<div class="row pt-2 pb-1 review-card">')[1:]
 
     reviews = []
-    for chunk in chunks[:REVIEWS_COUNT]:
+    for chunk in chunks[:count]:
         card_html = chunk.split("<hr>")[0]
 
         cover_match = re.search(
@@ -91,7 +95,11 @@ def main():
     data["favorite_games"] = [
         {"title": e["title"], "cover": e["image"]} for e in fetch_favorite_games()
     ]
-    data["last_review"] = fetch_reviews()
+    # une seule requete : la page d'accueil affiche les REVIEWS_COUNT
+    # premieres, la page d'archive (game-reviews.html) affiche tout le lot
+    archive = fetch_reviews(ARCHIVE_COUNT)
+    data["last_review"] = archive[:REVIEWS_COUNT]
+    data["all_reviews"] = archive
 
     DATA_PATH.write_text(
         json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
@@ -99,7 +107,7 @@ def main():
     print(
         f"data/game/data.json mis a jour : "
         f"{len(data['favorite_games'])} favoris, "
-        f"{len(data['last_review'])} reviews recentes"
+        f"{len(data['all_reviews'])} reviews au total"
     )
 
 

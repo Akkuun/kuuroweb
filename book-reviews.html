@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Reviews — Akkuunamatata</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%91%BB</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      overflow: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .archive-page {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .archive-back {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="archive-page">
+    <a class="archive-back" href="index.html">&larr; back to site</a>
+
+    <div class="block" id="block-book-archive">
+      <h2>ALL BOOK REVIEWS <span class="jp">本レビュー全部</span></h2>
+      <div id="archive-list"></div>
+    </div>
+  </div>
+
+  <script src="js/context-menu.js" defer></script>
+  <script src="js/archive.js"></script>
+  <script>
+    renderArchive({
+      dataPath: "data/book/data.json",
+      field: "all_reviews",
+      imageKey: "cover",
+      container: "archive-list",
+    }).catch((err) => console.error(err));
+  </script>
+</body>
+</html>

@@ -218,39 +218,113 @@ body {
   min-width: 0;
 }
 
-/* book, manga+cool website et anime+ghost sont tous calés sur la même
-   hauteur (349px, celle de manga+cool website) pour finir au même niveau */
-#block-book {
-  min-height: 349px;
-}
-
-/* manga + cool website empilés, colonne large (3 vignettes par ligne) */
+/* manga + cool website empilés, colonne large (3 vignettes par ligne) ;
+   réduite côté droit pour laisser plus de place à anime-column/my button */
 .manga-column {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  flex: 1.7;
+  flex: 1.4;
   min-width: 0;
-  min-height: 349px;
+  min-height: 316px;
 }
 
+/* #block-manga et #block-cool-website sont nichés dans .manga-column, mais
+   restent quand même ciblés par la règle générique ".secondary-row .block
+   { flex:1 }" (sélecteur de descendant, pas d'enfant direct) : sans ce
+   flex:none, manga se réétire toujours pour combler l'espace disponible,
+   peu importe la taille de son contenu -> impossible à raccourcir sinon */
+#block-manga {
+  flex: none;
+}
+
+/* pas de flex:1 : hauteur naturelle (juste le bouton), pas étiré */
 #block-cool-website {
-  flex: 1;
+  flex: 0;
 }
 
-/* anime + image ghost empilées, colonne un peu plus étroite ; le ghost
-   (flex:1 juste en dessous) s'étire pour combler tout l'espace restant */
+/* hauteur calee pour que le bas atteigne le bas de book ; overflow:auto en
+   filet de securite si jamais le contenu ne tient pas tout a fait.
+   flex:none pour le meme motif que #block-manga/#block-anime : sans ca la
+   regle generique ".secondary-row .block { flex:1 }" le fait grandir. */
+#block-navigate {
+  flex: none;
+  height: 77px;
+  overflow-y: auto;
+}
+
+.navigate-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navigate-links a {
+  font-size: 8px;
+  line-height: 1.2;
+  color: #000;
+}
+
+.navigate-links a:hover {
+  text-decoration: underline;
+}
+
+/* évite que les vignettes manga/book-last-read wrappent sur une 2e ligne :
+   elles se compressent légèrement plutôt que de tomber sur une nouvelle ligne */
+#manga-last-read,
+#manga-favorite,
+#book-last-read {
+  flex-wrap: nowrap;
+}
+
+#manga-last-read > *,
+#manga-favorite > *,
+#book-last-read > * {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* étendue côté gauche (récupère la largeur cédée par manga-column) */
 .anime-column {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  flex: 0.7;
+  flex: 1;
   min-width: 0;
-  min-height: 349px;
+  min-height: 316px;
 }
 
-#block-ghost {
-  flex: 1;
+/* même correctif que #block-manga : sans ça, #block-anime se réétire pour
+   combler l'espace disponible au lieu de garder sa taille naturelle */
+#block-anime {
+  flex: none;
+}
+
+/* image du bouton à gauche, code à copier-coller à droite */
+.my-button-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.button-code {
+  width: 150px;
+  flex: none;
+  height: 60px;
+  resize: none;
+  font-family: "SiteFont", monospace;
+  font-size: 8px;
+  border: 2px solid #000;
+  padding: 4px;
+  background: #fff;
+  color: #000;
+}
+
+/* hauteur fixe calée pour que le bas de my button atteigne le bas de book,
+   plutôt que flex:1 qui l'étirait jusqu'au bas de la colonne */
+#block-my-button {
+  flex: none;
+  height: 166px;
 }
 
 /* évite que la 3e vignette tombe sur une 2e ligne dans la colonne étroite :
@@ -262,19 +336,6 @@ body {
 #anime-favorite > * {
   flex-shrink: 1;
   min-width: 0;
-}
-
-/* pas de titre ni bordure : l'image occupe tout le bloc */
-.block.no-padding {
-  padding: 0;
-  display: flex;
-}
-
-.ghost-image {
-  width: 100%;
-  flex: 1;
-  min-height: 40px;
-  background: #999;
 }
 
 /* bloc de texte pleine largeur, sous last read/favorite dans manga */
@@ -414,7 +475,8 @@ body {
 .manga-cover,
 .anime-thumb,
 .game-cover,
-.book-cover {
+.book-cover,
+#block-cool-website img {
   transition: transform 0.15s ease;
   position: relative;
 }
@@ -424,7 +486,8 @@ body {
 .manga-cover:hover,
 .anime-thumb:hover,
 .game-cover:hover,
-.book-cover:hover {
+.book-cover:hover,
+#block-cool-website img:hover {
   transform: scale(1.8);
   z-index: 5;
 }
@@ -446,8 +509,8 @@ body {
 }
 
 .manga-cover {
-  width: 62px;
-  height: 88px;
+  width: 46px;
+  height: 64px;
   background: #999;
   border: 2px solid #000;
   flex-shrink: 0;
@@ -703,16 +766,15 @@ body {
   flex-shrink: 0;
 }
 
-/* bloc music : grandit pour combler l'espace jusqu'au bas de Physical Video Game */
+/* réduit : ne s'étire plus pour combler tout l'espace disponible */
 #block-music {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: none;
 }
 
 .music-player {
   width: 100%;
-  flex: 1;
   min-height: 54px;
   background: #ddd;
   border: 2px solid #000;
@@ -765,12 +827,48 @@ body {
 .polaroid-photo,
 .about-photo,
 .site-button,
-.ghost-image,
 .follow-link-icon,
 .marquee-item-icon,
+.archive-cover,
 #site-image {
   background-color: #999;
   background-image:
     linear-gradient(45deg, transparent 46%, #444 47%, #444 53%, transparent 54%),
     linear-gradient(-45deg, transparent 46%, #444 47%, #444 53%, transparent 54%);
+}
+
+/* pages d'archive (film/book/game-reviews.html) */
+.archive-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 2px solid #000;
+}
+
+.archive-item:last-child {
+  border-bottom: none;
+}
+
+.archive-cover {
+  width: 90px;
+  height: 128px;
+  border: 2px solid #000;
+  flex-shrink: 0;
+}
+
+.archive-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.archive-info h3 {
+  font-size: 12px;
+}
+
+.archive-info p {
+  font-size: 10px;
+  line-height: 1.4;
 }

@@ -3,10 +3,10 @@
 
 const CONTEXT_MENU_ITEMS = [
   { label: "↻ Reload", action: () => location.reload() },
-  {
-    label: "✉ Guestbook",
-    action: () => window.open("https://nekoweb.org/guestbook?u=akkuunamatata", "_blank"),
-  },
+  { label: "✉ Guestbook", action: () => window.open("guestbook.html", "_blank") },
+  { label: "🎬 All film reviews", action: () => window.open("film-reviews.html", "_blank") },
+  { label: "📖 All book reviews", action: () => window.open("book-reviews.html", "_blank") },
+  { label: "🎮 All game reviews", action: () => window.open("game-reviews.html", "_blank") },
   { label: "📋 Copy page link", action: () => navigator.clipboard.writeText(location.href) },
 ];
 

@@ -83,6 +83,11 @@
               <div class="block" id="block-book">
                 <h2>BOOK <span class="jp">本</span></h2>
                 <div id="book-list"></div>
+
+                <div class="sub-section">
+                  <h3>Last read <span class="jp">最新に読んだ</span></h3>
+                  <div class="poster-row" id="book-last-read"></div>
+                </div>
               </div>
 
               <!-- BLOC MANGA + COOL WEBSITE empilés dans la même colonne
@@ -114,6 +119,17 @@
                   <h2>COOL WEBSITE <span class="jp">おすすめサイト</span></h2>
                   <a target="_blank" href="https://kuurp.nekoweb.org"><img src="https://kuurp.nekoweb.org/assets/button.png" width="88" height="31"></a>
                 </div>
+
+                <div class="block block-small" id="block-navigate">
+                  <h2>NAVIGATE <span class="jp">ナビゲート</span></h2>
+                  <div class="navigate-links">
+                    <a href="index.html">Home</a>
+                    <a href="film-reviews.html" target="_blank" rel="noopener">All film reviews</a>
+                    <a href="book-reviews.html" target="_blank" rel="noopener">All book reviews</a>
+                    <a href="game-reviews.html" target="_blank" rel="noopener">All game reviews</a>
+                    <a href="guestbook.html" target="_blank" rel="noopener">Guestbook</a>
+                  </div>
+                </div>
               </div>
 
               <!-- BLOC FAVORITE ANIME + image ghost empilés dans la même colonne -->
@@ -123,8 +139,12 @@
                   <div class="poster-row" id="anime-favorite"></div>
                 </div>
 
-                <div class="block block-small no-padding" id="block-ghost">
-                  <div class="ghost-image" id="ghost-image"></div>
+                <div class="block block-small" id="block-my-button">
+                  <h2>MY BUTTON <span class="jp">マイボタン</span></h2>
+                  <div class="my-button-row">
+                    <div class="site-button" id="my-button"></div>
+                    <textarea class="button-code" id="my-button-code" readonly rows="4"></textarea>
+                  </div>
                 </div>
               </div>
 
@@ -147,7 +167,7 @@
 
                 <div class="sub-section">
                   <h3>Guestbook <span class="jp">ゲストブック</span></h3>
-                  <a class="guestbook-link" href="https://nekoweb.org/guestbook?u=akkuunamatata" target="_blank" rel="noopener">Sign my guestbook</a>
+                  <a class="guestbook-link" href="guestbook.html" target="_blank" rel="noopener">Sign my guestbook</a>
                 </div>
               </div>
 

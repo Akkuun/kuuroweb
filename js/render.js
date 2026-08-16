@@ -134,6 +134,9 @@ async function renderBook() {
     row.appendChild(scrollableText([item.review || ""]));
     list.appendChild(row);
   });
+
+  const lastRead = document.getElementById("book-last-read");
+  (data.last_read || []).forEach((item) => lastRead.appendChild(thumb("book-cover", item, "cover")));
 }
 
 // ---- MANGA ----
@@ -169,12 +172,6 @@ async function renderGame() {
 
   const anticipated = document.getElementById("game-anticipated");
   data.highly_anticipated.forEach((item) => anticipated.appendChild(thumb("game-cover", item, "cover")));
-}
-
-// ---- IMAGE GHOST, sous Favorite Anime ----
-async function renderGhostImage() {
-  const data = await loadJSON("data/ghost-image/data.json");
-  setBackgroundImage(document.getElementById("ghost-image"), data.image);
 }
 
 // ---- IMAGE TOUT À GAUCHE DU BLOC CENTRAL ----
@@ -314,6 +311,16 @@ async function renderFollow() {
   });
 
   setBackgroundImage(document.getElementById("site-button"), data.site_button);
+  // même bouton que Follow, réaffiché dans le bloc "My Button" sous Book
+  setBackgroundImage(document.getElementById("my-button"), data.site_button);
+
+  if (data.site_button) {
+    const buttonUrl = new URL(data.site_button, location.href).href;
+    document.getElementById("my-button-code").value =
+      `<a href="${location.origin}" target="_blank">\n` +
+      `  <img src="${buttonUrl}" width="88" height="31">\n` +
+      `</a>`;
+  }
 }
 
 // chaque bloc se charge indépendamment : si un data.json manque ou est mal
@@ -325,7 +332,6 @@ async function renderFollow() {
   renderManga,
   renderAnime,
   renderGame,
-  renderGhostImage,
   renderSiteImage,
   renderPolaroid,
   renderMarquee,

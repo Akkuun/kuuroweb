@@ -19,6 +19,76 @@
   ],
   "last_on_letterboxd": [
     {
+      "title": "Dunkirk (2017)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/md/nb/pu/3i/bOXBV303Fgkzn2K4FeKDc0O31q4-0-600-0-900-crop.jpg?v=7307b1ff5b",
+      "rating": "3.5",
+      "review": [
+        "Très bon film avec de belle scènes d'aviation montrant la réalité et la brutalité du combat de l'époque. Film assez contemplatif et tension au rendez-vous."
+      ],
+      "review_en": [
+        "Very good film with beautiful aviation scenes showing the reality and brutality of the combat of the time. Rather contemplative film and tension at the appointment."
+      ]
+    },
+    {
+      "title": "Spider-Man: Brand New Day (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc",
+      "rating": "4.0",
+      "review": [
+        "Le nouveau meilleur Spiderman de la trilogie de Tom Holland. De bonne idées dans ce film (plans de voltige, traitements du personnage, traitement de l'oubli de son entourage). Enfin un film Marvel qui propose un peu plus que le plan classique habituellement servi. Je recommande, j'ai pas vu les 2h25 passé."
+      ],
+      "review_en": [
+        "The new best Spiderman in Tom Holland's trilogy. Good ideas in this film (plans of voltigus, treatments of the character, treatment of forgetfulness of his entourage). Finally, a Marvel film that offers a little more than the usual classic plan. I recommend, I haven't seen the past 2h25."
+      ]
+    },
+    {
+      "title": "The Odyssey (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+      "rating": "5.0",
+      "review": [
+        "OUI OUI OUI ! L'aventure avec un grand A ! Un récit d'aventure réussie que ce soit au niveau de la réalisation (effets pratiques, OST, histoire). J'ai rarement été aussi transporté pendant une séance de cinéma. Les 3 heures passent à une vitesse.... Encore une preuve de sa réussite. Un 5 étoiles décrochées pour ma part (ce qui est rare), même si les dialogues sont (quelques fois) un peu trop modernes à mon goût. Pour une expérience encore plus intense je le conseille de le voir en 4DX qui s'intègre parfaitement au film (vagues, coup dans le dos, projections d'eau, brises de vent), ca rend la séance encore plus inoubliable ! ABSOLUTE CINEMA"
+      ],
+      "review_en": [
+        "YES YES YES Adventure with a big A! A successful adventure story whether at the level of realization (practical effects, OST, history). I've rarely been transported too during a movie session. The three hours go at a speed... another proof of his success. A 5 stars for my part (which is rare), even if the dialogues are (a few times) a little too modern to my taste. For an even more intense experience I advise him to see it in 4DX that fits perfectly into the film (vagues, blow in the back, water projections, wind breezes), it makes the session even more unforgettable! ABSOLUTE CINEMA"
+      ]
+    }
+  ],
+  "last_4k_bought": [
+    {
+      "title": "",
+      "image": "data/film/img/4k_1.jpg"
+    },
+    {
+      "title": "",
+      "image": "data/film/img/4k_2.jpg"
+    },
+    {
+      "title": "",
+      "image": "data/film/img/4k_3.jpg"
+    }
+  ],
+  "highly_anticipated": [
+    {
+      "title": "",
+      "image": "data/film/img/anticipated_1.jpg"
+    },
+    {
+      "title": "",
+      "image": "data/film/img/anticipated_2.jpg"
+    }
+  ],
+  "all_reviews": [
+    {
+      "title": "Dunkirk (2017)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/md/nb/pu/3i/bOXBV303Fgkzn2K4FeKDc0O31q4-0-600-0-900-crop.jpg?v=7307b1ff5b",
+      "rating": "3.5",
+      "review": [
+        "Très bon film avec de belle scènes d'aviation montrant la réalité et la brutalité du combat de l'époque. Film assez contemplatif et tension au rendez-vous."
+      ],
+      "review_en": [
+        "Very good film with beautiful aviation scenes showing the reality and brutality of the combat of the time. Rather contemplative film and tension at the appointment."
+      ]
+    },
+    {
       "title": "Spider-Man: Brand New Day (2026)",
       "image": "https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc",
       "rating": "4.0",
@@ -50,30 +120,292 @@
       "review_en": [
         "Mi path between serious SF and comedy without ever pushing the cursor."
       ]
-    }
-  ],
-  "last_4k_bought": [
-    {
-      "title": "",
-      "image": "data/film/img/4k_1.jpg"
     },
     {
-      "title": "",
-      "image": "data/film/img/4k_2.jpg"
+      "title": "Backrooms (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/9/7/6/4/1/9/976419-backrooms-2026-0-600-0-900-crop.jpg?v=f7a99e3fc8",
+      "rating": "3.5",
+      "review": [
+        "Concept très intriguant qui marche très bien, que ce soit le lore ou même les histoires que ça apporte, y'a du gros potentiel. Pour moi le seul hic revient au rythme du film, mais si la qualité du film était la même que pendant la séquence caméra c'est le 4 voir 4.5 assuré !"
+      ],
+      "review_en": [
+        "Very intriguing concept that works very well, whether it be the lore or even the stories it brings, has great potential. For me the only thing is the rhythm of the film, but if the quality of the film was the same as during the camera sequence it is the 4 see 4.5 assured!"
+      ]
     },
     {
-      "title": "",
-      "image": "data/film/img/4k_3.jpg"
-    }
-  ],
-  "highly_anticipated": [
-    {
-      "title": "",
-      "image": "data/film/img/anticipated_1.jpg"
+      "title": "The Thing (1982)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/t3/qn/vs/p5/s5fH3GqFcHbi2F0NSBSh4KRNTc0-0-600-0-900-crop.jpg?v=01880125bb",
+      "rating": "4.5",
+      "review": [
+        "Je pense qu'on un a un classique ! Mélange parfait entre SF et enquête !"
+      ],
+      "review_en": [
+        "I think we have a classic! Perfect mix between SF and investigation!"
+      ]
     },
     {
-      "title": "",
-      "image": "data/film/img/anticipated_2.jpg"
+      "title": "Obsession (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/2/3/4/4/7/2/1234472-obsession-2025-2-0-600-0-900-crop.jpg?v=cff6fc00b6",
+      "rating": "4.5",
+      "review": [
+        "OUI OUI OUI ! Ça fonctionne super bien ! Que ce soit sur le thème ou la mise en scène c'est vraiment bon, ça rentre dans mon top horror avec hérédité !Ps: yanderere simulator le film"
+      ],
+      "review_en": [
+        "YES YES YES It works great! Whether it's the theme or the staging is really good, it fits into my top horror with heredity!Ps: yanderere simulator the film"
+      ]
+    },
+    {
+      "title": "Disclosure Day (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/5/9/2/5/1/1159251-disclosure-day-0-600-0-900-crop.jpg?v=9ae810e4bb",
+      "rating": "2.5",
+      "review": [
+        "Ça manque un peu d'alien. La fin est très frustrante car elle montre le potentiel du film."
+      ],
+      "review_en": [
+        "There's a little lack of alien. The end is very frustrating because it shows the potential of the film."
+      ]
+    },
+    {
+      "title": "The Long Walk (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/5/3/1/3/1/6/531316-the-long-walk-2025-0-600-0-900-crop.jpg?v=9cf0c245aa",
+      "rating": "2.5",
+      "review": [
+        "Mouais, ça marche pas pour moi."
+      ],
+      "review_en": [
+        "It doesn't work for me."
+      ]
+    },
+    {
+      "title": "The Super Mario Galaxy Movie (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/1/0/0/8/0/1110080-the-super-mario-galaxy-movie-0-600-0-900-crop.jpg?v=fefcfca134",
+      "rating": "3.0",
+      "review": [
+        "Good film but ending is sooooo rushed. Beautiful music and animation as always🔥🔥"
+      ],
+      "review_en": [
+        "Good film but ending is sooooo rushed. Beautiful music and animation as alwayss"
+      ]
+    },
+    {
+      "title": "The Drama (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/2/0/5/4/9/4/1205494-the-drama-0-600-0-900-crop.jpg?v=2320acafd5",
+      "rating": "3.5",
+      "review": [
+        "Why the actual ****?! Go watch without context."
+      ],
+      "review_en": [
+        "Why the current ****?! Go watch without context."
+      ]
+    },
+    {
+      "title": "Marty Supreme (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/9/7/4/9/9/1197499-marty-supreme-0-600-0-900-crop.jpg?v=b14a26bb43",
+      "rating": "4.0",
+      "review": [
+        "Absolute ping pong experience 🏓"
+      ],
+      "review_en": [
+        "Absolute ping pong experience "
+      ]
+    },
+    {
+      "title": "Hoppers (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/2/0/7/5/5/7/1207557-hoppers-0-600-0-900-crop.jpg?v=7711e7b5a7",
+      "rating": "5.0",
+      "review": [
+        "It's raining....🥲 ( hilarious scenes tho)"
+      ],
+      "review_en": [
+        "It's draining...."
+      ]
+    },
+    {
+      "title": "Superman (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/9/5/7/0/5/0/957050-superman-2025-0-600-0-900-crop.jpg?v=54e41a55ff",
+      "rating": "3.0",
+      "review": [
+        "Good ideas but i had troubles with Lex Luthor (a bald hater don't make a good antagonist)"
+      ],
+      "review_en": [
+        "Good ideas but i had troubles with Lex Luthor (a bald hater don't make a good antagonist)"
+      ]
+    },
+    {
+      "title": "2001: A Space Odyssey (1968)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/5/1/9/8/7/51987-2001-a-space-odyssey-0-600-0-900-crop.jpg?v=a69c46a272",
+      "rating": "2.0",
+      "review": [
+        "Great techics (for his epoch 🔥) , with some of most tension scene in space. BUT HOLY HELL NOTHING IS HAPPENING, WE COULD REMOVE 2/5 OF THE MOVIE IT WOULD CHANGE NOTHING!!. At 3/5 Kubric just repeat all his \"narration\" element."
+      ],
+      "review_en": [
+        "Great techniques (for his epoch  BUT HOLY HELL NOTHING IS HAPPENING, WE COULD REMOVE 2/5 OF THE MOVIE IT WOULD CHANGE NOTHING!!. At 3/5 Kubric just repeat all his \"narration\" element."
+      ]
+    },
+    {
+      "title": "No Other Choice (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/5/6/5/9/5/2/565952-no-other-choice-2025-0-600-0-900-crop.jpg?v=87ef42b9f5",
+      "rating": "4.0",
+      "review": [
+        "Best editing ever🔥 + soooo funny (not main purpose). I don't think i get evrything but it was really good to see how far men can go for a confortable situation."
+      ],
+      "review_en": [
+        "Best editing ever I don't think i get evrything but it was really good to see how far men can go for a comfortable location."
+      ]
+    },
+    {
+      "title": "Memories of Murder (2003)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/84/xt/e8/mw/gawnVe9cFowdoDLo9Pok12NTw39-0-600-0-900-crop.jpg?v=7cad204593",
+      "rating": "4.5",
+      "review": [
+        "Contain one a the scariest scene ever. Truly a very intense investigation."
+      ],
+      "review_en": [
+        "Container one a the scariest scene ever. Truly has very intense investigation."
+      ]
+    },
+    {
+      "title": "Sinners (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/1/6/6/0/0/1116600-sinners-2025-0-600-0-900-crop.jpg?v=5996b7d555",
+      "rating": "4.0",
+      "review": [
+        "Power of blues 🎸"
+      ],
+      "review_en": [
+        "Power of blues"
+      ]
+    },
+    {
+      "title": "Twilight (2008)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/4/7/4/6/9/47469-twilight-0-600-0-900-crop.jpg?v=f347bd6a28",
+      "rating": "3.0",
+      "review": [
+        "I laughed too much 🤣"
+      ],
+      "review_en": [
+        "I washed too much"
+      ]
+    },
+    {
+      "title": "Frankenstein (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/9/5/8/1/0/0/958100-frankenstein-2025-0-600-0-900-crop.jpg?v=49a1ca2305",
+      "rating": "4.0",
+      "review": [
+        "Viktor is one of the horrible character i've seen i swear. Poetic movie with great emotions 🔥"
+      ],
+      "review_en": [
+        "Viktor is one of the horrible character i've seen i sweat. Poetic movie with great emotions "
+      ]
+    },
+    {
+      "title": "28 Years Later: The Bone Temple (2026)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff",
+      "rating": "4.0",
+      "review": [
+        "Satan 🫰 Jimmy 👎"
+      ],
+      "review_en": [
+        "Satan, Jimmy,"
+      ]
+    },
+    {
+      "title": "Nightcrawler (2014)",
+      "image": "https://a.ltrbxd.com/resized/sm/upload/g7/2e/vi/vy/A9ANrAWlmIovxzjAIiOgseSLNc9-0-600-0-900-crop.jpg?v=6bcb14c88c",
+      "rating": "4.0",
+      "review": [
+        "Stressfull and talk about media and information concerns. Love Gymlenhaal 🔥"
+      ],
+      "review_en": [
+        "Stressfull and talk about media and information concerns. Love Gymlenhaal"
+      ]
+    },
+    {
+      "title": "The Housemaid (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/1/9/1255319-the-housemaid-2025-0-600-0-900-crop.jpg?v=b054fee6ec",
+      "rating": "3.0",
+      "review": [
+        "I'm very conflicted. The first half is the most ragebaiting movie i've ever watched BUT the end raise the bar. I don't watch those type of movie so i didn't expect the end but for veterans they will see the signs."
+      ],
+      "review_en": [
+        "I'm very conflicted. The first half is the most rabiebaiting movie i've ever watched BUT the end raise the bar. I don't watch these type of movie so i didn't expect the end but for veterans they will see the signs."
+      ]
+    },
+    {
+      "title": "How to Train Your Dragon (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/9/8/0/1/1/6/980116-how-to-train-your-dragon-2025-0-600-0-900-crop.jpg?v=0d82dfeab8",
+      "rating": "3.0",
+      "review": [
+        "A bit sceptible for the casting but does the job done then."
+      ],
+      "review_en": [
+        "A bit sceptible for the casting but does the job done then."
+      ]
+    },
+    {
+      "title": "Zootopia 2 (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/9/7/7/3/4/2/977342-zootopia-2-0-600-0-900-crop.jpg?v=00a15a97bc",
+      "rating": "4.0",
+      "review": [
+        "As good at the first (rare for disney)."
+      ],
+      "review_en": [
+        "As good at the first (rare for disney)."
+      ]
+    },
+    {
+      "title": "Wake Up Dead Man (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/7/2/9/1/1/3/729113-wake-up-dead-man-0-600-0-900-crop.jpg?v=85f3366617",
+      "rating": "2.5",
+      "review": [
+        "Dispointed, the mystery was managed better in the first two movies. The characters seems to me a little off sometimes. Shoutout to art direction, this are beautiful shots in th chruch."
+      ],
+      "review_en": [
+        "Dispointed, the mystery was managed better in the first two movies. The characters seem to me a little off sometimes. Shoutout to art direction, this are beautiful shots in th chruch."
+      ]
+    },
+    {
+      "title": "Charlie and the Chocolate Factory (2005)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/5/1/9/3/2/51932-charlie-and-the-chocolate-factory-0-600-0-900-crop.jpg?v=cf68e10228",
+      "rating": "4.0",
+      "review": [
+        "Music is so fire 🔥🔥🔥🔥🔥"
+      ],
+      "review_en": [
+        "Music is so fire "
+      ]
+    },
+    {
+      "title": "Avatar: Fire and Ash (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/7/0/0/0/7/70007-avatar-fire-and-ash-0-600-0-900-crop.jpg?v=5d2f8b35b1",
+      "rating": "4.0",
+      "review": [
+        "Technical side 5/5Story side 2.5/5Better than the previous one with new ideas but still classical narrative path. Avatar can be much more !"
+      ],
+      "review_en": [
+        "Technical side 5/5Story side 2.5/5Better than the previous one with new ideas but still classical narrative path. Avatar can be much more !"
+      ]
+    },
+    {
+      "title": "American Beauty (1999)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/2/7/0/3/2703-american-beauty-0-600-0-900-crop.jpg?v=30329dd752",
+      "rating": "0.5",
+      "review": [
+        "Top 3 worst moovie i've ever watched in my 24 years of experience. GET OUT !!"
+      ],
+      "review_en": [
+        "Top 3 wore moovie i've ever watched in my 24 years of experience. GET OUT!"
+      ]
+    },
+    {
+      "title": "Get Out (2017)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/3/5/3/1/1/7/353117-get-out-0-600-0-900-crop.jpg?v=136acec030",
+      "rating": "4.0",
+      "review": [
+        "Rewatch a second time, it's like an another moovie, very good !"
+      ],
+      "review_en": [
+        "Rewatch a second time, it's like an another moovie, very good!"
+      ]
     }
   ]
 }
