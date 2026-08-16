@@ -152,7 +152,7 @@ async function renderManga() {
   document.getElementById("manga-note").textContent = data.note || "";
 }
 
-// ---- COOL WEBSITE ----
+// ---- FRIEND WEBSITE ----
 // ---- FAVORITE ANIME ----
 async function renderAnime() {
   const data = await loadJSON("data/anime/data.json");
@@ -201,31 +201,6 @@ async function renderSiteImage() {
 async function renderPolaroid() {
   const data = await loadJSON("data/polaroid/data.json");
   setBackgroundImage(document.getElementById("polaroid-photo"), data.photo);
-}
-
-// ---- BANDE MARQUEE : "[ NOM ]" façon terminal + lien cliquable par réseau
-// social ---- deux groupes identiques (pas une liste d'items à plat) :
-// chaque groupe inclut son propre gap de fin dans sa largeur, donc les deux
-// groupes ont une largeur strictement égale et translateX(-50%) tombe pile
-// sur la frontière -> plus de saut visible ("rollback") à la reprise de la boucle.
-function buildMarqueeGroup(items) {
-  const group = el("div", "marquee-group");
-  items.forEach((item) => {
-    const a = el("a", "marquee-item");
-    a.href = item.url;
-    a.target = "_blank";
-    a.rel = "noopener";
-    a.textContent = `[ ${(item.label || "").toUpperCase()} ]`;
-    group.appendChild(a);
-  });
-  return group;
-}
-
-async function renderMarquee() {
-  const data = await loadJSON("data/marquee/data.json");
-  const track = document.getElementById("marquee-content");
-  track.appendChild(buildMarqueeGroup(data.items));
-  track.appendChild(buildMarqueeGroup(data.items));
 }
 
 // ---- MUSIC : une ligne par piste (titre), celle en cours surlignée en violet ----
@@ -363,7 +338,6 @@ async function renderFollow() {
   renderGame,
   renderSiteImage,
   renderPolaroid,
-  renderMarquee,
   renderMusic,
   renderChat,
   renderFollow,

@@ -53,17 +53,43 @@ html, body {
   color: #fff;
 }
 
-/* décale le contenu sous la bande marquee, fixée en haut du viewport */
-body {
-  padding-top: 26px;
+/* le gif (data/eye_wall.gif) n'est plus le fond de toute la page : il est
+   confiné derrière l'îlot de blocs (voir js/creature-tendrils.js pour le
+   positionnement + la génération des instances, mesurés au runtime).
+   overflow:hidden -- ne doit jamais dépasser l'îlot. Chaque instance est
+   un <img> séparé, positionné/tourné aléatoirement (pas une grille
+   uniforme) et avec son propre décodeur GIF -- voir le JS pour le
+   décalage des boucles d'animation. */
+.eye-wall-layer {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-/* conteneur global : le site est poussé vers la droite de l'écran, hauteur fixe pour empêcher le scroll */
+.eye-wall-instance {
+  position: absolute;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+}
+
+/* décale le contenu sous la bande marquee, fixée en haut du viewport (45px
+   avec la ligne de ":" ajoutée sous les liens sociaux) */
+body {
+  padding-top: 58px;
+}
+
+/* conteneur global : le site est poussé vers la droite de l'écran, hauteur
+   fixe pour empêcher le scroll. align-items:flex-start (pas center) : le
+   contenu est maintenant plus haut que le viewport sur beaucoup d'écrans
+   (blocs + dividers ASCII ajoutés au fil du temps), et un centrage
+   verticale ferait déborder le haut sous la bande marquee à égalité avec
+   le bas -> on aligne en haut pour garder le début toujours visible. */
 #page {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 58px);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
   padding: 14px 0.3vw 14px 5vw;
   transform: translateY(-10px);
@@ -321,7 +347,7 @@ body {
    regle generique ".secondary-row .block { flex:1 }" le fait grandir. */
 #block-navigate {
   flex: none;
-  height: 86px;
+  height: 177px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -339,15 +365,15 @@ body {
 .navigate-links {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  overflow-x: auto;
+  justify-content: center;
+  gap: 6px 10px;
 }
 
 .navigate-links a {
-  font-size: 8px;
+  font-size: 11px;
+  font-weight: bold;
   line-height: 1.2;
   color: #fff;
   white-space: nowrap;
@@ -356,9 +382,10 @@ body {
 
 .navigate-hint {
   margin: 0;
-  font-size: 7px;
+  font-size: 13px;
+  font-weight: bold;
   line-height: 1.2;
-  color: #999;
+  color: #fff;
   font-style: italic;
   animation: navigate-hint-blink 1.6s ease-in-out infinite;
 }
