@@ -22,7 +22,10 @@ NS = {"letterboxd": "https://letterboxd.com"}
 DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "film" / "data.json"
 
 RECENT_REVIEWS_COUNT = 3
-ARCHIVE_REVIEWS_COUNT = 30
+# le flux RSS de letterboxd ne renvoie de toute facon jamais plus qu'une
+# cinquantaine d'entrees -> 100 pour ne jamais tronquer avant la vraie limite
+# imposee par letterboxd lui-meme
+ARCHIVE_REVIEWS_COUNT = 100
 FAVORITES_COUNT = 5
 
 

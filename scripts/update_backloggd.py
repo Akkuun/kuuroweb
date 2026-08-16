@@ -21,10 +21,10 @@ DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "game" / "data.jso
 
 FAVORITES_COUNT = 5
 REVIEWS_COUNT = 3
-# backloggd n'a pas de RSS/API et la page /reviews/ n'affiche qu'une seule
-# page sans lien de pagination exploitable simplement -> "toutes les reviews"
-# se limite en pratique aux reviews presentes sur cette premiere page
-ARCHIVE_COUNT = 30
+# backloggd n'a pas de RSS/API : la page /reviews/ est paginee via
+# ?page=N (15 reviews par page) -> fetch_reviews parcourt les pages
+# jusqu'a en trouver une vide ou incomplete pour recuperer le total reel
+ARCHIVE_COUNT = 100
 
 
 def fetch_favorite_games():
@@ -46,46 +46,62 @@ def fetch_favorite_games():
 
 
 def fetch_reviews(count):
-    reviews_html = fetch(f"https://backloggd.com/u/{USERNAME}/reviews/")
-
-    chunks = reviews_html.split('<div class="row pt-2 pb-1 review-card">')[1:]
-
     reviews = []
-    for chunk in chunks[:count]:
-        card_html = chunk.split("<hr>")[0]
+    page = 1
+    max_pages = 20  # garde-fou pour eviter une boucle infinie
 
-        cover_match = re.search(
-            r'<img class="card-img height" src="([^"]+)" alt="([^"]+)"', card_html
-        )
-        if not cover_match:
-            continue
-        image, title = cover_match.group(1), html.unescape(cover_match.group(2))
+    while len(reviews) < count and page <= max_pages:
+        reviews_html = fetch(f"https://backloggd.com/u/{USERNAME}/reviews?page={page}")
+        chunks = reviews_html.split('<div class="row pt-2 pb-1 review-card">')[1:]
+        if not chunks:
+            break
 
-        rating_match = re.search(r'class="stars-top" style="width:(\d+)%"', card_html)
-        rating = round(int(rating_match.group(1)) / 100 * 5, 1) if rating_match else 0
+        for chunk in chunks:
+            if len(reviews) >= count:
+                break
+            card_html = chunk.split("<hr>")[0]
 
-        body_match = re.search(
-            r'class="collapse mb-0 card-text"[^>]*>(.*?)</div>', card_html, re.DOTALL
-        )
-        review_paragraphs = []
-        if body_match:
-            body = body_match.group(1)
-            # chaque <br> (simple ou double) devient un saut de ligne a part
-            # entiere : les puces "- xxxx" ne doivent pas s'enchainer sur la
-            # meme ligne dans le bloc review
-            body = re.sub(r"<br\s*/?>", "\n", body)
-            body = html.unescape(re.sub(r"<[^>]+>", "", body))
-            review_paragraphs = [p.strip() for p in body.split("\n") if p.strip()]
+            cover_match = re.search(
+                r'<img class="card-img height" src="([^"]+)" alt="([^"]+)"', card_html
+            )
+            if not cover_match:
+                continue
+            image, title = cover_match.group(1), html.unescape(cover_match.group(2))
 
-        reviews.append(
-            {
-                "title": title,
-                "cover": image,
-                "rating": rating,
-                "review": review_paragraphs,
-                "review_en": paragraphs_to_english(review_paragraphs),
-            }
-        )
+            rating_match = re.search(r'class="stars-top" style="width:(\d+)%"', card_html)
+            rating = round(int(rating_match.group(1)) / 100 * 5, 1) if rating_match else 0
+
+            # backloggd n'ajoute la classe "collapse" que sur les reviews assez
+            # longues pour avoir un bouton "show more" -> les reviews courtes
+            # ont juste class=" mb-0 card-text", d'ou le [^"]* permissif
+            body_match = re.search(
+                r'class="[^"]*card-text[^"]*"[^>]*>(.*?)</div>', card_html, re.DOTALL
+            )
+            review_paragraphs = []
+            if body_match:
+                body = body_match.group(1)
+                # chaque <br> (simple ou double) devient un saut de ligne a part
+                # entiere : les puces "- xxxx" ne doivent pas s'enchainer sur la
+                # meme ligne dans le bloc review
+                body = re.sub(r"<br\s*/?>", "\n", body)
+                body = html.unescape(re.sub(r"<[^>]+>", "", body))
+                review_paragraphs = [p.strip() for p in body.split("\n") if p.strip()]
+
+            reviews.append(
+                {
+                    "title": title,
+                    "cover": image,
+                    "rating": rating,
+                    "review": review_paragraphs,
+                    "review_en": paragraphs_to_english(review_paragraphs),
+                }
+            )
+
+        if len(chunks) < 15:
+            # page incomplete -> c'etait la derniere
+            break
+        page += 1
+
     return reviews
 
 

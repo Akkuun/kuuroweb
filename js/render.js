@@ -217,7 +217,7 @@ function buildMarqueeGroup(items) {
     a.rel = "noopener";
 
     const icon = el("span", "marquee-item-icon");
-    setBackgroundImage(icon, item.icon);
+    setBackgroundImage(icon, item.icon, "contain");
     a.appendChild(icon);
 
     a.appendChild(document.createTextNode(item.label));
@@ -291,26 +291,6 @@ async function renderChat() {
 async function renderFollow() {
   const data = await loadJSON("data/follow/data.json");
 
-  const links = document.getElementById("follow-links");
-  (data.links || []).forEach((link) => {
-    if (!link.url) return;
-    const a = el("a", "follow-link");
-    a.href = link.url;
-    a.target = "_blank";
-    a.rel = "noopener";
-
-    const icon = el("span", "follow-link-icon");
-    setBackgroundImage(icon, link.icon);
-    a.appendChild(icon);
-
-    const label = el("span", "follow-link-label");
-    label.textContent = link.label || link.url;
-    a.appendChild(label);
-
-    links.appendChild(a);
-  });
-
-  setBackgroundImage(document.getElementById("site-button"), data.site_button);
   // même bouton que Follow, réaffiché dans le bloc "My Button" sous Book
   setBackgroundImage(document.getElementById("my-button"), data.site_button);
 
@@ -320,6 +300,41 @@ async function renderFollow() {
       `<a href="${location.origin}" target="_blank">\n` +
       `  <img src="${buttonUrl}" width="88" height="31">\n` +
       `</a>`;
+  }
+
+  const copyBtn = document.getElementById("copy-code-btn");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(
+          document.getElementById("my-button-code").value
+        );
+        copyBtn.textContent = "✓";
+        copyBtn.classList.add("copied");
+        setTimeout(() => {
+          copyBtn.textContent = "📋";
+          copyBtn.classList.remove("copied");
+        }, 1200);
+      } catch (err) {
+        console.error(err);
+      }
+    });
+  }
+
+  const countEl = document.getElementById("follow-count");
+  if (data.nekoweb_domain && countEl) {
+    try {
+      const res = await fetch(
+        `https://nekoweb.org/api/site/info/${data.nekoweb_domain}`,
+        { cache: "no-store" }
+      );
+      if (res.ok) {
+        const info = await res.json();
+        countEl.textContent = `${info.followers} follower${info.followers === 1 ? "" : "s"}`;
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
 

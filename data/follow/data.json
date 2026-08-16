@@ -1,6 +1,4 @@
 {
-  "links": [
-    { "label": "", "url": "", "icon": "data/follow/img/link-1.jpg" }
-  ],
+  "nekoweb_domain": "akkuunamatata.nekoweb.org",
   "site_button": "data/follow/img/site-button.png"
 }

@@ -406,6 +406,39 @@
       "review_en": [
         "Rewatch a second time, it's like an another moovie, very good!"
       ]
+    },
+    {
+      "title": "Five Nights at Freddy's 2 (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/1/1/8/8/3/1111883-five-nights-at-freddys-2-0-600-0-900-crop.jpg?v=f382c9b76f",
+      "rating": "2.5",
+      "review": [
+        "Better idea than the previous one. Need to be scarier with better ambiance but it does the job done with the lore."
+      ],
+      "review_en": [
+        "Better idea than the previous one. Need to be scarier with better ambiance but it does the job done with the lore."
+      ]
+    },
+    {
+      "title": "Until Dawn (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/1/5/5/9/7/1115597-until-dawn-2025-0-600-0-900-crop.jpg?v=677bb9db18",
+      "rating": "1.5",
+      "review": [
+        "Where the scary parts? Why use until dawn IP to just put 3 wendigos and 1 mask? Inexistant tension."
+      ],
+      "review_en": [
+        "Where the scary parts? Why use until Dawn IP to just put 3 wendigos and 1 mask? No tension."
+      ]
+    },
+    {
+      "title": "Chainsaw Man – The Movie: Reze Arc (2025)",
+      "image": "https://a.ltrbxd.com/resized/film-poster/1/1/0/2/6/7/3/1102673-chainsaw-man-the-movie-reze-arc-0-600-0-900-crop.jpg?v=d9227a11bd",
+      "rating": "5.0",
+      "review": [
+        "Fight, romance, tear, action, goated animation, sublime music : Absolute Cinema."
+      ],
+      "review_en": [
+        "Fight, romance, tear, action, goated animation, sublime music : Absolute Cinema."
+      ]
     }
   ]
 }

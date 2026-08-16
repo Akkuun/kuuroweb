@@ -1,10 +1,10 @@
 {
   "tracks": [
-    { "title": "", "src": "data/music/track_1.mp3" },
-    { "title": "", "src": "data/music/track_2.mp3" },
-    { "title": "", "src": "data/music/track_3.mp3" },
-    { "title": "", "src": "data/music/track_4.mp3" },
-    { "title": "", "src": "data/music/track_5.mp3" },
-    { "title": "", "src": "data/music/track_6.mp3" }
+    { "title": "Click", "src": "data/music/ost_1.mp3" },
+    { "title": "here", "src": "data/music/ost_6.mp3" },
+    { "title": "to discover", "src": "data/music/ost_3.mp3" },
+    { "title": "which", "src": "data/music/ost_4.mp3" },
+    { "title": "music", "src": "data/music/ost_5.mp3" },
+    { "title": "hite me", "src": "data/music/ost_2.mp3" }
   ]
 }
