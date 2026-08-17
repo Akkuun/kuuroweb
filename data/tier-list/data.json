@@ -1,8 +1,8 @@
 {
   "lists": [
-    { "title": "Anime", "jp": "アニメ", "thumbnail": "data/tier-list/img/anime_thumb.jpg", "image": "data/tier-list/img/anime_full.jpg" },
-    { "title": "Manga", "jp": "漫画", "thumbnail": "data/tier-list/img/manga_thumb.jpg", "image": "data/tier-list/img/manga_full.jpg" },
-    { "title": "Films", "jp": "映画", "thumbnail": "data/tier-list/img/films_thumb.jpg", "image": "data/tier-list/img/films_full.jpg" },
-    { "title": "Games", "jp": "ゲーム", "thumbnail": "data/tier-list/img/games_thumb.jpg", "image": "data/tier-list/img/games_full.jpg" }
+    { "title": "Elden ring Bosses", "jp": "エルドンリングボス", "thumbnail": "data/tier-list/img/elden_ring/icon.webp", "image": "data/tier-list/img/elden_ring/tier_list_elden_ring.png" },
+    { "title": "Bloodborne Bosses", "jp": "ブラッドボーンボス", "thumbnail": "data/tier-list/img/bloodborne/icon.webp", "image": "data/tier-list/img/bloodborne/tier_list.png" },
+    { "title": "Mouse Hire For P.I Weapons", "jp": "ダークソウルボス", "thumbnail": "data/tier-list/img/Mouse/icon.jpg", "image": "data/tier-list/img/Mouse/tier_list.png" },
+    { "title": "Zelda Games", "jp": "ゼルダの伝説", "thumbnail": "data/tier-list/img/zelda/logo.jpg", "image": "data/tier-list/img/zelda/tier_list.png" }
   ]
 }

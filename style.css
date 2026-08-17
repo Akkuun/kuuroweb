@@ -41,7 +41,8 @@ a,
 button,
 .track-row,
 .context-menu-item,
-.volume-slider {
+.volume-slider,
+.tier-list-icon {
   cursor: url("data/cursor/pointed.cur"), pointer;
 }
 
@@ -220,7 +221,11 @@ body {
 
 @keyframes marquee-enter {
   from {
-    transform: translateX(100vw);
+    /* --marquee-bar-width est posee par js/marquee.js (largeur reelle
+       mesuree de #marquee-bar) -- pile la bordure droite de la barre,
+       sans l'approximation 100vw (peut deborder legerement sur les pages
+       avec scrollbar) */
+    transform: translateX(var(--marquee-bar-width, 100vw));
   }
   to {
     transform: translateX(0);
@@ -231,8 +236,8 @@ body {
    entre groupes : les deux groupes ont alors une largeur identique */
 .marquee-group {
   display: inline-flex;
-  gap: 20px;
-  margin-right: 20px;
+  gap: 60px;
+  margin-right: 60px;
   flex-shrink: 0;
 }
 
@@ -262,7 +267,10 @@ body {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    /* --marquee-loop-percent est posee par js/marquee.js : toujours
+       l'equivalent d'exactement un groupe de large, quel que soit le
+       nombre de groupes generes (50% pour 2 groupes, 33.33% pour 3...) */
+    transform: translateX(calc(-1 * var(--marquee-loop-percent, 50%)));
   }
 }
 
@@ -508,7 +516,6 @@ body {
   font-size: 11px;
   line-height: 1;
   padding: 0;
-  cursor: pointer;
 }
 
 .copy-code-btn:hover {
@@ -792,6 +799,15 @@ body {
   line-height: 1.3;
 }
 
+/* bio About Me : les \n du JSON doivent s'afficher comme de vrais sauts de
+   ligne (white-space:normal les aurait sinon collapses en simples
+   espaces), et police plus grande qu'ailleurs, specifique a ce bloc */
+#about-me-bio {
+  white-space: pre-line;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 /* bloc book : 2 lignes, chacune vignette + review sur le côté */
 .book-item-row {
   display: flex;
@@ -902,7 +918,7 @@ body {
 }
 
 .polaroid-photo.glitching {
-  filter: url(#polaroid-shader) hue-rotate(140deg) saturate(3.2) contrast(1.6) brightness(0.75);
+  filter: url(#polaroid-shader) contrast(2) brightness(0.7) grayscale(0.65);
 }
 
 .polaroid-photo::before {
@@ -1066,7 +1082,6 @@ body {
   flex: 1;
   min-width: 0;
   accent-color: #6a0dad;
-  cursor: pointer;
 }
 
 /* liste de pistes : une ligne par titre, celle en cours en violet */
@@ -1079,7 +1094,6 @@ body {
 .track-row {
   font-size: 9px;
   padding: 3px 4px;
-  cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
@@ -1168,7 +1182,6 @@ body {
   border: 2px solid #fff;
   background: transparent;
   color: #fff;
-  cursor: pointer;
 }
 
 .archive-pager-btn:hover:not(:disabled) {
@@ -1219,7 +1232,6 @@ body {
 
 .tier-list-icon {
   width: 150px;
-  cursor: pointer;
 }
 
 .tier-list-icon-thumb {
@@ -1271,7 +1283,6 @@ body {
   color: #fff;
   font-size: 22px;
   line-height: 1;
-  cursor: pointer;
 }
 
 .tier-list-lightbox-close:hover {
