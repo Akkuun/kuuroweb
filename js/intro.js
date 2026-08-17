@@ -1,18 +1,13 @@
 // rendu pour la page d'intro (index.html) : reprend tel quel le sous-ensemble
-// de render.js dont cette page a besoin (about me, chat, follow/my button),
+// de render.js dont cette page a besoin (about me, follow/my button),
 // plutôt que d'inclure tout render.js qui tenterait aussi de peupler des
 // blocs film/book/manga/etc. absents de cette page (erreurs console inutiles).
+// chat/follow-count vivent uniquement sur profil.html désormais.
 
 async function loadJSON(path) {
   const res = await fetch(path, { cache: "no-store" });
   if (!res.ok) throw new Error(`impossible de charger ${path}`);
   return res.json();
-}
-
-function el(tag, className) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  return node;
 }
 
 function setBackgroundImage(node, src, size = "cover") {
@@ -34,22 +29,7 @@ async function renderAboutMe() {
   document.getElementById("about-me-bio").textContent = data.bio || "";
 }
 
-// ---- CHAT : shoutbox Cbox (cbox.ws) ----
-async function renderChat() {
-  const data = await loadJSON("data/chat/data.json");
-  const container = document.getElementById("chat-embed");
-  if (!data.cbox_boxid || !data.cbox_boxtag) return;
-
-  const iframe = el("iframe");
-  iframe.src = `https://www5.cbox.ws/box/?boxid=${data.cbox_boxid}&boxtag=${data.cbox_boxtag}`;
-  iframe.width = "100%";
-  iframe.height = "100%";
-  iframe.frameBorder = "0";
-  iframe.allowTransparency = "true";
-  container.appendChild(iframe);
-}
-
-// ---- FOLLOW + MY BUTTON ----
+// ---- MY BUTTON (image + code d'embed) ----
 async function renderFollow() {
   const data = await loadJSON("data/follow/data.json");
 
@@ -81,22 +61,6 @@ async function renderFollow() {
       }
     });
   }
-
-  const countEl = document.getElementById("follow-count");
-  if (data.nekoweb_domain && countEl) {
-    try {
-      const res = await fetch(
-        `https://nekoweb.org/api/site/info/${data.nekoweb_domain}`,
-        { cache: "no-store" }
-      );
-      if (res.ok) {
-        const info = await res.json();
-        countEl.textContent = `${info.followers} follower${info.followers === 1 ? "" : "s"}`;
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }
 }
 
 // ---- BOUTONS DE NAV EN GIF ----
@@ -118,16 +82,18 @@ function renderNavGifs() {
 }
 
 // ---- VISITS : compteur honnête, local au navigateur (pas de backend, donc
-// pas de faux total "global" -- clairement étiqueté comme tel dans le HTML) ----
+// pas de faux total "global" -- affichage façon compteur LCD rétro
+// (zéros de tête), mais la mention "this browser only" à côté dans le HTML
+// reste claire sur ce que le chiffre représente réellement ----
 function renderVisits() {
   const KEY = "kuuro_visit_count";
   const count = parseInt(localStorage.getItem(KEY) || "0", 10) + 1;
   localStorage.setItem(KEY, String(count));
   const node = document.getElementById("visit-count");
-  if (node) node.textContent = `${count} visit${count === 1 ? "" : "s"}`;
+  if (node) node.textContent = String(count).padStart(5, "0");
 }
 
 renderVisits();
 renderNavGifs();
 
-[renderAboutMe, renderChat, renderFollow].forEach((fn) => fn().catch((err) => console.error(err)));
+[renderAboutMe, renderFollow].forEach((fn) => fn().catch((err) => console.error(err)));

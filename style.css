@@ -74,17 +74,33 @@ html, body {
 .eye-wall-instance {
   position: absolute;
   opacity: 0.45;
+  /* chaque instance sur sa propre couche de composition : sans ça, de
+     nombreux gifs animes semi-transparents qui se chevauchent peuvent se
+     redessiner les uns sur les autres et laisser des artefacts visuels */
+  will-change: transform;
 }
 
 /* mur de gif codé en dur sur les pages secondaires (pas de script) : des
    <img> fixes dans les marges gauche/droite, toujours derrière le contenu
    (z-index négatif -> passe sous .block même non positionné). Pas de
-   mix-blend-mode ici : opacité simple, plus sûre à afficher partout. */
+   mix-blend-mode ici : opacité simple, plus sûre à afficher partout.
+   opacity 0.45 sur fond #000 pur diluait le gif (fond noir + yeux clairs)
+   a une luminosité effective d'a peine ~15% -- quasi imperceptible malgre
+   un rendu techniquement correct (cause probable des rapports recurrents
+   "le mur de gif ne s'affiche pas" alors que tout semblait fonctionner) :
+   opacity relevee + filtre luminosite/contraste pour que les yeux ressortent
+   vraiment sur le fond noir. */
 .eye-deco {
   position: fixed;
   z-index: -1;
-  opacity: 0.45;
+  opacity: 0.85;
+  filter: brightness(1.7) contrast(1.25);
   pointer-events: none;
+  /* couche de composition dédiée par instance (voir .eye-wall-instance) --
+     ici les 10 <img> pointent vers le même fichier gif : chacune a en plus
+     un ?i=N different dans son src (voir le HTML) pour forcer un décodage
+     indépendant plutôt qu'une instance de décodeur partagée */
+  will-change: transform;
 }
 
 .eye-deco-l1 { left: 0.5%; top: 6%; width: 70px; transform: rotate(-12deg); }

@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      overflow: auto;
+      overflow-y: auto;
+      /* les gif eye-orbit débordent volontairement du cadre central sur les
+         viewports étroits : hidden ici évite juste la barre de scroll
+         horizontale, ils restent simplement rognés au bord */
+      overflow-x: hidden;
       padding: 78px 20px 30px;
       display: flex;
       flex-direction: column;
@@ -17,33 +21,122 @@
 
     /* cadre externe façon <table border> d'un vieux site perso : double
        filet, tout est ensuite decoupe en "cellules" avec leurs propres
-       bordures, comme des <td> plutot que des boites flottantes modernes */
+       bordures, comme des <td> plutot que des boites flottantes modernes.
+       position:relative : ancre les gif eye-orbit-* (position:absolute)
+       tout autour de ce bloc plutôt que du viewport entier */
     .intro-wrap {
+      position: relative;
+      /* z-index:0 (pas juste position:relative) : force ce bloc a etablir
+         son PROPRE contexte d'empilement, pour que les enfants z-index:-1
+         (les gif eye-orbit) restent bien nichés dessous LUI et non promus
+         au contexte d'empilement racine de la page (ou ils pourraient se
+         faire recouvrir par d'autres elements sans rapport) */
+      z-index: 0;
       width: 100%;
       max-width: 1100px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
       border: 3px double #fff;
       background: #000;
+    }
+
+    /* gif eye_wall disposés tout autour du bloc central (haut/bas/côtés),
+       ancrés sur .intro-wrap -- remplace le positionnement fixe-viewport
+       partagé par .eye-deco sur les autres pages (voir style.css) */
+    .eye-orbit {
+      position: absolute;
+    }
+
+    /* 33 instances, RIEN au-dessus du bloc (jamais devant "PERSONAL
+       HOMEPAGE") : uniquement sur les cotes (14 gauche + 14 droite) et en
+       dessous (5 en bas) -- tailles bien plus grandes et angles de
+       rotation tres varies (aucune valeur proche d'une autre) pour un
+       rendu vraiment eparpille plutot qu'une grille reguliere -- fichiers
+       distincts (pas la meme image + query string) pour garantir un
+       decalage de phase reel entre instances proches */
+    /* décalage calculé par trigonométrie (largeur/hauteur réelles de la
+       boîte englobante APRÈS rotation, + marge de sécurité) : garantit
+       qu'aucune instance ne chevauche le bloc central, même les plus
+       tournées (un simple -(taille+marge) sous-estimait l'emprise réelle
+       d'une image tournée à 30-45deg et laissait des chevauchements) */
+    .eye-orbit-b1 { bottom: -177px; left: 5%; width: 210px; transform: rotate(-25deg); }
+    .eye-orbit-b2 { bottom: -189px; left: 24%; width: 245px; transform: rotate(16deg); }
+    .eye-orbit-b3 { bottom: -202px; left: 45%; width: 225px; transform: rotate(-38deg); }
+    .eye-orbit-b4 { bottom: -220px; left: 65%; width: 260px; transform: rotate(29deg); }
+    .eye-orbit-b5 { bottom: -149px; left: 85%; width: 195px; transform: rotate(-12deg); }
+    .eye-orbit-l1 { top: -4%; left: -228px; width: 195px; transform: rotate(-38deg); }
+    .eye-orbit-l2 { top: 4%; left: -271px; width: 235px; transform: rotate(22deg); }
+    .eye-orbit-l3 { top: 12%; left: -210px; width: 180px; transform: rotate(-14deg); }
+    .eye-orbit-l4 { top: 20%; left: -291px; width: 255px; transform: rotate(40deg); }
+    .eye-orbit-l5 { top: 28%; left: -235px; width: 200px; transform: rotate(-27deg); }
+    .eye-orbit-l6 { top: 36%; left: -254px; width: 225px; transform: rotate(9deg); }
+    .eye-orbit-l7 { top: 44%; left: -215px; width: 185px; transform: rotate(-45deg); }
+    .eye-orbit-l8 { top: 52%; left: -285px; width: 250px; transform: rotate(17deg); }
+    .eye-orbit-l9 { top: 60%; left: -237px; width: 210px; transform: rotate(-8deg); }
+    .eye-orbit-l10 { top: 68%; left: -267px; width: 230px; transform: rotate(33deg); }
+    .eye-orbit-l11 { top: 76%; left: -224px; width: 190px; transform: rotate(-31deg); }
+    .eye-orbit-l12 { top: 84%; left: -272px; width: 240px; transform: rotate(13deg); }
+    .eye-orbit-l13 { top: 92%; left: -228px; width: 195px; transform: rotate(-20deg); }
+    .eye-orbit-l14 { top: 99%; left: -251px; width: 215px; transform: rotate(26deg); }
+    .eye-orbit-r1 { top: -3%; right: -240px; width: 205px; transform: rotate(30deg); }
+    .eye-orbit-r2 { top: 5%; right: -275px; width: 240px; transform: rotate(-19deg); }
+    .eye-orbit-r3 { top: 13%; right: -210px; width: 180px; transform: rotate(44deg); }
+    .eye-orbit-r4 { top: 21%; right: -299px; width: 260px; transform: rotate(-33deg); }
+    .eye-orbit-r5 { top: 29%; right: -224px; width: 195px; transform: rotate(11deg); }
+    .eye-orbit-r6 { top: 37%; right: -282px; width: 245px; transform: rotate(-24deg); }
+    .eye-orbit-r7 { top: 45%; right: -234px; width: 200px; transform: rotate(37deg); }
+    .eye-orbit-r8 { top: 53%; right: -292px; width: 265px; transform: rotate(-6deg); }
+    .eye-orbit-r9 { top: 61%; right: -244px; width: 210px; transform: rotate(21deg); }
+    .eye-orbit-r10 { top: 69%; right: -259px; width: 225px; transform: rotate(-41deg); }
+    .eye-orbit-r11 { top: 77%; right: -215px; width: 185px; transform: rotate(15deg); }
+    .eye-orbit-r12 { top: 85%; right: -272px; width: 235px; transform: rotate(-28deg); }
+    .eye-orbit-r13 { top: 93%; right: -223px; width: 190px; transform: rotate(35deg); }
+    .eye-orbit-r14 { top: 99%; right: -253px; width: 220px; transform: rotate(-16deg); }
+
+    /* bandeau titre : premier élément du cadre (la nav horizontale et le
+       bandeau webring/liens ont été retirés, redondants avec le ticker
+       marquee qui fait déjà défiler tous les liens du site) */
+    .retro-header {
+      padding: 14px 10px 12px;
+      border-bottom: 2px solid #fff;
+      text-align: center;
+    }
+
+    .retro-header h1 {
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+
+    .retro-header-sub {
+      font-size: 12px;
+      color: #999;
+      font-weight: normal;
+    }
+
+    .retro-header-rule {
+      margin: 7px auto 0;
+      border-top: 1px solid #999;
+      width: 55%;
+    }
+
+    /* corps : 3 colonnes façon <td> de tableau */
+    .retro-body {
+      display: grid;
+      grid-template-columns: 190px 1fr 210px;
+    }
+
+    .retro-col {
+      /* min-width:0 : sans ça, une piste de grille 1fr ne descend jamais
+         sous la largeur intrinsèque de son contenu (ici le fill de
+         .ascii-divider, 400 caractères sans retour) et fait exploser toute
+         la grille -- même piège que les min-width:0 déjà posés ailleurs sur
+         les enfants flex du site */
+      min-width: 0;
       padding: 10px;
-    }
-
-    .intro-top {
-      display: flex;
-      align-items: stretch;
-      border: 2px solid #fff;
-    }
-
-    /* colonne gauche : photo + menu empilé + compteur de visites + guestbook,
-       façon vieux site perso (voir capture de référence fournie) --
-       cellule à part entière, filet à droite pour séparer des cellules */
-    .intro-left {
-      width: 190px;
-      flex-shrink: 0;
       display: flex;
       flex-direction: column;
-      padding: 10px;
+    }
+
+    .retro-profile,
+    .retro-gifzone {
       border-right: 2px solid #fff;
     }
 
@@ -53,34 +146,44 @@
       background: #999;
       border: 2px solid #fff;
       box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.4), inset -2px -2px 0 rgba(0, 0, 0, 0.6);
-      margin-bottom: 8px;
     }
 
-    .intro-left > a:hover .intro-photo {
+    .retro-profile > a:hover .intro-photo {
       filter: brightness(1.15);
     }
 
-    .intro-nav {
+    .profile-facts {
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .profile-tags {
+      list-style: none;
+      margin-top: 8px;
+      font-size: 10px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 4px;
     }
 
-    .intro-nav a {
-      display: block;
-      text-decoration: none;
+    .retro-guestbook-btn {
+      margin-top: auto;
+      text-align: center;
     }
 
-    /* boutons-gif cliquables (au lieu de simples cases de texte bordées) :
-       image de fond (data/gif/*.gif, voir js/intro.js) sur un relief
-       "bouton" façon vieux web -- gris #999 tant que le gif n'est pas
-       fourni (même logique de placeholder que .poster/.site-button).
-       hauteur calée sur le ratio ~16:9 des gifs fournis, pour les afficher
-       en grand sans trop les recadrer */
+    /* zone gif centrale : les boutons-gif de nav, en grand, + tagline */
+    .gifzone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
     .nav-gif-btn {
       position: relative;
       width: 100%;
-      height: 96px;
+      height: 92px;
       background-color: #999;
       background-size: cover;
       background-position: center;
@@ -89,10 +192,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      /* couche de composition dédiée : évite que le gif de fond se redessine
+         mal quand plusieurs boutons-gif animés sont côte à côte */
+      will-change: transform;
     }
 
     .nav-gif-btn span {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: bold;
       color: #fff;
       letter-spacing: 0.5px;
@@ -107,91 +213,122 @@
       box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.55), inset 2px 2px 0 rgba(0, 0, 0, 0.55);
     }
 
-    .intro-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 8px;
-      font-size: 9px;
-    }
-
-    .intro-visits {
-      border: 2px solid #fff;
-      padding: 6px;
-      text-align: center;
-    }
-
-    .intro-visits .jp {
-      display: block;
-      margin: 2px 0 0;
-    }
-
-    /* colonne centrale : bloc de bienvenue / about me -- cellule elle aussi */
-    .intro-main {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-    }
-
-    #block-welcome {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .intro-welcome-row {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .intro-welcome-text {
-      margin-top: 8px;
+    .gifzone-welcome {
+      margin-top: 10px;
       font-size: 12px;
-      line-height: 1.6;
+      font-weight: bold;
+      font-style: italic;
+      text-align: center;
+      animation: navigate-hint-blink 1.6s ease-in-out infinite;
+    }
+
+    .gifzone-bio {
+      margin-top: 8px;
+      font-size: 11px;
+      line-height: 1.5;
       white-space: pre-line;
       flex: 1;
     }
 
-    .intro-hint {
-      margin-top: auto;
-      padding-top: 10px;
-      font-size: 11px;
-      font-weight: bold;
-      font-style: italic;
+    /* colonne updates : widget changelog, plus grand ici (toute la colonne) */
+    .retro-updates {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .retro-updates .intro-changelog-scroll {
+      flex: 1;
+      min-height: 220px;
+      max-height: none;
+    }
+
+    .intro-changelog-scroll {
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .intro-changelog-link {
+      display: inline-block;
+      margin-top: 8px;
+      border: 2px solid #fff;
+      padding: 3px 6px;
+      text-decoration: none;
       color: #fff;
+      font-size: 9px;
+      text-align: center;
+    }
+
+    .intro-changelog-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* rangée de widgets : friends / my button / status / visitors */
+    .retro-widgets {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 2px solid #fff;
+    }
+
+    .retro-widget {
+      min-width: 0;
+      padding: 10px;
+      border-right: 2px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+    }
+
+    .retro-widget:last-child {
+      border-right: none;
+    }
+
+    /* .retro-widget a align-items:center (pour centrer le contenu de
+       chaque widget) -- ça enleve le stretch par defaut, donc sans ceci
+       .ascii-divider (injecté par ascii-decor.js) se met à sa largeur
+       intrinsèque (le fill de 400 caractères "█") au lieu de la largeur du
+       widget -> une grosse barre verticale qui explose toute la colonne */
+    .retro-widget .ascii-divider {
+      align-self: stretch;
+      width: 100%;
+    }
+
+    /* h2 (pas h3) : c'est ce que cible ascii-decor.js pour injecter la
+       barre ░▒▓/████/▓▒░ sous le titre -- tous les blocs de profil.html
+       l'utilisent meme pour les tout petits widgets, meme convention ici */
+    .retro-widget h2 {
+      font-size: 10px;
+    }
+
+    .retro-tip {
+      justify-content: center;
+    }
+
+    .retro-tip-value {
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1.3;
       animation: navigate-hint-blink 1.6s ease-in-out infinite;
     }
 
-    /* rangée du bas : petits carrés-widgets façon bannières/badges 2000s --
-       cellules bordées en relief, comme des <td> de tableau plutôt que des
-       cartes flottantes modernes */
-    .intro-widgets {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
+    .retro-visitors-value {
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
 
-    .intro-widget {
-      min-height: 110px;
-      display: flex;
-      flex-direction: column;
-      border: 2px solid #fff;
-      box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.3), inset -1px -1px 0 rgba(0, 0, 0, 0.6);
-      padding: 5px;
+    .retro-visitors-note {
+      font-size: 8px;
+      color: #999;
     }
 
     .intro-footer {
-      margin-top: 10px;
       text-align: center;
       font-size: 8px;
       color: #999;
       border-top: 2px solid #fff;
-      padding-top: 6px;
+      padding: 6px 10px;
     }
 
     .intro-footer .jp {
@@ -205,62 +342,9 @@
       font-weight: bold;
       color: #fff;
     }
-
-    .intro-widget .chat-embed {
-      min-height: 90px;
-    }
-
-    .intro-widget .my-button-row {
-      flex: 1;
-    }
-
-    .intro-widget .follow-row {
-      margin-top: auto;
-    }
-
-    /* widget CHANGELOG : bloc plus grand et défilant, alimenté par les
-       mêmes données que changelog.html (voir js/changelog.js) plutôt que
-       du texte statique */
-    #block-changelog {
-      grid-column: span 2;
-    }
-
-    .intro-changelog-scroll {
-      flex: 1;
-      min-height: 160px;
-      max-height: 220px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .intro-changelog-link {
-      display: inline-block;
-      margin-top: 8px;
-      border: 2px solid #fff;
-      padding: 3px 6px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 9px;
-    }
-
-    .intro-changelog-link:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
   </style>
 </head>
 <body>
-
-  <!-- mur de gif, codé en dur (pas de script) : voir .eye-deco* dans style.css -->
-  <img class="eye-deco eye-deco-l1" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-l2" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-l3" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-l4" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-l5" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-r1" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-r2" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-r3" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-r4" src="data/eye_wall.gif" alt="" aria-hidden="true">
-  <img class="eye-deco eye-deco-r5" src="data/eye_wall.gif" alt="" aria-hidden="true">
 
   <!-- Bande supérieure : même bandeau que les autres pages -->
   <div id="marquee-bar">
@@ -269,55 +353,114 @@
 
   <div class="intro-wrap">
 
-    <div class="intro-top">
+    <!-- mur de gif tout autour du bloc central, ancré sur .intro-wrap
+         (voir .eye-orbit* ci-dessus). Chaque instance pointe vers un
+         FICHIER different (data/eye_wall_2..11.gif, chacun avec les memes
+         frames mais decalees en phase) plutot que le meme fichier avec une
+         query string : certains navigateurs partagent quand meme une seule
+         horloge d'animation entre <img> identiques au niveau des octets,
+         meme avec une URL differente -- des fichiers reellement distincts
+         garantissent que les clignements ne sont jamais synchronises. 33
+         instances pour 11 phases distinctes : chaque phase revient donc
+         2-3 fois, mais toujours entre positions tres eloignees pour que la
+         reprise ne soit pas perceptible. Rien au-dessus du bloc : jamais
+         devant le titre "PERSONAL HOMEPAGE". -->
+    <img class="eye-deco eye-orbit eye-orbit-b1" src="data/eye_wall.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-b2" src="data/eye_wall_2.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-b3" src="data/eye_wall_3.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-b4" src="data/eye_wall_4.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-b5" src="data/eye_wall_5.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l1" src="data/eye_wall_6.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l2" src="data/eye_wall_7.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l3" src="data/eye_wall_8.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l4" src="data/eye_wall_9.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l5" src="data/eye_wall_10.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l6" src="data/eye_wall_11.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l7" src="data/eye_wall.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l8" src="data/eye_wall_2.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l9" src="data/eye_wall_3.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l10" src="data/eye_wall_4.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l11" src="data/eye_wall_5.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l12" src="data/eye_wall_6.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l13" src="data/eye_wall_7.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l14" src="data/eye_wall_8.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r1" src="data/eye_wall_9.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r2" src="data/eye_wall_10.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r3" src="data/eye_wall_11.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r4" src="data/eye_wall.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r5" src="data/eye_wall_2.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r6" src="data/eye_wall_3.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r7" src="data/eye_wall_4.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r8" src="data/eye_wall_5.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r9" src="data/eye_wall_6.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r10" src="data/eye_wall_7.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r11" src="data/eye_wall_8.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r12" src="data/eye_wall_9.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r13" src="data/eye_wall_10.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r14" src="data/eye_wall_11.gif" alt="" aria-hidden="true">
 
-      <!-- colonne gauche : photo, menu, visites, guestbook -->
-      <div class="intro-left">
-        <!-- le portrait lui-même sert de bouton "Profile" : déjà en place
-             (data/about-me/data.json), pas besoin d'un gif séparé -->
+    <!-- bandeau titre -->
+    <div class="retro-header">
+      <h1><span id="pseudo-title"></span> <span class="retro-header-sub">/ PERSONAL HOMEPAGE</span></h1>
+      <div class="retro-header-rule" aria-hidden="true"></div>
+    </div>
+
+    <!-- corps : 3 colonnes -->
+    <div class="retro-body">
+
+      <!-- colonne gauche : PROFILE -->
+      <div class="block retro-col retro-profile">
+        <h2>PROFILE <span class="jp">プロフィール</span></h2>
+
+        <!-- le portrait lui-même sert de bouton vers profil.html : déjà en
+             place (data/about-me/data.json), pas besoin d'un gif séparé -->
         <a href="profil.html" title="Profile">
           <div class="intro-photo" id="about-me-photo"></div>
         </a>
 
-        <nav class="intro-nav">
+        <div class="profile-facts">23 · FR</div>
+        <ul class="profile-tags">
+          <li>✦ games</li>
+          <li>✦ manga</li>
+          <li>✦ movies</li>
+        </ul>
+
+        <a class="guestbook-link retro-guestbook-btn" href="guestbook.html">✉ Guestbook</a>
+      </div>
+
+      <!-- colonne centrale : GIF / ASCII ZONE -->
+      <div class="block retro-col retro-gifzone">
+        <h2>PAGES ZONE <span class="jp">ジフゾーン</span></h2>
+
+        <div class="gifzone-grid">
           <a href="film-reviews.html"><div class="nav-gif-btn" id="nav-gif-films"><span>Films 映画</span></div></a>
           <a href="book-reviews.html"><div class="nav-gif-btn" id="nav-gif-books"><span>Books 本</span></div></a>
           <a href="game-reviews.html"><div class="nav-gif-btn" id="nav-gif-games"><span>Games ゲーム</span></div></a>
           <a href="tier-list.html"><div class="nav-gif-btn" id="nav-gif-tierlist"><span>Tier list ランキング</span></div></a>
-        </nav>
-
-        <div class="intro-stats">
-          <div class="intro-visits">
-            <span id="visit-count">-- visits</span>
-            <span class="jp">訪問回数（このブラウザのみ）</span>
-          </div>
-          <a class="guestbook-link" href="guestbook.html">✉ Sign my guestbook</a>
         </div>
+
+        <p class="gifzone-welcome">"welcome to my site" <span class="jp">ようこそ</span></p>
+        <p class="review-text gifzone-bio" id="about-me-bio"></p>
       </div>
 
-      <!-- colonne centrale : bienvenue / about me -->
-      <div class="intro-main">
-        <div class="block" id="block-welcome">
-          <h2>WELCOME <span class="jp">ようこそ</span></h2>
-          <div class="intro-welcome-row">
-            <span class="pseudo-inline" id="pseudo-title"></span>
-          </div>
-          <p class="review-text intro-welcome-text" id="about-me-bio"></p>
-          <p class="intro-hint">click a link to proceed <span class="jp">→ 進むにはリンクをクリック</span></p>
-        </div>
+      <!-- colonne droite : UPDATES -->
+      <div class="block retro-col retro-updates">
+        <h2>UPDATES <span class="jp">更新履歴</span></h2>
+        <div class="intro-changelog-scroll" id="changelog-widget-list"></div>
+        <a class="intro-changelog-link" href="changelog.html">View full changelog</a>
       </div>
 
     </div>
 
-    <!-- rangée du bas : petits carrés-widgets -->
-    <div class="intro-widgets">
+    <!-- rangée de widgets -->
+    <div class="retro-widgets">
 
-      <div class="block block-small intro-widget" id="block-cool-website">
-        <h2>FRIEND WEBSITE <span class="jp">友達のサイト</span></h2>
+      <div class="block retro-widget" id="block-cool-website">
+        <h2>FRIENDS <span class="jp">友達</span></h2>
         <a target="_blank" href="https://kuurp.nekoweb.org"><img src="https://kuurp.nekoweb.org/assets/button.png" width="88" height="31"></a>
       </div>
 
-      <div class="block block-small intro-widget" id="block-my-button">
+      <div class="block retro-widget" id="block-my-button">
         <h2>MY BUTTON <span class="jp">マイボタン</span></h2>
         <div class="my-button-row">
           <div class="site-button" id="my-button"></div>
@@ -328,30 +471,14 @@
         </div>
       </div>
 
-      <div class="block block-small intro-widget" id="block-follow">
-        <h2>FOLLOW <span class="jp">フォロー</span></h2>
-        <div class="follow-row">
-          <iframe
-            class="follow-button-frame"
-            id="follow-button-frame"
-            src="https://nekoweb.org/frame/follow"
-            frameborder="0"
-            scrolling="no"
-            title="Follow on Nekoweb"
-          ></iframe>
-          <div class="follow-count" id="follow-count">-- followers</div>
-        </div>
+      <div class="block retro-widget retro-tip">
+        <div class="retro-tip-value">RIGHT-CLICK anywhere for the navigate menu <span class="jp">→ 右クリックでナビゲートメニュー</span></div>
       </div>
 
-      <div class="block block-small intro-widget" id="block-chat">
-        <h2>CHAT <span class="jp">チャット</span></h2>
-        <div class="chat-embed" id="chat-embed"></div>
-      </div>
-
-      <div class="block block-small intro-widget" id="block-changelog">
-        <h2>CHANGELOG <span class="jp">更新履歴</span></h2>
-        <div class="intro-changelog-scroll" id="changelog-widget-list"></div>
-        <a class="intro-changelog-link" href="changelog.html">View full changelog</a>
+      <div class="block retro-widget">
+        <h2>VISITORS <span class="jp">訪問者</span></h2>
+        <div class="retro-visitors-value" id="visit-count">00000</div>
+        <div class="retro-visitors-note">this browser only</div>
       </div>
 
     </div>
@@ -368,7 +495,7 @@
   <script src="js/changelog.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      renderChangelogInto("changelog-widget-list", 2).catch((err) => console.error(err));
+      renderChangelogInto("changelog-widget-list", 3).catch((err) => console.error(err));
     });
   </script>
   <script src="js/context-menu.js" defer></script>
