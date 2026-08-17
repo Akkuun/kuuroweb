@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physical Video Game Reviews — Akkuunamatata</title>
+  <title>Changelog — Akkuunamatata</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -15,12 +15,12 @@
       gap: 14px;
     }
 
-    .archive-page {
+    .changelog-page {
       width: 100%;
       max-width: 700px;
     }
 
-    .archive-back {
+    .changelog-back {
       display: inline-block;
       margin-bottom: 10px;
       font-size: 11px;
@@ -47,28 +47,25 @@
     <div class="marquee-content" id="marquee-content"></div>
   </div>
 
-  <div class="archive-page">
-    <a class="archive-back" href="profil.html">&larr; back to site</a>
+  <div class="changelog-page">
+    <a class="changelog-back" href="profil.html">&larr; back to site</a>
 
-    <div class="block" id="block-game-archive">
-      <h2>ALL PHYSICAL VIDEO GAME REVIEWS <span class="jp">ゲームレビュー全部</span></h2>
-      <div id="archive-list"></div>
+    <div class="block" id="block-changelog-page">
+      <h2>CHANGELOG <span class="jp">更新履歴</span></h2>
+      <div id="changelog-list"></div>
     </div>
   </div>
 
   <script src="js/marquee.js" defer></script>
+  <script src="js/changelog.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderChangelogInto("changelog-list").catch((err) => console.error(err));
+    });
+  </script>
   <script src="js/context-menu.js" defer></script>
   <script src="js/ascii-decor.js" defer></script>
   <script src="js/glitch.js" defer></script>
   <script src="js/cursor-effects.js" defer></script>
-  <script src="js/archive.js"></script>
-  <script>
-    renderArchive({
-      dataPath: "data/game/data.json",
-      field: "all_reviews",
-      imageKey: "cover",
-      container: "archive-list",
-    }).catch((err) => console.error(err));
-  </script>
 </body>
 </html>

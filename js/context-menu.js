@@ -3,6 +3,8 @@
 
 const CONTEXT_MENU_ITEMS = [
   { label: "↻ Reload", action: () => location.reload() },
+  { label: "🏠 Home", action: () => { location.href = "index.html"; } },
+  { label: "👤 Profile", action: () => { location.href = "profil.html"; } },
   { label: "✉ Guestbook", action: () => { location.href = "guestbook.html"; } },
   { label: "🎬 All film reviews", action: () => { location.href = "film-reviews.html"; } },
   { label: "📖 All book reviews", action: () => { location.href = "book-reviews.html"; } },

@@ -1,10 +1,12 @@
 {
   "items": [
     { "label": "Home", "url": "index.html" },
+    { "label": "Profile", "url": "profil.html" },
     { "label": "Films", "url": "film-reviews.html" },
     { "label": "Books", "url": "book-reviews.html" },
     { "label": "Games", "url": "game-reviews.html" },
     { "label": "Tier list", "url": "tier-list.html" },
-    { "label": "Guestbook", "url": "guestbook.html" }
+    { "label": "Guestbook", "url": "guestbook.html" },
+    { "label": "Changelog", "url": "changelog.html" }
   ]
 }

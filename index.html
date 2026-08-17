@@ -5,253 +5,376 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Akkuunamatata</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      overflow: auto;
+      padding: 78px 20px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* cadre externe façon <table border> d'un vieux site perso : double
+       filet, tout est ensuite decoupe en "cellules" avec leurs propres
+       bordures, comme des <td> plutot que des boites flottantes modernes */
+    .intro-wrap {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 3px double #fff;
+      background: #000;
+      padding: 10px;
+    }
+
+    .intro-top {
+      display: flex;
+      align-items: stretch;
+      border: 2px solid #fff;
+    }
+
+    /* colonne gauche : photo + menu empilé + compteur de visites + guestbook,
+       façon vieux site perso (voir capture de référence fournie) --
+       cellule à part entière, filet à droite pour séparer des cellules */
+    .intro-left {
+      width: 190px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      border-right: 2px solid #fff;
+    }
+
+    .intro-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #999;
+      border: 2px solid #fff;
+      box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.4), inset -2px -2px 0 rgba(0, 0, 0, 0.6);
+      margin-bottom: 8px;
+    }
+
+    .intro-left > a:hover .intro-photo {
+      filter: brightness(1.15);
+    }
+
+    .intro-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .intro-nav a {
+      display: block;
+      text-decoration: none;
+    }
+
+    /* boutons-gif cliquables (au lieu de simples cases de texte bordées) :
+       image de fond (data/gif/*.gif, voir js/intro.js) sur un relief
+       "bouton" façon vieux web -- gris #999 tant que le gif n'est pas
+       fourni (même logique de placeholder que .poster/.site-button).
+       hauteur calée sur le ratio ~16:9 des gifs fournis, pour les afficher
+       en grand sans trop les recadrer */
+    .nav-gif-btn {
+      position: relative;
+      width: 100%;
+      height: 96px;
+      background-color: #999;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid #fff;
+      box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.55), inset -2px -2px 0 rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-gif-btn span {
+      font-size: 11px;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+
+    .nav-gif-btn:hover {
+      filter: brightness(1.2);
+    }
+
+    .nav-gif-btn:active {
+      box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.55), inset 2px 2px 0 rgba(0, 0, 0, 0.55);
+    }
+
+    .intro-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 9px;
+    }
+
+    .intro-visits {
+      border: 2px solid #fff;
+      padding: 6px;
+      text-align: center;
+    }
+
+    .intro-visits .jp {
+      display: block;
+      margin: 2px 0 0;
+    }
+
+    /* colonne centrale : bloc de bienvenue / about me -- cellule elle aussi */
+    .intro-main {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    #block-welcome {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .intro-welcome-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .intro-welcome-text {
+      margin-top: 8px;
+      font-size: 12px;
+      line-height: 1.6;
+      white-space: pre-line;
+      flex: 1;
+    }
+
+    .intro-hint {
+      margin-top: auto;
+      padding-top: 10px;
+      font-size: 11px;
+      font-weight: bold;
+      font-style: italic;
+      color: #fff;
+      animation: navigate-hint-blink 1.6s ease-in-out infinite;
+    }
+
+    /* rangée du bas : petits carrés-widgets façon bannières/badges 2000s --
+       cellules bordées en relief, comme des <td> de tableau plutôt que des
+       cartes flottantes modernes */
+    .intro-widgets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .intro-widget {
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #fff;
+      box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.3), inset -1px -1px 0 rgba(0, 0, 0, 0.6);
+      padding: 5px;
+    }
+
+    .intro-footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 8px;
+      color: #999;
+      border-top: 2px solid #fff;
+      padding-top: 6px;
+    }
+
+    .intro-footer .jp {
+      display: block;
+      margin: 2px 0 0;
+    }
+
+    .intro-credit {
+      margin-top: 4px;
+      font-size: 9px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .intro-widget .chat-embed {
+      min-height: 90px;
+    }
+
+    .intro-widget .my-button-row {
+      flex: 1;
+    }
+
+    .intro-widget .follow-row {
+      margin-top: auto;
+    }
+
+    /* widget CHANGELOG : bloc plus grand et défilant, alimenté par les
+       mêmes données que changelog.html (voir js/changelog.js) plutôt que
+       du texte statique */
+    #block-changelog {
+      grid-column: span 2;
+    }
+
+    .intro-changelog-scroll {
+      flex: 1;
+      min-height: 160px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .intro-changelog-link {
+      display: inline-block;
+      margin-top: 8px;
+      border: 2px solid #fff;
+      padding: 3px 6px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 9px;
+    }
+
+    .intro-changelog-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  </style>
 </head>
 <body>
 
-  <!-- filtre SVG caché : léger warp organique pour le shader "effrayant"
-       du polaroid (voir .polaroid-photo dans style.css) -->
-  <svg width="0" height="0" style="position: absolute; overflow: hidden;" aria-hidden="true">
-    <filter id="polaroid-shader">
-      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="2" seed="7" result="noise">
-        <animate attributeName="seed" values="1;40;12;1" dur="22s" repeatCount="indefinite" />
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G" />
-    </filter>
-  </svg>
+  <!-- mur de gif, codé en dur (pas de script) : voir .eye-deco* dans style.css -->
+  <img class="eye-deco eye-deco-l1" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-l2" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-l3" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-l4" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-l5" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-r1" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-r2" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-r3" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-r4" src="data/eye_wall.gif" alt="" aria-hidden="true">
+  <img class="eye-deco eye-deco-r5" src="data/eye_wall.gif" alt="" aria-hidden="true">
 
-  <!-- Bande supérieure : collée tout en haut de la page, hors du bloc central -->
+  <!-- Bande supérieure : même bandeau que les autres pages -->
   <div id="marquee-bar">
     <div class="marquee-content" id="marquee-content"></div>
   </div>
 
-  <!-- Conteneur global de la page -->
-  <div id="page">
+  <div class="intro-wrap">
 
-    <!-- Image flottant dans la marge, à gauche du bloc central, hors de #site -->
-    <div id="site-image"></div>
+    <div class="intro-top">
 
-    <!-- Conteneur principal du site -->
-    <div id="site">
+      <!-- colonne gauche : photo, menu, visites, guestbook -->
+      <div class="intro-left">
+        <!-- le portrait lui-même sert de bouton "Profile" : déjà en place
+             (data/about-me/data.json), pas besoin d'un gif séparé -->
+        <a href="profil.html" title="Profile">
+          <div class="intro-photo" id="about-me-photo"></div>
+        </a>
 
-      <!-- Contenu -->
-      <div id="content">
+        <nav class="intro-nav">
+          <a href="film-reviews.html"><div class="nav-gif-btn" id="nav-gif-films"><span>Films 映画</span></div></a>
+          <a href="book-reviews.html"><div class="nav-gif-btn" id="nav-gif-books"><span>Books 本</span></div></a>
+          <a href="game-reviews.html"><div class="nav-gif-btn" id="nav-gif-games"><span>Games ゲーム</span></div></a>
+          <a href="tier-list.html"><div class="nav-gif-btn" id="nav-gif-tierlist"><span>Tier list ランキング</span></div></a>
+        </nav>
 
-        <div id="content-main">
-
-          <!-- Colonne principale -->
-          <div class="main-column">
-
-            <!-- rangée film / about me côte à côte -->
-            <div class="film-row">
-
-              <!-- BLOC FILM -->
-              <div class="block" id="block-film">
-                <h2>FILM <span class="jp">映画</span></h2>
-
-                <div class="two-col-row">
-                  <div class="sub-section">
-                    <h3>Favorite films <span class="jp">お気に入りの映画</span></h3>
-                    <div class="poster-row" id="film-favorites"></div>
-                  </div>
-
-                  <div class="sub-section">
-                    <h3>Highly anticipated movies <span class="jp">期待の映画</span></h3>
-                    <div class="poster-row" id="film-anticipated"></div>
-                  </div>
-
-                  <div class="sub-section">
-                    <h3>Last 4K bought <span class="jp">最新の4K購入</span></h3>
-                    <div class="poster-row" id="film-4k"></div>
-                  </div>
-                </div>
-
-                <div class="sub-section">
-                  <h3>Last on Letterboxd <span class="jp">Letterboxd 最新</span></h3>
-                  <div class="review-row" id="film-letterboxd"></div>
-                </div>
-
-              </div>
-
-              <!-- BLOC ABOUT ME -->
-              <div class="block" id="block-about-me">
-                <div class="about-me-header">
-                  <h2>ABOUT ME <span class="jp">自己紹介</span></h2>
-                  <span class="pseudo-inline" id="pseudo-title"></span>
-                </div>
-                <div class="about-me-row">
-                  <div class="about-photo" id="about-me-photo"></div>
-                  <p class="review-text" id="about-me-bio"></p>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- rangée secondaire : book / manga / anime côte à côte -->
-            <div class="secondary-row">
-
-              <!-- BLOC BOOK -->
-              <div class="block" id="block-book">
-                <h2>BOOK <span class="jp">本</span></h2>
-                <div id="book-list"></div>
-
-                <div class="sub-section">
-                  <h3>Last read <span class="jp">最新に読んだ</span></h3>
-                  <div class="poster-row" id="book-last-read"></div>
-                </div>
-              </div>
-
-              <!-- BLOC MANGA + COOL WEBSITE empilés dans la même colonne
-                   (Physical Video Game ne bouge pas : la colonne garde la
-                   même hauteur totale que Book, juste répartie autrement) -->
-              <div class="manga-column">
-                <div class="block" id="block-manga">
-                  <h2>MANGA <span class="jp">漫画</span></h2>
-
-                  <div class="two-col-row">
-                    <div class="sub-section">
-                      <h3>Last read <span class="jp">最新に読んだ</span></h3>
-                      <div class="poster-row" id="manga-last-read"></div>
-                    </div>
-
-                    <div class="sub-section">
-                      <h3>Favorite <span class="jp">お気に入り</span></h3>
-                      <div class="poster-row" id="manga-favorite"></div>
-                    </div>
-                  </div>
-
-                  <!-- bloc de texte pleine largeur, sous last read/favorite -->
-                  <div class="sub-section manga-note-section">
-                    <p class="review-text" id="manga-note"></p>
-                  </div>
-                </div>
-
-                <div class="block block-small" id="block-cool-website">
-                  <h2>FRIEND WEBSITE <span class="jp">友達のサイト</span></h2>
-                  <a target="_blank" href="https://kuurp.nekoweb.org"><img src="https://kuurp.nekoweb.org/assets/button.png" width="88" height="31"></a>
-                </div>
-
-                <div class="block block-small" id="block-my-button">
-                  <h2>MY BUTTON <span class="jp">マイボタン</span></h2>
-                  <div class="my-button-row">
-                    <div class="site-button" id="my-button"></div>
-                    <div class="button-code-wrap">
-                      <textarea class="button-code" id="my-button-code" readonly rows="2"></textarea>
-                      <button type="button" class="copy-code-btn" id="copy-code-btn" title="Copy embed code">📋</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- BLOC FAVORITE ANIME + image ghost empilés dans la même colonne -->
-              <div class="anime-column">
-                <div class="block" id="block-anime">
-                  <h2>FAVORITE ANIME <span class="jp">お気に入りアニメ</span></h2>
-                  <div class="poster-row" id="anime-favorite"></div>
-                </div>
-
-                <div class="block block-small" id="block-navigate">
-                  <h2>NAVIGATE <span class="jp">ナビゲート</span></h2>
-                  <div class="navigate-body">
-                    <div class="navigate-links">
-                      <a href="index.html">Home</a>
-                      <a href="film-reviews.html">Films</a>
-                      <a href="book-reviews.html">Books</a>
-                      <a href="game-reviews.html">Games</a>
-                      <a href="tier-list.html">Tier list</a>
-                      <a href="guestbook.html">Guestbook</a>
-                    </div>
-                    <p class="navigate-hint">right-click anywhere <span class="jp">→ 右クリックでも移動できます</span></p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- BLOC PHYSICAL VIDEO GAME -->
-            <div class="block" id="block-game">
-              <h2>PHYSICAL VIDEO GAME <span class="jp">現物ゲーム</span></h2>
-
-              <div class="two-col-row">
-                <div class="sub-section">
-                  <h3>Favorite video games <span class="jp">お気に入りのゲーム</span></h3>
-                  <div class="poster-row" id="game-favorites"></div>
-                </div>
-
-                <div class="sub-section">
-                  <h3>Highly anticipated games <span class="jp">期待のゲーム</span></h3>
-                  <div class="poster-row" id="game-anticipated"></div>
-                </div>
-
-                <div class="sub-section">
-                  <h3>Guestbook <span class="jp">ゲストブック</span></h3>
-                  <a class="guestbook-link" href="guestbook.html">Sign my guestbook</a>
-                </div>
-              </div>
-
-              <div class="sub-section">
-                <h3>Last review <span class="jp">最新レビュー</span></h3>
-                <div class="game-review-group" id="game-last-review"></div>
-              </div>
-            </div>
-
+        <div class="intro-stats">
+          <div class="intro-visits">
+            <span id="visit-count">-- visits</span>
+            <span class="jp">訪問回数（このブラウザのみ）</span>
           </div>
-
-          <!-- Colonne secondaire (blocs petits) -->
-          <div class="side-column">
-
-            <!-- BLOC LAST POLAROID -->
-            <div class="block block-small" id="block-polaroid">
-              <h2>Last Polaroid <span class="jp">最新のポラロイド</span></h2>
-              <div class="polaroid-photo" id="polaroid-photo"></div>
-            </div>
-
-            <!-- BLOC CHAT (Cbox) -->
-            <div class="block block-small" id="block-chat">
-              <h2>CHAT <span class="jp">チャット</span></h2>
-              <div class="chat-embed" id="chat-embed"></div>
-            </div>
-
-            <!-- BLOC FOLLOW -->
-            <div class="block block-small" id="block-follow">
-              <h2>FOLLOW <span class="jp">フォロー</span></h2>
-              <div class="follow-row">
-                <iframe
-                  class="follow-button-frame"
-                  id="follow-button-frame"
-                  src="https://nekoweb.org/frame/follow"
-                  frameborder="0"
-                  scrolling="no"
-                  title="Follow on Nekoweb"
-                ></iframe>
-                <div class="follow-count" id="follow-count">-- followers</div>
-              </div>
-            </div>
-
-            <!-- BLOC MUSIC PLAYER -->
-            <div class="block block-small" id="block-music">
-              <h2>MUSIC <span class="jp">音楽</span></h2>
-              <div class="music-player" id="music-player"></div>
-            </div>
-
-          </div>
-
+          <a class="guestbook-link" href="guestbook.html">✉ Sign my guestbook</a>
         </div>
-
       </div>
 
+      <!-- colonne centrale : bienvenue / about me -->
+      <div class="intro-main">
+        <div class="block" id="block-welcome">
+          <h2>WELCOME <span class="jp">ようこそ</span></h2>
+          <div class="intro-welcome-row">
+            <span class="pseudo-inline" id="pseudo-title"></span>
+          </div>
+          <p class="review-text intro-welcome-text" id="about-me-bio"></p>
+          <p class="intro-hint">click a link to proceed <span class="jp">→ 進むにはリンクをクリック</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- rangée du bas : petits carrés-widgets -->
+    <div class="intro-widgets">
+
+      <div class="block block-small intro-widget" id="block-cool-website">
+        <h2>FRIEND WEBSITE <span class="jp">友達のサイト</span></h2>
+        <a target="_blank" href="https://kuurp.nekoweb.org"><img src="https://kuurp.nekoweb.org/assets/button.png" width="88" height="31"></a>
+      </div>
+
+      <div class="block block-small intro-widget" id="block-my-button">
+        <h2>MY BUTTON <span class="jp">マイボタン</span></h2>
+        <div class="my-button-row">
+          <div class="site-button" id="my-button"></div>
+          <div class="button-code-wrap">
+            <textarea class="button-code" id="my-button-code" readonly rows="2"></textarea>
+            <button type="button" class="copy-code-btn" id="copy-code-btn" title="Copy embed code">📋</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="block block-small intro-widget" id="block-follow">
+        <h2>FOLLOW <span class="jp">フォロー</span></h2>
+        <div class="follow-row">
+          <iframe
+            class="follow-button-frame"
+            id="follow-button-frame"
+            src="https://nekoweb.org/frame/follow"
+            frameborder="0"
+            scrolling="no"
+            title="Follow on Nekoweb"
+          ></iframe>
+          <div class="follow-count" id="follow-count">-- followers</div>
+        </div>
+      </div>
+
+      <div class="block block-small intro-widget" id="block-chat">
+        <h2>CHAT <span class="jp">チャット</span></h2>
+        <div class="chat-embed" id="chat-embed"></div>
+      </div>
+
+      <div class="block block-small intro-widget" id="block-changelog">
+        <h2>CHANGELOG <span class="jp">更新履歴</span></h2>
+        <div class="intro-changelog-scroll" id="changelog-widget-list"></div>
+        <a class="intro-changelog-link" href="changelog.html">View full changelog</a>
+      </div>
+
+    </div>
+
+    <div class="intro-footer">
+      best viewed at 1024×768 <span class="jp">画面推奨: 1024×768</span>
+      <div class="intro-credit">made by @akkuunamatata @cc</div>
     </div>
 
   </div>
 
   <script src="js/marquee.js" defer></script>
-  <script src="js/render.js" defer></script>
+  <script src="js/intro.js" defer></script>
+  <script src="js/changelog.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderChangelogInto("changelog-widget-list", 2).catch((err) => console.error(err));
+    });
+  </script>
   <script src="js/context-menu.js" defer></script>
-  <script src="js/polaroid-effect.js" defer></script>
   <script src="js/ascii-decor.js" defer></script>
   <script src="js/glitch.js" defer></script>
   <script src="js/cursor-effects.js" defer></script>
   <script src="js/fake-cursor.js" defer></script>
-  <script src="js/creature-tendrils.js" defer></script>
-  <script src="js/eye-wall.js" defer></script>
 </body>
 </html>

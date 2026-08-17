@@ -9,7 +9,7 @@ const GLITCH_CHARS = "▓▒░█▄▀■□×%$#@&*+~/\\<>";
 // exclus du glitch : texte japonais, pseudo, coeurs/etoiles de note, et les
 // barres ASCII deco elles-memes (dividers de bloc/review/marquee)
 const GLITCH_EXCLUDE_SELECTOR =
-  ".jp, .pseudo-inline, #pseudo-title, .heart, .stars, .ascii-divider, .review-divider, .marquee-divider";
+  ".jp, .pseudo-inline, #pseudo-title, .heart, .stars, .ascii-divider, .review-divider, .marquee-divider, #marquee-bar";
 
 // noeud -> Set des positions actuellement en cours de glitch, pour ne
 // jamais lancer un 2e glitch sur une position deja en cours : sinon le
@@ -156,7 +156,7 @@ setTimeout(scheduleGlitch, 300 + Math.random() * 1200);
 // plus rapide que le glitch de page, sans rien changer a scheduleGlitch()
 function scheduleTitleGlitch() {
   glitchTitleOnce();
-  setTimeout(scheduleTitleGlitch, 40 + Math.random() * 260);
+  setTimeout(scheduleTitleGlitch, 15 + Math.random() * 110);
 }
 
-setTimeout(scheduleTitleGlitch, 100 + Math.random() * 300);
+setTimeout(scheduleTitleGlitch, 50 + Math.random() * 150);

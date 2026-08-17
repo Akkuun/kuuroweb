@@ -37,12 +37,20 @@
   cursor: url("data/cursor/auto.cur"), auto;
 }
 
+/* a *, button * : le curseur est bien une propriete heritee, mais la regle
+   universelle * ci-dessus pose une valeur explicite sur CHAQUE element (pas
+   seulement le lien lui-meme) -> sans ca, tout enfant d'un lien (img, div,
+   span...) retombe sur le curseur par defaut au lieu d'heriter du pointeur.
+   Cible tous les descendants d'un coup plutot que de maintenir une liste de
+   classes au cas par cas (piege qui nous a deja mordus plusieurs fois). */
 a,
 button,
 .track-row,
 .context-menu-item,
 .volume-slider,
-.tier-list-icon {
+.tier-list-icon,
+a *,
+button * {
   cursor: url("data/cursor/pointed.cur"), pointer;
 }
 
@@ -1034,6 +1042,34 @@ body {
 
 .guestbook-link:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+/* liste de changelog, partagée entre changelog.html (page complète) et le
+   widget CHANGELOG de index.html (aperçu défilant) : mêmes données
+   (data/changelog/data.json), voir js/changelog.js */
+.changelog-entry {
+  margin-bottom: 14px;
+}
+
+.changelog-entry:last-child {
+  margin-bottom: 0;
+}
+
+.changelog-date {
+  font-size: 10px;
+  font-weight: bold;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.changelog-entry ul {
+  list-style: none;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.changelog-entry li::before {
+  content: "▓ ";
 }
 
 .site-button {

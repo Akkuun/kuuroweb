@@ -1,0 +1,27 @@
+{
+  "entries": [
+    {
+      "date": "2026-08-17",
+      "items": [
+        "Split the homepage: this intro/menu page is now the entry point, the full profile lives on its own page",
+        "Added a changelog page",
+        "Sped up the tab title glitch effect",
+        "Added tier lists",
+        "Nav buttons are now clickable gifs, page framed like a 2000s table layout"
+      ]
+    },
+    {
+      "date": "2026-08-16",
+      "items": [
+        "Custom cursor, cursor trails and glitch-cursor effects",
+        "Full visual overhaul, navigation menu, marquee ticker"
+      ]
+    },
+    {
+      "date": "2026-08-15",
+      "items": [
+        "Initial site structure and data pipeline set up"
+      ]
+    }
+  ]
+}
