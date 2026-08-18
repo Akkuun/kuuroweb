@@ -1,0 +1,75 @@
+name: Sync content and deploy to Nekoweb
+
+# 1. Recupere les derniers films/livres/mangas/jeux (Letterboxd, Goodreads,
+#    Backloggd) et met a jour les data/*.json correspondants.
+# 2. Commit ces changements s'il y en a (no-op sinon).
+# 3. Deploie tout le repo sur Nekoweb via deploy2nekoweb.
+#
+# Se declenche sur push vers main, manuellement, et une fois par jour pour
+# que le contenu reste a jour meme sans commit de code (l'activite
+# Letterboxd/Goodreads/Backloggd est independante des commits sur ce repo).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *" # tous les jours a 06:00 UTC
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Cache Argos Translate model
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/argos-translate
+          key: argos-translate-fr-en
+
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      # chaque source externe est independante et parfois instable
+      # (rate-limit, changement de mise en page...) -- continue-on-error
+      # pour qu'une source en panne ne bloque ni les autres ni le deploiement
+      - name: Sync Letterboxd (films)
+        run: python scripts/update_letterboxd.py
+        continue-on-error: true
+
+      - name: Sync Goodreads (books)
+        run: python scripts/update_goodreads_books.py
+        continue-on-error: true
+
+      - name: Sync Goodreads (manga)
+        run: python scripts/update_goodreads_manga.py
+        continue-on-error: true
+
+      - name: Sync Backloggd (games)
+        run: python scripts/update_backloggd.py
+        continue-on-error: true
+
+      - name: Commit updated data (if any)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: sync film/book/manga/game data"
+          file_pattern: "data/film/data.json data/book/data.json data/manga/data.json data/game/data.json"
+
+      - name: Deploy to Nekoweb
+        uses: indiefellas/deploy2nekoweb@main
+        with:
+          nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
+          nekoweb-domain: "akkuunamatata.nekoweb.org"
+          nekoweb-username: "akkuunamatata"
+          directory: "."
