@@ -143,15 +143,15 @@
   "highly_anticipated": [
     {
       "title": "End of the Abyss",
-      "cover": "data/game/img/anticipated_1.png"
+      "cover": "data/game/img/Anticipated_1.png"
     },
     {
       "title": "ILL",
-      "cover": "data/game/img/anticipated_2.png"
+      "cover": "data/game/img/Anticipated_2.png"
     },
     {
       "title": "Rayman Legends Untold",
-      "cover": "data/game/img/anticipated_3.png"
+      "cover": "data/game/img/Anticipated_3.png"
     }
   ],
   "physical_consoles_owned": [

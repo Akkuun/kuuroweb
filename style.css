@@ -134,7 +134,12 @@ body {
   align-items: flex-start;
   justify-content: flex-end;
   padding: 14px 0.3vw 14px 5vw;
-  transform: translateY(-10px);
+  /* le transform (translateY -10px + scale dynamique) est géré entièrement
+     par js/fit-page.js -- voir ce fichier : sur les résolutions plus
+     petites que prévu, le contenu (tailles fixes en px un peu partout)
+     débordait et se faisait couper a gauche (#page est ancré a droite via
+     justify-content:flex-end). Un scale() uniforme evite ca sans jamais
+     changer les proportions internes. */
 }
 
 /* message caché "I SEE YOU" derrière l'îlot de blocs centraux, tracé trait
@@ -212,6 +217,18 @@ body {
   background: transparent;
   border: none;
   padding: 14px;
+  /* remonte l'îlot de blocs central sans toucher #site-image (sibling,
+     géré séparément) : sur la version déployée le bas dépassait du
+     viewport */
+  transform: translateY(-20px);
+  /* transform établit un NOUVEAU contexte d'empilement (toujours, quelle
+     que soit sa valeur) -> sans z-index explicite ici, le z-index:20 de
+     #content-main (descendant) se retrouve piégé dans ce contexte et ne
+     peut plus rivaliser avec #site-image (z-index:1, sibling direct sous
+     #page) : #site-image passait visuellement PAR-DESSUS le texte à leur
+     zone de chevauchement (fond noir sur fond noir -> texte caché, pas
+     supprimé). z-index ici restaure l'ordre voulu. */
+  z-index: 2;
 }
 
 /* bande supérieure : collée en haut du viewport, pas dans le bloc central ;

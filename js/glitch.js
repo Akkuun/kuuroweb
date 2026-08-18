@@ -9,7 +9,7 @@ const GLITCH_CHARS = "▓▒░█▄▀■□×%$#@&*+~/\\<>";
 // exclus du glitch : texte japonais, pseudo, coeurs/etoiles de note, et les
 // barres ASCII deco elles-memes (dividers de bloc/review/marquee)
 const GLITCH_EXCLUDE_SELECTOR =
-  ".jp, .pseudo-inline, #pseudo-title, .heart, .stars, .ascii-divider, .review-divider, .marquee-divider, #marquee-bar, .context-menu";
+  ".jp, .pseudo-inline, #pseudo-title, .heart, .stars, .ascii-divider, .review-divider, .marquee-divider, #marquee-bar, .context-menu, #block-follow";
 
 // noeud -> Set des positions actuellement en cours de glitch, pour ne
 // jamais lancer un 2e glitch sur une position deja en cours : sinon le
