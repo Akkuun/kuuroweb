@@ -66,25 +66,21 @@ jobs:
           commit_message: "chore: sync film/book/manga/game data"
           file_pattern: "data/film/data.json data/book/data.json data/manga/data.json data/game/data.json"
 
-      # Nekoweb range les fichiers d'un site sous un dossier nomme EXACTEMENT
-      # d'apres son domaine (ex: akkuunamatata.nekoweb.org/index.html, pas
-      # index.html directement a la racine du dashboard) -- meme convention
-      # que le format d'URL en domaine double documente pour elements.css.
-      # On reconstruit donc cette structure avant l'upload plutot que de
-      # deployer le depot tel quel. cursor.png est en plus copie a cote de
-      # ce dossier (racine du dashboard Nekoweb, pas dans le site) -- meme
-      # mecanisme : tout ce qui est directement sous deploy/ finit comme
-      # entree de premier niveau une fois deploye.
+      # deploy2nekoweb range deja tout ce qu'on lui passe sous le dossier
+      # nomme d'apres nekoweb-domain -- pas besoin de recreer ce dossier
+      # nous-memes (ca doublait le niveau : akkuunamatata.nekoweb.org/
+      # akkuunamatata.nekoweb.org/). On se contente d'un dossier de staging
+      # A PLAT (index.html, cursor.png... tous au meme niveau), en excluant
+      # juste ce qui n'a rien a faire sur le site deploye.
       - name: Prepare deploy structure
         run: |
-          TARGET="deploy/akkuunamatata.nekoweb.org"
-          mkdir -p "$TARGET"
+          mkdir -p deploy
           rsync -a \
             --exclude='.git' \
             --exclude='.github' \
             --exclude='scripts' \
             --exclude='deploy' \
-            ./ "$TARGET/"
+            ./ deploy/
           cp data/cursor/cursor.png deploy/cursor.png
 
       - name: Deploy to Nekoweb
