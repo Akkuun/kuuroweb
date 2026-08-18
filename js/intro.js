@@ -92,19 +92,44 @@ function renderNavGifs() {
   });
 }
 
-// ---- VISITS : compteur honnête, local au navigateur (pas de backend, donc
-// pas de faux total "global" -- affichage façon compteur LCD rétro
-// (zéros de tête), mais la mention "this browser only" à côté dans le HTML
-// reste claire sur ce que le chiffre représente réellement ----
-function renderVisits() {
+// ---- VISITS : vrai total (API Nekoweb, meme endpoint que le follow count
+// sur profil.html) -- affiche le nombre reel de vues du site, pas une
+// approximation locale. Le compteur local reste comme repli honnete si
+// l'API est indisponible (le libelle change en consequence, jamais
+// d'etiquette qui ne correspond pas a ce qui est reellement affiche) ----
+function renderVisitsLocalFallback() {
   const KEY = "kuuro_visit_count";
   const count = parseInt(localStorage.getItem(KEY) || "0", 10) + 1;
   localStorage.setItem(KEY, String(count));
-  const node = document.getElementById("visit-count");
-  if (node) node.textContent = String(count).padStart(5, "0");
+  return count;
 }
 
-renderVisits();
+async function renderVisits() {
+  const localCount = renderVisitsLocalFallback();
+  const node = document.getElementById("visit-count");
+  const noteEl = document.getElementById("visit-count-note");
+  if (node) node.textContent = String(localCount).padStart(5, "0");
+  if (noteEl) noteEl.textContent = "this browser only";
+
+  try {
+    const data = await loadJSON("data/follow/data.json");
+    if (!data.nekoweb_domain) return;
+    const res = await fetch(
+      `https://nekoweb.org/api/site/info/${data.nekoweb_domain}`,
+      { cache: "no-store" }
+    );
+    if (!res.ok) return;
+    const info = await res.json();
+    if (typeof info.views === "number") {
+      if (node) node.textContent = String(info.views).padStart(5, "0");
+      if (noteEl) noteEl.textContent = "total site views";
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+renderVisits().catch((err) => console.error(err));
 renderNavGifs();
 
 [renderAboutMe, renderFollow].forEach((fn) => fn().catch((err) => console.error(err)));
