@@ -22,11 +22,41 @@ function setBackgroundImage(node, src, size = "cover") {
 }
 
 // ---- ABOUT ME ----
+// le bio (data/about-me/data.json) contient un dernier paragraphe "Click
+// Here to go to the main page..." -- sorti du reste du texte et affiché à
+// part, en plus grand (voir .gifzone-cta), avec "Here" en lien vers
+// profil.html (texte avant/après gardé en simples noeuds texte, pas
+// d'innerHTML, pour rester sûr même si le bio contenait des caractères
+// spéciaux)
 async function renderAboutMe() {
   const data = await loadJSON("data/about-me/data.json");
   document.getElementById("pseudo-title").textContent = data.pseudo || "";
   setBackgroundImage(document.getElementById("about-me-photo"), data.photo);
-  document.getElementById("about-me-bio").textContent = data.bio || "";
+
+  const bio = data.bio || "";
+  const paragraphs = bio.split(/\n\s*\n/);
+  const ctaIndex = paragraphs.findIndex((p) => p.includes("Here"));
+
+  const bioEl = document.getElementById("about-me-bio");
+  const ctaEl = document.getElementById("about-me-cta");
+
+  const mainParagraphs =
+    ctaIndex === -1 ? paragraphs : paragraphs.filter((_, i) => i !== ctaIndex);
+  bioEl.textContent = mainParagraphs.join("\n\n").trim();
+
+  if (ctaEl) {
+    ctaEl.textContent = "";
+    if (ctaIndex !== -1) {
+      const cta = paragraphs[ctaIndex].trim();
+      const idx = cta.indexOf("Here");
+      ctaEl.appendChild(document.createTextNode(cta.slice(0, idx)));
+      const link = document.createElement("a");
+      link.href = "profil.html";
+      link.textContent = "Here";
+      ctaEl.appendChild(link);
+      ctaEl.appendChild(document.createTextNode(cta.slice(idx + "Here".length)));
+    }
+  }
 }
 
 // ---- MY BUTTON (image + code d'embed) ----
@@ -41,25 +71,6 @@ async function renderFollow() {
       `<a href="${location.origin}" target="_blank">\n` +
       `  <img src="${buttonUrl}" width="88" height="31">\n` +
       `</a>`;
-  }
-
-  const copyBtn = document.getElementById("copy-code-btn");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(
-          document.getElementById("my-button-code").value
-        );
-        copyBtn.textContent = "✓";
-        copyBtn.classList.add("copied");
-        setTimeout(() => {
-          copyBtn.textContent = "📋";
-          copyBtn.classList.remove("copied");
-        }, 1200);
-      } catch (err) {
-        console.error(err);
-      }
-    });
   }
 }
 

@@ -45,51 +45,28 @@
       position: absolute;
     }
 
-    /* 33 instances, RIEN au-dessus du bloc (jamais devant "PERSONAL
-       HOMEPAGE") : uniquement sur les cotes (14 gauche + 14 droite) et en
-       dessous (5 en bas) -- tailles bien plus grandes et angles de
-       rotation tres varies (aucune valeur proche d'une autre) pour un
-       rendu vraiment eparpille plutot qu'une grille reguliere -- fichiers
-       distincts (pas la meme image + query string) pour garantir un
-       decalage de phase reel entre instances proches */
+    /* 9 instances (etaient 21, puis 15 : encore trop serrees, les voisines
+       se chevauchaient toujours entre elles malgre l'espacement elargi) --
+       3 par cote + 3 en bas, avec suffisamment d'espace vertical/horizontal
+       entre chaque paire de voisines pour qu'aucune ne touche sa voisine,
+       tailles/rotations verifiees empiriquement dans le navigateur */
     /* décalage calculé par trigonométrie (largeur/hauteur réelles de la
        boîte englobante APRÈS rotation, + marge de sécurité) : garantit
-       qu'aucune instance ne chevauche le bloc central, même les plus
-       tournées (un simple -(taille+marge) sous-estimait l'emprise réelle
-       d'une image tournée à 30-45deg et laissait des chevauchements) */
-    .eye-orbit-b1 { bottom: -177px; left: 5%; width: 210px; transform: rotate(-25deg); }
-    .eye-orbit-b2 { bottom: -189px; left: 24%; width: 245px; transform: rotate(16deg); }
-    .eye-orbit-b3 { bottom: -202px; left: 45%; width: 225px; transform: rotate(-38deg); }
-    .eye-orbit-b4 { bottom: -220px; left: 65%; width: 260px; transform: rotate(29deg); }
-    .eye-orbit-b5 { bottom: -149px; left: 85%; width: 195px; transform: rotate(-12deg); }
-    .eye-orbit-l1 { top: -4%; left: -228px; width: 195px; transform: rotate(-38deg); }
-    .eye-orbit-l2 { top: 4%; left: -271px; width: 235px; transform: rotate(22deg); }
-    .eye-orbit-l3 { top: 12%; left: -210px; width: 180px; transform: rotate(-14deg); }
-    .eye-orbit-l4 { top: 20%; left: -291px; width: 255px; transform: rotate(40deg); }
-    .eye-orbit-l5 { top: 28%; left: -235px; width: 200px; transform: rotate(-27deg); }
-    .eye-orbit-l6 { top: 36%; left: -254px; width: 225px; transform: rotate(9deg); }
-    .eye-orbit-l7 { top: 44%; left: -215px; width: 185px; transform: rotate(-45deg); }
-    .eye-orbit-l8 { top: 52%; left: -285px; width: 250px; transform: rotate(17deg); }
-    .eye-orbit-l9 { top: 60%; left: -237px; width: 210px; transform: rotate(-8deg); }
-    .eye-orbit-l10 { top: 68%; left: -267px; width: 230px; transform: rotate(33deg); }
-    .eye-orbit-l11 { top: 76%; left: -224px; width: 190px; transform: rotate(-31deg); }
-    .eye-orbit-l12 { top: 84%; left: -272px; width: 240px; transform: rotate(13deg); }
-    .eye-orbit-l13 { top: 92%; left: -228px; width: 195px; transform: rotate(-20deg); }
-    .eye-orbit-l14 { top: 99%; left: -251px; width: 215px; transform: rotate(26deg); }
-    .eye-orbit-r1 { top: -3%; right: -240px; width: 205px; transform: rotate(30deg); }
-    .eye-orbit-r2 { top: 5%; right: -275px; width: 240px; transform: rotate(-19deg); }
-    .eye-orbit-r3 { top: 13%; right: -210px; width: 180px; transform: rotate(44deg); }
-    .eye-orbit-r4 { top: 21%; right: -299px; width: 260px; transform: rotate(-33deg); }
-    .eye-orbit-r5 { top: 29%; right: -224px; width: 195px; transform: rotate(11deg); }
-    .eye-orbit-r6 { top: 37%; right: -282px; width: 245px; transform: rotate(-24deg); }
-    .eye-orbit-r7 { top: 45%; right: -234px; width: 200px; transform: rotate(37deg); }
-    .eye-orbit-r8 { top: 53%; right: -292px; width: 265px; transform: rotate(-6deg); }
-    .eye-orbit-r9 { top: 61%; right: -244px; width: 210px; transform: rotate(21deg); }
-    .eye-orbit-r10 { top: 69%; right: -259px; width: 225px; transform: rotate(-41deg); }
-    .eye-orbit-r11 { top: 77%; right: -215px; width: 185px; transform: rotate(15deg); }
-    .eye-orbit-r12 { top: 85%; right: -272px; width: 235px; transform: rotate(-28deg); }
-    .eye-orbit-r13 { top: 93%; right: -223px; width: 190px; transform: rotate(35deg); }
-    .eye-orbit-r14 { top: 99%; right: -253px; width: 220px; transform: rotate(-16deg); }
+       qu'aucune instance ne chevauche le bloc central ni ses voisines */
+    /* mix d'yeux bien droits (proches de 0deg) et d'autres juste un peu
+       obliques (6-14deg) -- avant, les 9 étaient toutes penchées fort d'un
+       côté ou de l'autre (18-35deg), rotation réduite = boîte englobante
+       plus petite donc ça ne recrée pas de chevauchement avec les offsets
+       déjà calculés ci-dessus */
+    .eye-orbit-b1 { bottom: -166px; left: 8%; width: 200px; transform: rotate(0deg); }
+    .eye-orbit-b2 { bottom: -182px; left: 50%; width: 230px; transform: rotate(10deg); }
+    .eye-orbit-b3 { bottom: -171px; left: 92%; width: 195px; transform: rotate(-6deg); }
+    .eye-orbit-l1 { top: -2%; left: -229px; width: 195px; transform: rotate(-8deg); }
+    .eye-orbit-l2 { top: 49%; left: -255px; width: 220px; transform: rotate(0deg); }
+    .eye-orbit-l3 { top: 100%; left: -218px; width: 185px; transform: rotate(14deg); }
+    .eye-orbit-r1 { top: -2%; right: -240px; width: 205px; transform: rotate(6deg); }
+    .eye-orbit-r2 { top: 49%; right: -223px; width: 190px; transform: rotate(-12deg); }
+    .eye-orbit-r3 { top: 100%; right: -251px; width: 215px; transform: rotate(0deg); }
 
     /* bandeau titre : premier élément du cadre (la nav horizontale et le
        bandeau webring/liens ont été retirés, redondants avec le ticker
@@ -117,10 +94,11 @@
       width: 55%;
     }
 
-    /* corps : 3 colonnes façon <td> de tableau */
+    /* corps : 3 colonnes façon <td> de tableau -- colonne gauche élargie
+       pour que le portrait (100% de la colonne) soit bien plus grand */
     .retro-body {
       display: grid;
-      grid-template-columns: 190px 1fr 210px;
+      grid-template-columns: 260px 1fr 210px;
     }
 
     .retro-col {
@@ -198,7 +176,7 @@
     }
 
     .nav-gif-btn span {
-      font-size: 10px;
+      font-size: 30px;
       font-weight: bold;
       color: #fff;
       letter-spacing: 0.5px;
@@ -228,6 +206,26 @@
       line-height: 1.5;
       white-space: pre-line;
       flex: 1;
+    }
+
+    .gifzone-bio a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    /* "Click Here to go to the main page..." : sorti du paragraphe normal
+       et affiché bien plus grand, en vrai appel à l'action vers profil.html */
+    .gifzone-cta {
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .gifzone-cta a {
+      color: #fff;
+      text-decoration: underline;
     }
 
     /* colonne updates : widget changelog, plus grand ici (toute la colonne) */
@@ -360,44 +358,20 @@
          query string : certains navigateurs partagent quand meme une seule
          horloge d'animation entre <img> identiques au niveau des octets,
          meme avec une URL differente -- des fichiers reellement distincts
-         garantissent que les clignements ne sont jamais synchronises. 33
-         instances pour 11 phases distinctes : chaque phase revient donc
-         2-3 fois, mais toujours entre positions tres eloignees pour que la
-         reprise ne soit pas perceptible. Rien au-dessus du bloc : jamais
-         devant le titre "PERSONAL HOMEPAGE". -->
+         garantissent que les clignements ne sont jamais synchronises. 15
+         instances (5 gauche + 5 droite + 5 bas) pour 11 phases distinctes :
+         quelques phases reviennent 2 fois, mais toujours entre positions
+         tres eloignees pour que la reprise ne soit pas perceptible. Rien
+         au-dessus du bloc : jamais devant le titre "PERSONAL HOMEPAGE". -->
     <img class="eye-deco eye-orbit eye-orbit-b1" src="data/eye_wall.gif" alt="" aria-hidden="true">
     <img class="eye-deco eye-orbit eye-orbit-b2" src="data/eye_wall_2.gif" alt="" aria-hidden="true">
     <img class="eye-deco eye-orbit eye-orbit-b3" src="data/eye_wall_3.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-b4" src="data/eye_wall_4.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-b5" src="data/eye_wall_5.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l1" src="data/eye_wall_6.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l2" src="data/eye_wall_7.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l3" src="data/eye_wall_8.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l4" src="data/eye_wall_9.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l5" src="data/eye_wall_10.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l6" src="data/eye_wall_11.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l7" src="data/eye_wall.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l8" src="data/eye_wall_2.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l9" src="data/eye_wall_3.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l10" src="data/eye_wall_4.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l11" src="data/eye_wall_5.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l12" src="data/eye_wall_6.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l13" src="data/eye_wall_7.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-l14" src="data/eye_wall_8.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r1" src="data/eye_wall_9.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r2" src="data/eye_wall_10.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r3" src="data/eye_wall_11.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r4" src="data/eye_wall.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r5" src="data/eye_wall_2.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r6" src="data/eye_wall_3.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r7" src="data/eye_wall_4.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r8" src="data/eye_wall_5.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r9" src="data/eye_wall_6.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r10" src="data/eye_wall_7.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r11" src="data/eye_wall_8.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r12" src="data/eye_wall_9.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r13" src="data/eye_wall_10.gif" alt="" aria-hidden="true">
-    <img class="eye-deco eye-orbit eye-orbit-r14" src="data/eye_wall_11.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l1" src="data/eye_wall_4.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l2" src="data/eye_wall_5.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-l3" src="data/eye_wall_6.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r1" src="data/eye_wall_7.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r2" src="data/eye_wall_8.gif" alt="" aria-hidden="true">
+    <img class="eye-deco eye-orbit eye-orbit-r3" src="data/eye_wall_9.gif" alt="" aria-hidden="true">
 
     <!-- bandeau titre -->
     <div class="retro-header">
@@ -418,11 +392,9 @@
           <div class="intro-photo" id="about-me-photo"></div>
         </a>
 
-        <div class="profile-facts">23 · FR</div>
+        <div class="profile-facts">25 · FR</div>
         <ul class="profile-tags">
-          <li>✦ games</li>
-          <li>✦ manga</li>
-          <li>✦ movies</li>
+          <li>Click on the picture to go to the main page !</li>
         </ul>
 
         <a class="guestbook-link retro-guestbook-btn" href="guestbook.html">✉ Guestbook</a>
@@ -441,6 +413,7 @@
 
         <p class="gifzone-welcome">"welcome to my site" <span class="jp">ようこそ</span></p>
         <p class="review-text gifzone-bio" id="about-me-bio"></p>
+        <p class="gifzone-cta" id="about-me-cta"></p>
       </div>
 
       <!-- colonne droite : UPDATES -->
@@ -466,7 +439,6 @@
           <div class="site-button" id="my-button"></div>
           <div class="button-code-wrap">
             <textarea class="button-code" id="my-button-code" readonly rows="2"></textarea>
-            <button type="button" class="copy-code-btn" id="copy-code-btn" title="Copy embed code">📋</button>
           </div>
         </div>
       </div>

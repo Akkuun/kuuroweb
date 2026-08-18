@@ -527,30 +527,6 @@ body {
   color: #fff;
 }
 
-.copy-code-btn {
-  flex: none;
-  width: 24px;
-  height: 31px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
-  font-size: 11px;
-  line-height: 1;
-  padding: 0;
-}
-
-.copy-code-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.copy-code-btn.copied {
-  background: #fff;
-  color: #000;
-}
-
 /* hauteur fixe calée pour que le bas de my button atteigne le bas de book,
    plutôt que flex:1 qui l'étirait jusqu'au bas de la colonne */
 #block-my-button {

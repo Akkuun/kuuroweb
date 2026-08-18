@@ -1,0 +1,28 @@
+/* Feuille de style spéciale lue par Nekoweb pour personnaliser le "sitebox"
+   (aperçu affiché sur la page discover) et le "postbox" (flux RSS) -- voir
+   https://docs.nekoweb.org/getting-around/elements-css
+
+   Par défaut, .sitefeature affiche une capture d'écran automatique du site
+   (via Chromium, rafraîchie toutes les minutes) -- ici on la remplace par
+   une miniature ANIMÉE dessinée à la main (même police SiteFont, cadre à
+   double filet, portrait + une cover + les yeux qui clignotent en boucle)
+   plutôt que de dépendre d'une capture automatique qui peut tomber en
+   pleine animation glitch/eye-wall et rendre mal. content:url() accepte un
+   gif animé aussi bien qu'une image statique.
+
+   Dimensions du sitebox : 275x190px (constaté sur le HTML de Nekoweb).
+   Format d'URL obligatoire pour les images (architecture multi-site de
+   Nekoweb) : https://USERNAME.nekoweb.org/USERNAME.nekoweb.org/chemin */
+
+.site-box .sitefeature {
+  display: none;
+}
+
+.site-box::after {
+  content: url("https://akkuunamatata.nekoweb.org/akkuunamatata.nekoweb.org/data/site-thumbnail.gif");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 275px;
+  height: 190px;
+}

@@ -2,15 +2,15 @@
 // natif du navigateur.
 
 const CONTEXT_MENU_ITEMS = [
-  { label: "↻ Reload", action: () => location.reload() },
-  { label: "🏠 Home", action: () => { location.href = "index.html"; } },
-  { label: "👤 Profile", action: () => { location.href = "profil.html"; } },
-  { label: "✉ Guestbook", action: () => { location.href = "guestbook.html"; } },
-  { label: "🎬 All film reviews", action: () => { location.href = "film-reviews.html"; } },
-  { label: "📖 All book reviews", action: () => { location.href = "book-reviews.html"; } },
-  { label: "🎮 All game reviews", action: () => { location.href = "game-reviews.html"; } },
-  { label: "🏆 Tier list", action: () => { location.href = "tier-list.html"; } },
-  { label: "📋 Copy page link", action: () => navigator.clipboard.writeText(location.href) },
+  { label: "Reload", action: () => location.reload() },
+  { label: "Home", action: () => { location.href = "index.html"; } },
+  { label: "Profile", action: () => { location.href = "profil.html"; } },
+  { label: "Guestbook", action: () => { location.href = "guestbook.html"; } },
+  { label: "All film reviews", action: () => { location.href = "film-reviews.html"; } },
+  { label: "All book reviews", action: () => { location.href = "book-reviews.html"; } },
+  { label: "All game reviews", action: () => { location.href = "game-reviews.html"; } },
+  { label: "Tier list", action: () => { location.href = "tier-list.html"; } },
+  { label: "Copy page link", action: () => navigator.clipboard.writeText(location.href) },
 ];
 
 function closeContextMenu() {

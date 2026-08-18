@@ -291,25 +291,6 @@ async function renderFollow() {
       `</a>`;
   }
 
-  const copyBtn = document.getElementById("copy-code-btn");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(
-          document.getElementById("my-button-code").value
-        );
-        copyBtn.textContent = "✓";
-        copyBtn.classList.add("copied");
-        setTimeout(() => {
-          copyBtn.textContent = "📋";
-          copyBtn.classList.remove("copied");
-        }, 1200);
-      } catch (err) {
-        console.error(err);
-      }
-    });
-  }
-
   const countEl = document.getElementById("follow-count");
   if (data.nekoweb_domain && countEl) {
     try {
