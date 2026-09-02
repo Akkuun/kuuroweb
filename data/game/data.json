@@ -23,6 +23,80 @@
   ],
   "last_review": [
     {
+      "title": "Doki Doki Literature Club Plus!",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/coawpa.jpg",
+      "rating": 3.5,
+      "review": [
+        "Verdict",
+        "Commentaire: Premier jeu de type light novel pour ma part. On y suit différents personnages dans une histoire d’amour avec le protagoniste, qui se révèle plus profonde qu’elle n’y paraît. Le jeu propose une certaine complexité dans ses personnages, qui est bien abordée. On apprend à s’attacher à chacun d’eux au fil d’une histoire prenante. Je recommande pour une première expérience dans le genre du light novel.",
+        "Histoire: 5/5",
+        "Bande son: 4/5",
+        "Direction artistique:4/5",
+        "Gameplay: ?/5 (un bouton)",
+        "Note globale: 4/5",
+        "Points positifs :",
+        "- Personnages plus subtil qu'ils n'y paraissent",
+        "- Histoire prenante",
+        "Point négatifs :",
+        "- Pourrait avoir plus de fond illustratifs",
+        "- Manque de quelques routes alternatives"
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: First light novel game for me. There we follow different characters in a love story with the protagonist, which reveals itself deeper than it appears. The game offers a certain complexity in its characters, which is well addressed. One learns how to attach to each of them through a fascinating story. I recommend for a first experience in the genre of light novel.",
+        "History: 5/5",
+        "Soundtrack: 4/5",
+        "Artistic direction:4/5",
+        "Gameplay: ?/5 (one button)",
+        "Overall rating: 4/5",
+        "Positive points:",
+        "- Characters more subtle than they seem",
+        "- Taking story",
+        "Negative:",
+        "- Could have more illustrative background",
+        "- Lack of some alternative roads"
+      ]
+    },
+    {
+      "title": "Dark Souls: Remastered",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3z6y.jpg",
+      "rating": 4.0,
+      "review": [
+        "Verdict",
+        "Commentaire: Troisième jeu du chemin de la Haine de FromSoftware (après Elden Ring et Bloodborne) qui marque le début de leur saga de jeu Dark Souls. Le jeu dans son ensemble pose les bases solides que l'on connait aujoud'hui et propose de vrai challenge au joueur le tout sous une direction artistique parfaite. Le DLC qui accompagne le jeu est assez court et linéaire mais très qualitatif.",
+        "Histoire: ??/5 (Encore devoir regarder une vidéo Lore pour y comprendre quelque chose)",
+        "Bande son: 3.5/5",
+        "Direction artistique: 5/5",
+        "Gameplay: 4/5",
+        "Note globale: 4/5",
+        "Points positifs :",
+        "- World Design PHÉNOMÉNAL : toutes les zones du jeu sont interconnectées de manière logique, mais SURTOUT, on arrive à se situer géographiquement dans le monde depuis chaque point de vue. Cela crédibilise fortement le monde du jeu et sa navigation, car on peut passer d'une zone à l'autre facilement. Incite donc clairement à l'exploration.",
+        "- Plein de types de builds à sa disposition.",
+        "- DLC linéaire, court, mais intense.",
+        "Point négatifs :",
+        "- Certaines parties du jeu sont vraiment injustes : zone minuscule pour un boss, chemin d'environ 2 minutes pour retourner au boss, level design tordu... J'ai davantage eu l'impression que c'était de l'acharnement inutile plutôt que de vrais choix de game design.",
+        "- Ambiance musicale assez discrète : hormis quelques zones plus amicales, il n'y a pas vraiment d'OST environnementale (hors boss).",
+        "- Besoin d'un guide à côté, car c'est beaucoup trop flou parfois, notamment pour accéder au DLC, accéder à la suite du jeu, suivre certaines quêtes ou encore découvrir des zones optionnelles complètement ratables."
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: Third game of the Haine Path of FromSoftware (after Elden Ring and Bloodborne) which marks the beginning of their game saga Dark Souls. The game as a whole lays the solid foundations we know today and offers real challenge to the player all under a perfect artistic direction. The DLC that accompanies the game is quite short and linear but very qualitative.",
+        "History: ??/5 (Always have to watch a Lore video to understand something)",
+        "Soundtrack: 3.5/5",
+        "Artistic direction: 5/5",
+        "Gameplay: 4/5",
+        "Overall rating: 4/5",
+        "Positive points:",
+        "- World Design PHENOMENAL: all areas of the game are logically interconnected, but SURTAINOUT, one manages to position oneself geographically in the world from every point of view. This greatly increases the credibility of the game world and its navigation, as one can move from one area to another easily. Therefore, clearly encourage exploration.",
+        "- Lots of building types at his disposal.",
+        "- Linear, short, but intense DLC.",
+        "Negative:",
+        "- Some parts of the game are really unfair: tiny area for a boss, way about 2 minutes to go back to the boss, twisted level design... I had the feeling more that it was useless hard work than real game design choices.",
+        "- Discreet musical atmosphere: except for a few more friendly areas, there is not really an environmental OST (excluding boss).",
+        "- Need a guide next door, because it is far too blurred sometimes, especially to access the DLC, access the rest of the game, follow some quests or discover optional areas that can be completely missed."
+      ]
+    },
+    {
       "title": "Reanimal: The Prisoner",
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cocn1t.jpg",
       "rating": 4.0,
@@ -55,88 +129,6 @@
         "- DLC very good",
         "Negative:",
         "- Too short (1h)"
-      ]
-    },
-    {
-      "title": "Mouse: P.I. For Hire",
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/coaacx.jpg",
-      "rating": 3.0,
-      "review": [
-        "Verdict",
-        "Histoire: 4/5",
-        "Bande-son: 3.5/5",
-        "Direction artistique: 5/5",
-        "Gameplay: 3/5",
-        "Note globale: 3/5",
-        "Points positifs :",
-        "- Ambiance noire / policière très bien retranscrite dans un style cartoon avec des souris en protagonistes",
-        "- Voice acting très bon",
-        "- Animations au top",
-        "- Quelques références cachées",
-        "- Aborde des thèmes étonnamment assez sombres",
-        "Points négatifs :",
-        "- Gameplay assez répétitif au bout de 75 % du jeu",
-        "- Pas assez de diversité d’armes à mon goût : on se retrouve à jouer en priorité avec 3/4 armes, et les autres sont finalement assez similaires",
-        "- Niveaux assez ressemblants, sauf quelques-uns"
-      ],
-      "review_en": [
-        "Verdict",
-        "History: 4/5",
-        "Soundtrack: 3.5/5",
-        "Artistic direction: 5/5",
-        "Gameplay: 3/5",
-        "Overall rating: 3/5",
-        "Positive points:",
-        "- Black ambiance / police very well transcribed in a cartoon style with mice as protagonists",
-        "- Voice action very good",
-        "- Top animations",
-        "- Some hidden references",
-        "- Dealing with surprisingly dark themes",
-        "Cons:",
-        "- fairly repetitive gameplay after 75% of the game",
-        "- Not enough diversity of weapons to my taste: we find ourselves playing first with 3/4 weapons, and the others are finally quite similar",
-        "- Quite similar levels, except a few"
-      ]
-    },
-    {
-      "title": "Moonscars",
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4kle.jpg",
-      "rating": 4.0,
-      "review": [
-        "Verdict",
-        "Commentaire: Jeu indépendant mélangeant Blasphemous et Bloodborne ayant une D.A et un lore profond tout en restant un bon challenge. Jeu assez court mais intense, je recommande.",
-        "Histoire: 5/5",
-        "Bande son: 4/5",
-        "Direction artistique: 5/5",
-        "Gameplay: 3.5/5",
-        "Note globale: 4/5",
-        "Points positifs :",
-        "- Lore surprenamment profond et original sur un monde où des créations d'argile deviennent ennemis de l'Humanité et dans lequel beaucoup de questions sur la naissance et l'humanité sont posés",
-        "- Direction artistique au top, mélange de pixel art et peinture en même temps qui marche vraiment bien",
-        "- Bande son d'ambiance qui fonctionne",
-        "- Pas mal de build à sa disposition",
-        "- Système de parade exigeant",
-        "Point négatifs :",
-        "- Peut être répétitif dans certains moment",
-        "- J'aurais aimé plus de boss vu leur qualité"
-      ],
-      "review_en": [
-        "Verdict",
-        "Comment: Independent game mixing Blasphemous and Bloodborne having a D.A and a deep lore while remaining a good challenge. Play fairly short but intense, I recommend.",
-        "History: 5/5",
-        "Soundtrack: 4/5",
-        "Artistic direction: 5/5",
-        "Gameplay: 3.5/5",
-        "Overall rating: 4/5",
-        "Positive points:",
-        "- Surprisingly deep and original Lore on a world where clay creations become enemies of Humanity and in which many questions about birth and humanity are posed",
-        "- Artistic direction at the top, mixture of art pixel and painting at the same time that works really well",
-        "- Soundtrack that works",
-        "- A lot of build at his disposal.",
-        "- Demanding parade system",
-        "Negative:",
-        "- Can be repetitive in some moments",
-        "- I wish more bosses had seen their quality."
       ]
     }
   ],
@@ -213,6 +205,80 @@
     }
   ],
   "all_reviews": [
+    {
+      "title": "Doki Doki Literature Club Plus!",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/coawpa.jpg",
+      "rating": 3.5,
+      "review": [
+        "Verdict",
+        "Commentaire: Premier jeu de type light novel pour ma part. On y suit différents personnages dans une histoire d’amour avec le protagoniste, qui se révèle plus profonde qu’elle n’y paraît. Le jeu propose une certaine complexité dans ses personnages, qui est bien abordée. On apprend à s’attacher à chacun d’eux au fil d’une histoire prenante. Je recommande pour une première expérience dans le genre du light novel.",
+        "Histoire: 5/5",
+        "Bande son: 4/5",
+        "Direction artistique:4/5",
+        "Gameplay: ?/5 (un bouton)",
+        "Note globale: 4/5",
+        "Points positifs :",
+        "- Personnages plus subtil qu'ils n'y paraissent",
+        "- Histoire prenante",
+        "Point négatifs :",
+        "- Pourrait avoir plus de fond illustratifs",
+        "- Manque de quelques routes alternatives"
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: First light novel game for me. There we follow different characters in a love story with the protagonist, which reveals itself deeper than it appears. The game offers a certain complexity in its characters, which is well addressed. One learns how to attach to each of them through a fascinating story. I recommend for a first experience in the genre of light novel.",
+        "History: 5/5",
+        "Soundtrack: 4/5",
+        "Artistic direction:4/5",
+        "Gameplay: ?/5 (one button)",
+        "Overall rating: 4/5",
+        "Positive points:",
+        "- Characters more subtle than they seem",
+        "- Taking story",
+        "Negative:",
+        "- Could have more illustrative background",
+        "- Lack of some alternative roads"
+      ]
+    },
+    {
+      "title": "Dark Souls: Remastered",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3z6y.jpg",
+      "rating": 4.0,
+      "review": [
+        "Verdict",
+        "Commentaire: Troisième jeu du chemin de la Haine de FromSoftware (après Elden Ring et Bloodborne) qui marque le début de leur saga de jeu Dark Souls. Le jeu dans son ensemble pose les bases solides que l'on connait aujoud'hui et propose de vrai challenge au joueur le tout sous une direction artistique parfaite. Le DLC qui accompagne le jeu est assez court et linéaire mais très qualitatif.",
+        "Histoire: ??/5 (Encore devoir regarder une vidéo Lore pour y comprendre quelque chose)",
+        "Bande son: 3.5/5",
+        "Direction artistique: 5/5",
+        "Gameplay: 4/5",
+        "Note globale: 4/5",
+        "Points positifs :",
+        "- World Design PHÉNOMÉNAL : toutes les zones du jeu sont interconnectées de manière logique, mais SURTOUT, on arrive à se situer géographiquement dans le monde depuis chaque point de vue. Cela crédibilise fortement le monde du jeu et sa navigation, car on peut passer d'une zone à l'autre facilement. Incite donc clairement à l'exploration.",
+        "- Plein de types de builds à sa disposition.",
+        "- DLC linéaire, court, mais intense.",
+        "Point négatifs :",
+        "- Certaines parties du jeu sont vraiment injustes : zone minuscule pour un boss, chemin d'environ 2 minutes pour retourner au boss, level design tordu... J'ai davantage eu l'impression que c'était de l'acharnement inutile plutôt que de vrais choix de game design.",
+        "- Ambiance musicale assez discrète : hormis quelques zones plus amicales, il n'y a pas vraiment d'OST environnementale (hors boss).",
+        "- Besoin d'un guide à côté, car c'est beaucoup trop flou parfois, notamment pour accéder au DLC, accéder à la suite du jeu, suivre certaines quêtes ou encore découvrir des zones optionnelles complètement ratables."
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: Third game of the Haine Path of FromSoftware (after Elden Ring and Bloodborne) which marks the beginning of their game saga Dark Souls. The game as a whole lays the solid foundations we know today and offers real challenge to the player all under a perfect artistic direction. The DLC that accompanies the game is quite short and linear but very qualitative.",
+        "History: ??/5 (Always have to watch a Lore video to understand something)",
+        "Soundtrack: 3.5/5",
+        "Artistic direction: 5/5",
+        "Gameplay: 4/5",
+        "Overall rating: 4/5",
+        "Positive points:",
+        "- World Design PHENOMENAL: all areas of the game are logically interconnected, but SURTAINOUT, one manages to position oneself geographically in the world from every point of view. This greatly increases the credibility of the game world and its navigation, as one can move from one area to another easily. Therefore, clearly encourage exploration.",
+        "- Lots of building types at his disposal.",
+        "- Linear, short, but intense DLC.",
+        "Negative:",
+        "- Some parts of the game are really unfair: tiny area for a boss, way about 2 minutes to go back to the boss, twisted level design... I had the feeling more that it was useless hard work than real game design choices.",
+        "- Discreet musical atmosphere: except for a few more friendly areas, there is not really an environmental OST (excluding boss).",
+        "- Need a guide next door, because it is far too blurred sometimes, especially to access the DLC, access the rest of the game, follow some quests or discover optional areas that can be completely missed."
+      ]
+    },
     {
       "title": "Reanimal: The Prisoner",
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cocn1t.jpg",
@@ -409,7 +475,7 @@
         "- Very good DLC(s)",
         "Negative:",
         "- Do not push enough the principle of rogue-lite (not enough weapons, little gameplay variation between several runs)",
-        "- Can encourage more to deal with the sect management part than to run runs"
+        "- Can encourage more to take care of the sect management side than to run runs"
       ]
     },
     {
@@ -447,7 +513,7 @@
         "Artistic direction: 5/5",
         "Gameplay: 5/5",
         "Overall rating: 5/5",
-        "Comment: A game that cannot leave any marble as to the excellence it offers, whether on its content or writing. Just for the DLC who managed to make me cry for the first time on a game in 25 years of gaming. A great game that will mark each player with its morality and that is established as a classic of this generation. 5 stars deserved for a game that made me feel so good!",
+        "Comment: A game that cannot leave any marble as to the excellence it offers, whether on its content or writing. Just for the DLC who managed to make me cry for the first time on a game in 25 years of gaming. A great game that will mark each player with its morality and that is established as a classic of this generation. 5 stars deserved for a game that has scored me so much!",
         "Positive points:",
         "- PHENOMENAL Writing, whether for primary, secondary or DLC history",
         "- Hyper striking concept",
@@ -502,7 +568,7 @@
         "Positive points:",
         "- Pokémon like",
         "- Some nice music",
-        "- Atmosphere of the game that fits the films",
+        "- Atmosphere of the game that fits the movies",
         "- Nice armor creation system",
         "- Dubbing VF with Donald who's back",
         "Cons:",
@@ -557,7 +623,7 @@
         "- Propose tough challenges for expert players",
         "- Some intense OST rock",
         "- Gradually increases the difficulty and size of the bestiary",
-        "- Path in the levels indicated",
+        "- Path in the indicated levels",
         "Negative:",
         "- Becomes a little repetitive towards the end of the game",
         "- Connection to Bethesda account required"
@@ -596,14 +662,14 @@
         "Artistic direction: 5/5",
         "Gameplay: 4/5",
         "Overall rating: 4/5",
-        "Comment: Being my first playthrough I had the chance to discover it in 2026 on my GameCube. The game offers a really impressive grand adventure for the time (gameplay, graphics, OST), we really play a great adventure. It should be noted that the game also pushes reflection on certain puzzles. So we have an action/adventure/enigma all served on a superb soundtrack. To do at least once in his life I think.",
+        "Comment: Being my first playthrough I had the chance to discover it in 2026 on my GameCube. The game offers a truly impressive adventure for the time (gameplay, graphics, OST), we really play a great adventure. It should be noted that the game also pushes reflection on certain puzzles. So we have an action/adventure/enigma all served on a superb soundtrack. To do at least once in his life I think.",
         "Positive points:",
         "- Incredible OST",
         "- Taking story",
         "- Concept of ocarina well exploited",
         "- Grand RPG (many cities, dungeons, objects, quest)",
         "- A lot of content (hidden secrets, gilded skultela, quests)",
-        "- A lot of freedom (possibility to play according to a different pattern)",
+        "- A lot of freedom (possibility of playing along a different route)",
         "- Nice bestiary.",
         "- Good boss fights.",
         "Negative:",
@@ -645,9 +711,9 @@
         "Artistic direction:4/5",
         "Gameplay:2/5",
         "Overall rating: 4/5",
-        "Comment: For me, only gameplay prevents the game from achieving excellence (4.5/5 or 5/5) but the game offers a unique experience that I will not forget. I think his music and his story and his ending have really marked people and I can only recommend at least for the story (visible via the anime NieR:Automata Ver1.1a)",
+        "Comment: For me, only gameplay prevents the game from achieving excellence (4.5/5 or 5/5) but the game offers a unique experience that I will not forget. I think his music and his story and his ending will have really marked people and I can only recommend at least for the story (visible via the anime NieR:Automata Ver1.1a)",
         "Positive points:",
-        "- Exceptional story, whether it's about the lore, the characters, the stakes it's really good",
+        "- Exceptional story, whether it's in the lore, the characters, the stakes it's really good",
         "- Amazing artistic direction",
         "- Exceptional soundtrack, really atypical especially in terms of originality. Whether for atmospheres, themes",
         "- Interactions with players around the world",
@@ -794,7 +860,7 @@
         "Negative:",
         "- The backup does not keep the lives obtained and sets it to 4 all the time. Very frustrating when you just farm a lot of life",
         "- The backup system is very stealthy because it is not present via a menu but via a mini-game after recovering 3 icons. The problem is that if you die in this mini-game, you can't save or retaliate. Even though I'm thinking that the game revolves around this mechanics, it remains too punitive to just launch a backup.",
-        "- The bosses are average, some are successful while others are not at all. The fact that the final boss is really not complicated, spoils the end of the game a bit.",
+        "- The bosses are average, some are successful while others are not at all. The fact that the final boss is really not complicated, spoils a little the end of the game.",
         "Verdict:",
         "History: Not concerned",
         "Soundtrack: 4/5",
@@ -834,10 +900,10 @@
         "- Very detailed animations",
         "Negative:",
         "- Inexistant constant trimerate, the console literally spits out its lungs which clearly affects the readability of the game",
-        "- Horrible horse gameplay, maybe on the worst horse system I've ever done. It slows down all the time, to climb on it works once in two, it stops at the slightest obstacle encountered",
-        "- The camera may be the worst enemy of the game, it's HORRIBLE. Basically, she calibrates herself in real time in order to follow the direction in front of the character, as much as saying that when you want to observe around and advance on dotk constantly counterbalance the camera (horrible) and it can cause motionickness.",
-        "- The animations are very beautiful but they are LENNNNNTES. Sometimes the time to get up is so long that we resume an attack by a monster while he just put us on the ground.",
-        "- Some access to certain areas or how to beat colosses are frankly not obvious.",
+        "- Horrible horse gameplay, maybe on the worst horse system I've ever done. It slows down all the time, to climb on it works once in two, it stops at any obstacle encountered",
+        "- The camera may be the worst enemy of the game, it's HORRIBLE. Basically, she calibrates herself in real time in order to follow the direction in front of the character, as much as saying that when you want to observe around and advance on dotk constantly counterbalance the camera (horrible) and it can provoke motionickness.",
+        "- The animations are very beautiful but they are LENNNNNTES. Sometimes the time to get up is so long that we take back a monster attack when he just put us on the ground.",
+        "- Some access to certain areas or how to beat colossus are frankly not obvious.",
         "Verdict:",
         "History: 3/5",
         "Soundtrack: 3/5",
@@ -903,10 +969,10 @@
       "review_en": [
         "Positive points:",
         "- Contains some outstanding bosses by design and gameplay",
-        "- Proposes a real challenge, having done it in NG+, it was really not easy",
+        "- Propose a real challenge, having done it in NG+, it was really not easy",
         "- Incredible OST, including some boss theme",
         "Cons:",
-        "- A few bosses average",
+        "- Some bosses average",
         "- The constant screaming of some h24 bosses, which doesn't really help to concentrate or listen to music",
         "Verdict:",
         "Gameplay : 5/5",
@@ -943,7 +1009,7 @@
         "- Atmosphere horror/thriller/psychological perfectly successful, the atmosphere is well worked out throughout the game. Whether at the beginning or even with the DLCs at the end, the game design is so good that it continues to work.",
         "- Graphically beautiful game, whether in-game or kinematic, the game is beautiful",
         "- The game mixes and uses various video-ludic elements between live action sequences, or even different visual styles (without spoil). It offers a real diversity and originality that we're not used to seeing.",
-        "- CONTRACTLY to 1, the gameplay is not 100% pulled action but is a truly friendly puzzle/reflection mixture (actually only in this game where we have to realize equations to 2 unknown xD)",
+        "- CONTRACTLY to 1, the gameplay is not 100% taken action but is a truly friendly puzzle/reflection mixture (actually only in this game where you have to realize equations to 2 unknown xD)",
         "- The story is crazy, we get a little lost",
         "- The work on adaptive gachettes is PHENOMENAL. Whether it's for gunfire crans where frequency changes depending on the material on the ground, especially metal grids, you really feel like you're walking on it.",
         "- Sound design and soundtrackt really good",
@@ -951,7 +1017,7 @@
         "- Some minor bugs that do a little work but nothing bad",
         "Verdict:",
         "Gameplay : 4/5",
-        "History : 5/5",
+        "History: 5/5",
         "Soundtrack : 4/5",
         "Artistic direction: 5/5",
         "Overall rating: 4.5/5"
@@ -980,7 +1046,7 @@
         "Negative",
         "- Extremely repetitive. Walking > killing enemies > starting over",
         "- Cruel lacks diversity in enemies, always the same",
-        "- Horrible camera, impossible to see what's around it, very frustrating because we take shots that we could have avoided",
+        "- Horrible camera, impossible to see what's around it, very frustrating because we take shots we could have avoided",
         "- No feeling of progress in gameplay, it remains the same from A to Z",
         "- Graphically not ouf, even for a remaster",
         "- How useful are the comments during the gameplay? It takes all the sound, impossible to concentrate"
@@ -1034,7 +1100,7 @@
         "--",
         "- The maneuverability of the camera is HORRIBLE, big black dot of the game that ruins the experience. Like it physical, it can't cross surfaces which blocks the view and it's very complicated according to certain configurations",
         "- The noises that turn in BUCLE, it drives crazy",
-        "- The story is a little messy, we don't know why we're going to some level or how we get there.",
+        "- History is a little messy, we don't know why we're going to some level or how we get there.",
         "- Humor can divide for some"
       ]
     },
@@ -1062,7 +1128,7 @@
         "- Incredible story",
         "--",
         "- Possibility of soft-lock, in some situations you are blocked in a panel of areas, without rations or with not enough objects without the possibility of going to look again (as it respawns at some very specific times) so in most cases we have to burn rations that we will miss for the bosses",
-        "- Soluce sometimes necessary (we don't understand what we have to do) whether for some bosses or to pass certain areas"
+        "- Soluce sometimes necessary (we don't understand what to do) whether for some bosses or to pass certain areas"
       ]
     },
     {
@@ -1085,10 +1151,10 @@
         "++",
         "- Anxiety successful (I was afraid...)",
         "- Graphical quality of the remake",
-        "- Prennant history",
+        "- First story",
         "- emblematic mansion environment",
         "--",
-        "- HORRIBLE manoeuvrability due to the GC controller, how many PVs I lost because the person could not properly get in front of a door or for the puzzles to do in reduced time, it was really frustrating",
+        "- HORRIBLE manoeuvrability due to the GC controller, how many PVs I lost because the person couldn't get properly in front of a door or for puzzles to do in reduced time, it was really frustrating",
         "- We get lost in this mansion, a lot of room or garden looks very similar",
         "- Some puzzles or objects require a soluca on the side",
         "- Some enemies added in narrow places or just spawn of null part are quite frustrating"
@@ -1102,7 +1168,7 @@
         "Je déteste les JRPG tour par tour mais vraiment quelle belle suprise ! Que ce soit les graphismes, l'histoire et même le gameplay c'est un sans faute ! Le contenu est GARGANTUESQUE, c'est vraiment un classique de la PS1. Le seul bémol c'est que sans soluce, on peut être complètement perdu sur quoi faire à certaines parties du jeu."
       ],
       "review_en": [
-        "I hate JRPGs turn by turn but really what a beautiful surprise! Whether it's graphics, history and even gameplay, it's a faultless one! The content is GURGANTEE, it's really a classic PS1. The only downside is that without soluce, you can be completely lost on what to do to some parts of the game."
+        "I hate JRPGs turn by turn but really what a beautiful surprise! Whether it's graphics, history and even gameplay, it's a no-fault! The content is GURGANTEE, it's really a classic PS1. The only flat is that without soluce, one can be completely lost on what to do to certain parts of the game."
       ]
     },
     {
@@ -1145,7 +1211,7 @@
         "++",
         "Musical ambiance really pushed, because Luigi himself modifies the musical themes according to his fear what is great idea",
         "Adequate life, long enough to turn around the concept without getting bored",
-        "Careful DA that allows to draw capabilities from the Gamecube",
+        "Careful DA which allows to draw capabilities from the Gamecube",
         "Some cool puzzles",
         "--",
         "Some shortcuts locked for a dark reason which makes it necessary to go around the mansion"
@@ -1168,7 +1234,7 @@
         "++",
         "Good visual and auditory atmosphere, you really feel the pressure.",
         "--",
-        "PIRE inventory system that I've never seen: limited to 6 slots for both persos, and you have to constantly carry objects of quest. As a result, you leave everything on the floor and go back and forth continuously.",
+        "PIRE inventory system that I've never seen: limited to 6 slots for both persos, and you have to constantly carry quest objects. As a result, you leave everything on the floor and go back and forth continuously.",
         "Already that there is no room, besides it takes items to save.",
         "The monsters do annihilate and you find care very rarely, which is even more frustrating when you have no more space in the inventory.",
         "Some A.K. monsters to the monkeys catch, and then it's screwed."
@@ -1192,7 +1258,7 @@
         "Visually very beautiful",
         "Captivating history",
         "--",
-        "Lack of co-op mini games like it takes two"
+        "Lack of a little coop mini-games like it takes two"
       ]
     },
     {
@@ -1233,7 +1299,7 @@
         "De très bon points positifs comme sa musique ou graphismes MAIS on a parfois des parties plateformes lentes dans des parties  extrêmement rapides ce qui est très frustruant + on se fait enchaîner et c'est game over. Les phases en scooter marins sont de gros challenges aussi."
       ],
       "review_en": [
-        "Very good positive points like his music or graphics BUT we sometimes have slow platform parts in extremely fast parts which is very frustrating + We get chained up and it's game over. Sea scooter phases are big challenges too."
+        "Very good positive points like music or graphics BUT we sometimes have slow platform parts in extremely fast parts which is very frustrating + We get chained up and it's game over. Sea scooter phases are big challenges too."
       ]
     }
   ]
