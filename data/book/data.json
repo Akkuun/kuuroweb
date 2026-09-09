@@ -1,19 +1,23 @@
 {
   "books": [
     {
+      "title": "Le Hobbit",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680669378l/125067028._SX98_.jpg",
+      "rating": "4",
+      "review": "Epic adventure to deliver a treasure from the lonely Mountain of a Dragon. Many adventures with an endearing Hobbit, I recommend."
+    },
+    {
       "title": "L'Empereur-Dieu de Dune (Dune, #4)",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665451686l/61169208._SX98_.jpg",
       "rating": "2",
       "review": "Quite disappointed with the turn of this book. I had a lot of hopes for the temporal ellipse but finally, it takes a lot of time to develop for not much. It is above all a philosophy novel to the detriment of all the action and rhythm of previous books (which seemed more boring to me than the dune messiah, I was looking forward to finishing it!)"
-    },
-    {
-      "title": "Harry Potter et l'Enfant Maudit",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1466982040l/30757322._SX98_.jpg",
-      "rating": "3",
-      "review": "Suite of the Saga Harry Potter but not in novel but as a play. This main change makes the plot rather fast, maybe too fast, in a few chapters we spend several script years which can be confusing. Even though I cling to the story but still big points of inconsistency for me who doesn't pass for me, whether it's about characters or even central points of history. It's not the best work of the Potterverse, but it's worth it to exist, I guess, I didn't have a bad time either."
     }
   ],
   "last_read": [
+    {
+      "title": "Le Hobbit",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680669378l/125067028._SX98_.jpg"
+    },
     {
       "title": "L'Empereur-Dieu de Dune (Dune, #4)",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665451686l/61169208._SX98_.jpg"
@@ -33,13 +37,15 @@
     {
       "title": "Le Messie de Dune (Dune, #2)",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630854629l/58929724._SY160_.jpg"
-    },
-    {
-      "title": "Harry Potter et les Reliques de la Mort (Harry Potter, #7)",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327268635l/2223328._SX98_.jpg"
     }
   ],
   "all_reviews": [
+    {
+      "title": "Le Hobbit",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680669378l/125067028._SX98_.jpg",
+      "rating": "4",
+      "review": "Epic adventure to deliver a treasure from the lonely Mountain of a Dragon. Many adventures with an endearing Hobbit, I recommend."
+    },
     {
       "title": "L'Empereur-Dieu de Dune (Dune, #4)",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665451686l/61169208._SX98_.jpg",
@@ -117,12 +123,6 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1536329471l/15871._SX98_.jpg",
       "rating": "4",
       "review": "The book is very friendly to read and allows you to discover an incredible world of sorcerer. We follow Harry's adventures and his friends in a mystery that seems bigger than expected.... The book does not diverge too much from the film except for a precise trip, makes us want to read the rest."
-    },
-    {
-      "title": "Le Hobbit",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680669378l/125067028._SX98_.jpg",
-      "rating": "0",
-      "review": ""
     },
     {
       "title": "La Horde du Contrevent",

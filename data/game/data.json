@@ -23,6 +23,17 @@
   ],
   "last_review": [
     {
+      "title": "The Stanley Parable: Ultra Deluxe",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4p71.jpg",
+      "rating": 1.5,
+      "review": [
+        "Jeu expérience narrative où l'humour et le 3ieme murs sont souvent brisés. Malheureusement je dois pas vraiment être la cible et le trouve que les mises en places des différents éléments mettent trop de temps à se mettre en place."
+      ],
+      "review_en": [
+        "Game narrative experience where humor and the 3rd walls are often broken. Unfortunately I don't really have to be the target and find that the implementation of the different elements takes too much time to set up."
+      ]
+    },
+    {
       "title": "Undertale",
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cob1t2.jpg",
       "rating": 5.0,
@@ -103,41 +114,6 @@
         "- Platform phases are the weakest phases of the game to my liking",
         "- A cruel lack of a camera refocus button"
       ]
-    },
-    {
-      "title": "Doki Doki Literature Club Plus!",
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/coawpa.jpg",
-      "rating": 3.5,
-      "review": [
-        "Verdict",
-        "Commentaire: Premier jeu de type light novel pour ma part. On y suit différents personnages dans une histoire d’amour avec le protagoniste, qui se révèle plus profonde qu’elle n’y paraît. Le jeu propose une certaine complexité dans ses personnages, qui est bien abordée. On apprend à s’attacher à chacun d’eux au fil d’une histoire prenante. Je recommande pour une première expérience dans le genre du light novel.",
-        "Histoire: 5/5",
-        "Bande son: 4/5",
-        "Direction artistique:4/5",
-        "Gameplay: ?/5 (un bouton)",
-        "Note globale: 4/5",
-        "Points positifs :",
-        "- Personnages plus subtil qu'ils n'y paraissent",
-        "- Histoire prenante",
-        "Point négatifs :",
-        "- Pourrait avoir plus de fond illustratifs",
-        "- Manque de quelques routes alternatives"
-      ],
-      "review_en": [
-        "Verdict",
-        "Comment: First light novel game for me. We follow different characters in a love story with the protagonist, which turns out to be deeper than she does. The game offers a certain complexity in its characters, which is well addressed. One learns how to attach to each of them in the course of a fascinating story. I recommend for a first experience in the genre of light novel.",
-        "History: 5/5",
-        "Soundtrack: 4/5",
-        "Artistic direction:4/5",
-        "Gameplay: ?/5 (one button)",
-        "Overall rating: 4/5",
-        "Positive points:",
-        "- Characters more subtle than they seem",
-        "- Taking story",
-        "Negative:",
-        "- Could have more illustrative background",
-        "- Lack of some alternative roads"
-      ]
     }
   ],
   "highly_anticipated": [
@@ -213,6 +189,17 @@
     }
   ],
   "all_reviews": [
+    {
+      "title": "The Stanley Parable: Ultra Deluxe",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4p71.jpg",
+      "rating": 1.5,
+      "review": [
+        "Jeu expérience narrative où l'humour et le 3ieme murs sont souvent brisés. Malheureusement je dois pas vraiment être la cible et le trouve que les mises en places des différents éléments mettent trop de temps à se mettre en place."
+      ],
+      "review_en": [
+        "Game narrative experience where humor and the 3rd walls are often broken. Unfortunately I don't really have to be the target and find that the implementation of the different elements takes too much time to set up."
+      ]
+    },
     {
       "title": "Undertale",
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cob1t2.jpg",
@@ -570,7 +557,7 @@
     },
     {
       "title": "Cyberpunk 2077: Ultimate Edition",
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co7iy1.jpg",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cocste.jpg",
       "rating": 5.0,
       "review": [
         "Verdict",
