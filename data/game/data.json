@@ -23,6 +23,37 @@
   ],
   "last_review": [
     {
+      "title": "Minit",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vcj.jpg",
+      "rating": 3.5,
+      "review": [
+        "Verdict",
+        "Commentaire: Zelda-like avec un concept intéréssant : toutes les 60 secondes, notre personnage meurt et retourne au point de départ. Jeu indé vraiment court, mais expérience sympa.",
+        "Histoire: ?/5",
+        "Bande son: 3/5",
+        "Direction artistique: 4/5 ambiance Pixel Art réussie",
+        "Gameplay:?/5 on peut pas vraiment jauger, seulement touche action",
+        "Note globale: 3.5/5",
+        "Points positifs :",
+        "- Énigmes sympa",
+        "Point négatifs :",
+        "- Un peu court"
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: Zelda-like with an interesting concept: every 60 seconds, our character dies and returns to the starting point. Inde game really short, but nice experience.",
+        "History: ?/5",
+        "Soundtrack: 3/5",
+        "Artistic direction: 4/5 atmosphere Pixel Art success",
+        "Gameplay:?/5 we can't really gauge, only action key",
+        "Overall rating: 3.5/5",
+        "Positive points:",
+        "- Nice niggles.",
+        "Negative:",
+        "- A little short."
+      ]
+    },
+    {
       "title": "Ender Lilies: Quietus of the Knights",
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cobl67.jpg",
       "rating": 2.5,
@@ -68,43 +99,6 @@
       ],
       "review_en": [
         "Game narrative experience where humor and the 3rd walls are often broken. Unfortunately I don't really have to be the target and find that the implementation of the different elements takes too much time to set up."
-      ]
-    },
-    {
-      "title": "Undertale",
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cob1t2.jpg",
-      "rating": 5.0,
-      "review": [
-        "Verdict",
-        "Commentaire: Jeu arcade/narratif pixel art de type arcade. Histoire et personnages hyper attachant, plusieurs routes de narration possibles et une bande son incroyablement poussée. C'est un classique qui saura toucher tous les types de joueurs à mon avis.",
-        "Histoire: 5/5, plusieurs routes d'histoire narratives possibles avec des personnages attachants et bien écrits",
-        "Bande son: 5/5, bande sonore de qualité impressionnante, que ce soit en termes de qualité ou de mélodies leitmotiv.",
-        "Direction artistique: 4.5/5",
-        "Gameplay: 5/5, on a de de vrais défis à notre disposition",
-        "Note globale:",
-        "Points positifs :",
-        "- Bande son EXCEPTIONNELLE",
-        "- Histoire et personnages attachants",
-        "- Propose un vrai challenge",
-        "- Rejouabilité avec plusieurs routes disponibles",
-        "Point négatifs :",
-        "- Pour une fois, aucun me viens en tête"
-      ],
-      "review_en": [
-        "Verdict",
-        "Comment: Arcade/narrative game pixel art type arcade. History and super-attractive characters, several possible narration routes and an incredibly powerful soundtrack. It is a classic that will touch all types of players in my opinion.",
-        "History: 5/5, several narrative history routes possible with interesting and well written characters",
-        "Soundtrack: 5/5, impressive soundtrack, whether in terms of quality or leitmotiv melodies.",
-        "Artistic direction: 4.5/5",
-        "Gameplay: 5/5, we have real challenges at our disposal",
-        "Overall note:",
-        "Positive points:",
-        "- Band his EXCEPTIONAL",
-        "- History and supporting characters",
-        "- Proposes a real challenge",
-        "- Replayability with several available roads",
-        "Negative:",
-        "- For once, no one comes to my head."
       ]
     }
   ],
@@ -181,6 +175,37 @@
     }
   ],
   "all_reviews": [
+    {
+      "title": "Minit",
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1vcj.jpg",
+      "rating": 3.5,
+      "review": [
+        "Verdict",
+        "Commentaire: Zelda-like avec un concept intéréssant : toutes les 60 secondes, notre personnage meurt et retourne au point de départ. Jeu indé vraiment court, mais expérience sympa.",
+        "Histoire: ?/5",
+        "Bande son: 3/5",
+        "Direction artistique: 4/5 ambiance Pixel Art réussie",
+        "Gameplay:?/5 on peut pas vraiment jauger, seulement touche action",
+        "Note globale: 3.5/5",
+        "Points positifs :",
+        "- Énigmes sympa",
+        "Point négatifs :",
+        "- Un peu court"
+      ],
+      "review_en": [
+        "Verdict",
+        "Comment: Zelda-like with an interesting concept: every 60 seconds, our character dies and returns to the starting point. Inde game really short, but nice experience.",
+        "History: ?/5",
+        "Soundtrack: 3/5",
+        "Artistic direction: 4/5 atmosphere Pixel Art success",
+        "Gameplay:?/5 we can't really gauge, only action key",
+        "Overall rating: 3.5/5",
+        "Positive points:",
+        "- Nice niggles.",
+        "Negative:",
+        "- A little short."
+      ]
+    },
     {
       "title": "Ender Lilies: Quietus of the Knights",
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/cobl67.jpg",
